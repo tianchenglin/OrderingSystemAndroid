@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/mlist_itembg" android:paddingTop="30.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/mlist_itemImage" android:background="@drawable/mlist1" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textSize="16.0sp" android:gravity="center" android:id="@id/mlist_itemText" android:background="@drawable/mlist_itembg2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="开台" />
+</LinearLayout>

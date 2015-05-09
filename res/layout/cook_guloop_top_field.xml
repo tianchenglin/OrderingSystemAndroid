@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20.0dip"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="251dp"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@id/foodBigCategoryname"
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="NAME / DESCRIPTION" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="188dp"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@id/foodBigCategoryname"
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="QTY" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="94dp"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@id/foodBigCategoryname"
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="SIZE" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout3"
+        android:layout_width="146dp"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="HOTNESS" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout4"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.05" >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="NOTE" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@id/layout4"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.05" >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="CreateTime" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/layout5"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.05" >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Done" />
+    </RelativeLayout>
+</LinearLayout>

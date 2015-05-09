@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/desk_content"
+    android:layout_width="wrap_content"
+    android:layout_height="108dp"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:padding="2.0dip" >
+
+    <Button
+        android:id="@+id/waiter_name"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="#00000000"
+        android:clickable="false"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/desk_money"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:gravity="left"
+        android:textColor="@color/black"
+        android:textSize="16.0sp" />
+
+    <TextView
+        android:id="@+id/desk_state"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="16.0sp" />
+
+    <TextView
+        android:id="@+id/desk_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginRight="10dip"
+        android:gravity="right"
+        android:textColor="@color/black"
+        android:textSize="14.0sp" />
+
+</LinearLayout>

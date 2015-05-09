@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tc="http://schemas.android.com/apk/res/com.utopia.activity"
+    android:id="@+id/toast_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#111111"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:text="The pre detection system"
+        android:textColor="#ffffff"
+        android:textSize="20dip" >
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="550dp"
+        android:layout_height="wrap_content"
+        android:background="#999999"
+        android:orientation="horizontal" >
+
+        <com.utopia.widget.MyProgressView 
+            android:id="@+id/tasks_view"
+            android:layout_width="134dp"
+            android:layout_height="100dip"
+            android:layout_marginRight="10dip"
+            tc:circleColor="@color/circle_color"
+            tc:radius="100dip"
+            tc:ringColor="@color/ring_color"
+            tc:strokeWidth="20dip" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:textColor="#ffffff"
+            android:textSize="15sp" >
+        </TextView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="15sp" >
+    </TextView>
+
+</LinearLayout>

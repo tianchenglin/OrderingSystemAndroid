@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:keepScreenOn="true" >
+
+  <LinearLayout
+        android:id="@id/linearLayout3"
+        android:layout_width="250.0dip"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+          <RelativeLayout
+                android:id="@id/RelativeLayout4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/recomment" />
+
+                <TextView
+                    android:id="@+id/tv_postion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Select Tables"
+                    android:textAppearance="@style/contentTextTitle" />
+            </RelativeLayout>
+
+        <LinearLayout
+            android:id="@id/linearLayout3"
+            android:layout_width="250.0dip"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="20.0dip"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:layout_marginTop="5.0dip"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ExpandableListView
+                android:id="@id/listviewgroup"
+                android:layout_width="250.0dip"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="#00000000"
+                android:cacheColorHint="#00000000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@id/RelativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@id/RelativeLayout3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:id="@id/spell"
+                android:layout_width="408.0dip"
+                android:layout_height="40.0dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical" >
+
+                <RelativeLayout
+                    android:id="@id/RelativeLayout5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@id/keyspell"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/key_text"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="26.0sp" />
+
+                    <ImageButton
+                        android:id="@id/keyspellclear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="-30.0dip"
+                        android:layout_marginTop="6.0dip"
+                        android:layout_toRightOf="@id/keyspell"
+                        android:background="@drawable/key_spellclear" />
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@id/spellfind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_toRightOf="@id/RelativeLayout5"
+                    android:background="@drawable/key_spell" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <GridView
+            android:id="@id/gridView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/RelativeLayout3"
+            android:background="#00000000"
+            android:numColumns="4"
+            android:verticalSpacing="6.0dip" />
+    </RelativeLayout>
+
+</LinearLayout>

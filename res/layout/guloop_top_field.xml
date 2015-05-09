@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="980dp"
+    android:layout_height="40dp"
+    android:background="#e6dada"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="220dp"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@id/foodBigCategoryname"
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="NAME / DESCRIPTION"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="120dp"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@id/foodBigCategoryname"
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="QTY"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="147dp"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@id/foodBigCategoryname"
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="STATUS"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="171dp"
+        android:layout_height="fill_parent"  >
+
+        <TextView
+            android:id="@id/foodBigCategoryname"
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="UNIT PRICE"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout3"
+        android:layout_width="92dp"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="DISCOUNT"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout4"
+        android:layout_width="231dp"
+        android:layout_height="fill_parent"  >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="SUBTOTAL"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</LinearLayout>

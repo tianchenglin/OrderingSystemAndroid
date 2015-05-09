@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:descendantFocusability="blocksDescendants" >
+
+    <RelativeLayout
+        android:layout_width="251dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/menu_name"
+            style="@style/contentText"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="Dish Name一"
+            android:textColor="@color/saddlebrown" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="188dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/menu_qty"
+            style="@style/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="0"
+            android:textColor="@color/saddlebrown"
+            android:textSize="20.0sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="94dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/size"
+            style="@style/contentText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="5.0dip"
+            android:text="0"
+            android:textColor="@color/saddlebrown"
+            android:textSize="20.0sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/hotness"
+            style="@style/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="HOTNESS"
+            android:textColor="@color/saddlebrown" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/notes"
+            style="@style/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="NOTES"
+            android:textColor="@color/saddlebrown" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/createTime"
+			android:layout_width="100dp"
+			android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="5.0dip"
+            android:layout_toLeftOf="@id/c6_quantity"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/Done"
+			android:layout_width="100dp"
+			android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="5.0dip"
+            android:layout_toLeftOf="@id/c6_quantity"
+            android:text="Done"
+            android:textColor="@color/black"
+            android:background="@drawable/done_btn"
+            android:focusable="false" />
+    </RelativeLayout>
+
+</LinearLayout>

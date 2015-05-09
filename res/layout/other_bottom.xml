@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/bar_bottom"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@drawable/introduce_bar_bg_bottom"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingRight="20.0dip" >
+
+    <ImageView
+        android:id="@id/logoimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5.0dip"
+        android:background="@drawable/food_ltd" />
+
+</RelativeLayout>

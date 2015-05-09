@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/grid_item_bg" />
+
+        <ImageView
+            android:id="@id/dishImgRecom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="-3.0dip"
+            android:layout_marginTop="-3.0dip"
+            android:background="@drawable/s1" />
+
+        <TextView
+            android:id="@id/dishNameRecom"
+            style="@style/dishesText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginLeft="12.0dip"
+            android:text="红烧土豆" />
+
+        <LinearLayout
+            android:id="@id/grid_mask_bg"
+            android:layout_width="223dip"
+            android:layout_height="255dip"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="11.0dip" >
+
+            <LinearLayout
+                android:id="@+id/grid_mask_but"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="bottom"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/dishesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@id/DishPriceRecom"
+                    style="@style/dishesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="right|center"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@id/cutBtnRecom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/grid_cut" />
+
+                    <TextView
+                        android:id="@id/dishCopiesRecom"
+                        style="@style/dishesText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5.0dip"
+                        android:layout_marginRight="5.0dip"
+                        android:text="0"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@id/addBtnRecom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/grid_add" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

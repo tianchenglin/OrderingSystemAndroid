@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:panel="http://schemas.android.com/apk/res/com.utopia.activity"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:gravity="center"
+    android:keepScreenOn="true"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="20dip"
+            android:clickable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="top"
+                android:orientation="vertical" >
+
+                <com.utopia.widget.BaseMyGridView
+                    android:id="@+id/gv_desk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:horizontalSpacing="30dp"
+                    android:numColumns="7"
+                    android:verticalSpacing="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.utopia.widget.MyPanel
+        android:id="@+id/leftPanel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:gravity="center"
+        android:scrollbars="vertical"
+        panel:content="@+id/panelContent"
+        panel:handle="@+id/panelHandle"
+        panel:position="left" >
+
+        <Button
+            android:id="@+id/panelHandle"
+            android:layout_width="35dip"
+            android:layout_height="140dip"
+            android:background="@drawable/left_switch" />
+
+        <LinearLayout
+            android:id="@+id/panelContent"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="150.0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20.0dip"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginRight="20.0dip"
+                android:layout_marginTop="20.0dip"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ListView
+                    android:id="@id/listviewgroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="#00000000"
+                    android:cacheColorHint="#00000000" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.utopia.widget.MyPanel>
+
+</FrameLayout>

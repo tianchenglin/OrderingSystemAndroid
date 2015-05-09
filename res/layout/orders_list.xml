@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/LinearLayout1"
+    android:layout_width="980dp"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:descendantFocusability="blocksDescendants" >
+
+    <RelativeLayout
+        android:layout_width="220dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/menu_name"
+            style="@style/contentText"
+            android:layout_width="183dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:textColor="#780a00" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="120dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/menu_qty"
+            style="@style/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="5.0dip"
+            android:textColor="#780a00"
+            android:textSize="20.0sp" />
+
+        <Button
+            android:id="@+id/qty_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/menu_qty"
+            android:layout_alignBottom="@+id/menu_qty"
+            android:layout_toRightOf="@+id/menu_qty"
+            android:background="@drawable/qty_add"
+            android:padding="5.0dip" />
+
+        <Button
+            android:id="@+id/qty_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/menu_qty"
+            android:layout_alignBaseline="@+id/menu_qty"
+            android:layout_toLeftOf="@+id/menu_qty"
+            android:background="@drawable/qty_sub"
+            android:padding="5.0dip" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="147dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <RatingBar
+            android:id="@id/menu_rating_bar"
+            style="@style/foodRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_vertical"
+            android:numStars="5"
+            android:rating="3.5"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/menu_status"
+            style="@style/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#780a00" />
+
+        <CheckBox
+            android:id="@+id/sendOrnot"
+            style="@style/CustomCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/menu_status"
+            android:layout_toRightOf="@id/menu_rating_bar"
+            android:enabled="false"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="171dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@id/menu_price"
+            style="@style/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#780a00" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="92dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/menu_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="5.0dip"
+            android:layout_toLeftOf="@id/c6_quantity"
+            android:background="@drawable/profile_personal_icon_modify"
+            android:focusable="false" />
+
+        <Button
+            android:id="@+id/discount_text"
+            style="@style/contentText"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_alignRight="@+id/menu_discount"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:text="1"
+            android:textColor="@color/saddlebrown" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="231dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/subtotal"
+            style="@style/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#780a00" />
+        
+         <ImageButton
+            android:id="@+id/menu_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/subtotal"
+            android:baselineAlignBottom="@id/subtotal"
+            android:layout_centerInParent="true"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/delete_dish" />
+    </RelativeLayout>
+</LinearLayout>

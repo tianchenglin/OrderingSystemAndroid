@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/LinearLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/ordersmg_top" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip">
+            <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/menu_table_number" />
+            <TextView android:textSize="20.0sp" android:textColor="@color/black" android:id="@id/menu_table_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="xxxx" />
+            <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/menu_unit_table" />
+            <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:text="@string/menu_order_number" />
+            <TextView android:textSize="20.0sp" android:textColor="@color/black" android:id="@id/menu_order_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="xxxx" />
+            <LinearLayout android:gravity="right" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:layout_weight="1.0">
+                <Button android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/m_orderDishs" android:background="@drawable/menu_btn_bg" android:padding="5.0dip" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/cartebtn" android:layout_toLeftOf="@id/m_call_rightOff" android:layout_centerInParent="true" />
+                <Button android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/m_changetable" android:background="@drawable/menu_btn_bg" android:padding="5.0dip" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/tablebtn" android:layout_toRightOf="@id/m_call_rightOff" android:layout_centerInParent="true" />
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView android:layout_gravity="center_horizontal" android:background="@drawable/menu_split" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ListView android:id="@id/menu_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="#00000000" android:divider="@drawable/menu_split" android:layout_weight="1.0" android:headerDividersEnabled="false" android:footerDividersEnabled="false" />
+        <LinearLayout android:orientation="vertical" android:paddingRight="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="right" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="20.0dip">
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/menu_sum_no" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:id="@id/menu_sum_no" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="xxxx" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:text="@string/menu_sum_price" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="¥" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:id="@id/menu_sum_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="xxxx" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:text="@string/menu_sum_promotion" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="¥" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:id="@id/menu_sum_promotion" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="xxxx" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:text="@string/menu_sum_real_price" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="¥" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/black" android:id="@id/menu_sum_real_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="xxxx" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:gravity="center_vertical" android:background="@drawable/introduce_bar_bg_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <Button android:textSize="20.0sp" android:textColor="@color/black" android:id="@id/menu_order" android:background="@drawable/introduce_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginRight="50.0dip" android:text="@string/m_menu_order" android:layout_alignParentRight="true" />
+        <Button android:textSize="20.0sp" android:textColor="@color/black" android:id="@id/menu_clear" android:background="@drawable/introduce_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginRight="30.0dip" android:text="@string/menu_clear" android:layout_toLeftOf="@id/menu_order" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20.0dip"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.05" >
+
+        <TextView
+            android:id="@id/foodBigCategoryname"
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/m_call_no" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.9" >
+
+        <TextView
+            android:id="@id/foodBigCategoryname"
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/m_check_list_order_no" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0" >
+
+        <TextView
+            style="@+style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/m_call_tableno" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.9" >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/m_check_list_time" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0" >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/m_check_list_sumprice" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0" >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/m_client_state" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/layout3"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.91" >
+
+        <TextView
+            style="@style/contentTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/menu_operator" />
+    </RelativeLayout>
+
+</LinearLayout>

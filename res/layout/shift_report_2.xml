@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <include  layout="@layout/ok_top"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        
+        
+        <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_name"
+            android:text="Yangyang"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <ImageButton 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ib_drop_down"
+            android:background="@drawable/drop_down"
+            />
+        </LinearLayout>
+        
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_time"
+            android:layout_marginTop="10dp"
+            android:text="from 8:17AM by Yangyang,Jan.24.2015"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            />
+        
+        <ImageView 
+            android:id="@+id/iv_line1"
+            android:layout_width="850dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/line"  
+            />
+  
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+        <TextView 
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_null"
+            />
+        
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_net"
+            android:layout_marginLeft="60dp"
+            android:text="Net Sales"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_trans"            
+            android:layout_marginLeft="60dp"
+            android:text="Transactions"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_tip"            
+            android:layout_marginLeft="60dp"
+            android:text="Tip"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+            
+        </LinearLayout>
+        
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_credit"
+            android:text="Credit"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cre1"            
+            android:layout_marginLeft="60dp"
+            android:text="120.00"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cre2"            
+            android:layout_marginLeft="60dp"
+            android:text="19"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cre3"            
+            android:layout_marginLeft="60dp"
+            android:text="23.20"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+            
+        </LinearLayout>
+        
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cash"
+            android:text="Cash"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cas1"            
+            android:layout_marginLeft="60dp"
+            android:text="217.00"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cas2"            
+            android:layout_marginLeft="60dp"
+            android:text="35"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cas3"            
+            android:layout_marginLeft="60dp"
+            android:text="40.12"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+            
+        </LinearLayout>
+        
+        <ImageView 
+            android:id="@+id/iv_lin2"
+            android:layout_width="850dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp" 
+            android:background="@drawable/line"
+            />
+        
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_total"
+            android:text="Total"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_tot1"            
+            android:layout_marginLeft="60dp"
+            android:text="437.00"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_tot2"            
+            android:layout_marginLeft="60dp"
+            android:text="54"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+        <TextView 
+            android:gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_tot3"            
+            android:layout_marginLeft="60dp"
+            android:text="63.32"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+            
+        </LinearLayout>
+        
+        
+        
+    </LinearLayout>
+</LinearLayout>

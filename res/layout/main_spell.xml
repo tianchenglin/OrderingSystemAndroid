@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/RelativeLayout_starting"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:paddingBottom="50.0dip"
+    android:paddingLeft="80.0dip"
+    android:paddingRight="100.0dip"
+    android:background="@drawable/main_bg"
+    android:paddingTop="50.0dip"
+    android:keepScreenOn="true" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/login_bg1"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30.0dip"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1.0dip"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:text="@string/welcome"
+                    android:textColor="@color/white"
+                    android:textSize="40.0sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20.0dip"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                       <ImageButton
+                            android:id="@+id/passwd_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/login_num" />
+
+                        <ImageButton
+                            android:id="@+id/passwd_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp" 
+                            android:background="@drawable/login_num"/>
+
+                        <ImageButton
+                            android:id="@+id/passwd_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp" 
+                            android:background="@drawable/login_num"/>
+
+                        <ImageButton
+                            android:id="@+id/passwd_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp" 
+                            android:background="@drawable/login_num"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:orientation="vertical" android:id="@id/linearLayout1" android:background="@drawable/key_bg" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="top" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageButton android:id="@id/keya" android:tag="a" android:background="@drawable/key_a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="35.0dip" android:layout_marginTop="35.0dip" />
+            <ImageButton android:id="@id/keyb" android:tag="b" android:background="@drawable/key_b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_marginTop="35.0dip" android:layout_toRightOf="@id/keya" android:layout_alignBaseline="@id/keya" />
+            <ImageButton android:id="@id/keyc" android:tag="c" android:background="@drawable/key_c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_marginTop="35.0dip" android:layout_toRightOf="@id/keyb" android:layout_alignBaseline="@id/keyb" />
+            <ImageButton android:id="@id/keyd" android:tag="d" android:background="@drawable/key_d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_marginTop="35.0dip" android:layout_toRightOf="@id/keyc" android:layout_alignBaseline="@id/keyc" />
+            <ImageButton android:id="@id/keye" android:tag="e" android:background="@drawable/key_e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_marginTop="35.0dip" android:layout_toRightOf="@id/keyd" android:layout_alignBaseline="@id/keyd" />
+            <ImageButton android:id="@id/keyf" android:tag="f" android:background="@drawable/key_f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_marginTop="35.0dip" android:layout_toRightOf="@id/keye" android:layout_alignBaseline="@id/keye" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip">
+            <ImageButton android:id="@id/keyg" android:tag="g" android:background="@drawable/key_g" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="35.0dip" />
+            <ImageButton android:id="@id/keyh" android:tag="h" android:background="@drawable/key_h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keyg" android:layout_alignBaseline="@id/keyg" />
+            <ImageButton android:id="@id/keyi" android:tag="i" android:background="@drawable/key_i" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keyg" android:layout_alignBaseline="@id/keyg" />
+            <ImageButton android:id="@id/keyj" android:tag="j" android:background="@drawable/key_j" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keyg" android:layout_alignBaseline="@id/keyg" />
+            <ImageButton android:id="@id/keyk" android:tag="k" android:background="@drawable/key_k" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keyg" android:layout_alignBaseline="@id/keyg" />
+            <ImageButton android:id="@id/keyl" android:tag="l" android:background="@drawable/key_l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keyg" android:layout_alignBaseline="@id/keyg" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip">
+            <ImageButton android:id="@id/keym" android:tag="m" android:background="@drawable/key_m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="35.0dip" />
+            <ImageButton android:id="@id/keyn" android:tag="n" android:background="@drawable/key_n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keym" android:layout_alignBaseline="@id/keym" />
+            <ImageButton android:id="@id/keyo" android:tag="o" android:background="@drawable/key_o" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keym" android:layout_alignBaseline="@id/keym" />
+            <ImageButton android:id="@id/keyp" android:tag="p" android:background="@drawable/key_p" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keym" android:layout_alignBaseline="@id/keym" />
+            <ImageButton android:id="@id/keyq" android:tag="q" android:background="@drawable/key_q" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keym" android:layout_alignBaseline="@id/keym" />
+            <ImageButton android:id="@id/keyr" android:tag="r" android:background="@drawable/key_r" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keym" android:layout_alignBaseline="@id/keym" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip">
+            <ImageButton android:id="@id/keys" android:tag="s" android:background="@drawable/key_s" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="35.0dip" />
+            <ImageButton android:id="@id/keyt" android:tag="t" android:background="@drawable/key_t" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keys" android:layout_alignBaseline="@id/keys" />
+            <ImageButton android:id="@id/keyu" android:tag="u" android:background="@drawable/key_u" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keys" android:layout_alignBaseline="@id/keys" />
+            <ImageButton android:id="@id/keyv" android:tag="v" android:background="@drawable/key_v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keys" android:layout_alignBaseline="@id/keys" />
+            <ImageButton android:id="@id/keyw" android:tag="w" android:background="@drawable/key_w" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keys" android:layout_alignBaseline="@id/keys" />
+            <ImageButton android:id="@id/keyx" android:tag="x" android:background="@drawable/key_x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keys" android:layout_alignBaseline="@id/keys" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip">
+            <ImageButton android:id="@id/keyy" android:tag="y" android:background="@drawable/key_y" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="35.0dip" />
+            <ImageButton android:id="@id/keyz" android:tag="z" android:background="@drawable/key_z" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_toRightOf="@id/keyy" android:layout_alignBaseline="@id/keyy" />
+            <Button
+                    android:id="@id/login_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/login_clear1"
+                    android:gravity="center" />
+            <Button
+                    android:id="@+id/loginTrans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/login_trans"
+                    android:gravity="center" />
+            
+            
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30.0dip" >
+
+                <Button
+                    android:id="@id/loginBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/clockin"
+                    android:gravity="center" />
+            </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/but_test"
+        android:layout_width="wrap_content"
+        android:layout_height="50.0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="#00000000"
+        android:text="The Connection Test"
+        android:textColor="@color/white" />
+    
+    <Button
+        android:id="@+id/but_set"
+        android:layout_width="wrap_content"
+        android:layout_height="50.0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:text="Click here to enter setup>>>"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

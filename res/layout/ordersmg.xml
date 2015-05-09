@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:paddingBottom="50.0dip"
+    android:paddingLeft="80.0dip"
+    android:paddingRight="100.0dip"
+    android:paddingTop="50.0dip"
+    android:keepScreenOn="true" >
+    <GridView
+        android:id="@id/starting_grid"
+        android:layout_marginTop="200dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:horizontalSpacing="100.0dip"
+        android:numColumns="3"
+        android:verticalSpacing="50.0dip" />
+
+</RelativeLayout>

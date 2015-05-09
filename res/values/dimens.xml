@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_tab_font_size">20.0sp</dimen>
+    <dimen name="top_tab_font_size">16.0sp</dimen>
+    <dimen name="title_font_size">16.0sp</dimen>
+    <dimen name="bottom_tab_padding_up">5.0dip</dimen>
+    <dimen name="bottom_tab_padding_drawable">1.0dip</dimen>
+    <dimen name="content_title_font_size">18.0sp</dimen>
+    <dimen name="content_font_size">16.0sp</dimen>
+    <dimen name="group_font_size">18.0sp</dimen>
+    <dimen name="child_font_size">16.0sp</dimen>
+</resources>

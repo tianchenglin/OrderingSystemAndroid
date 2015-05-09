@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/RelativeLayout_starting"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/login_background"
+    android:keepScreenOn="true"
+    android:orientation="vertical"
+    android:paddingBottom="50.0dip" >
+
+     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/login_top"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="GULOOP"
+            android:textColor="@color/white"
+            android:textSize="25.0sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:paddingTop="45dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36.0dip"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1.0dip"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:text="@string/welcome"
+                    android:textColor="#8D271C"
+                    android:textStyle="bold"
+                    android:textSize="32dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="46.0dip"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <ImageButton
+                            android:id="@+id/passwd_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/login_num" />
+
+                        <ImageButton
+                            android:id="@+id/passwd_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/login_num" />
+
+                        <ImageButton
+                            android:id="@+id/passwd_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/login_num" />
+
+                        <ImageButton
+                            android:id="@+id/passwd_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/login_num" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30.0dip" >
+
+                <Button
+                    android:id="@id/loginnum1"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:tag="1"
+                    android:text="1"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" />
+
+                <Button
+                    android:id="@id/loginnum2"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" 
+                    android:tag="2" />
+
+                <Button
+                    android:id="@id/loginnum3"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" 
+                    android:tag="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20.0dip" >
+
+                <Button
+                    android:id="@id/loginnum4"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" 
+                    android:tag="4"/>
+
+                <Button
+                    android:id="@id/loginnum5"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" 
+                    android:tag="5" />
+
+                <Button
+                    android:id="@id/loginnum6"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="6"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" 
+                    android:tag="6"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20.0dip" >
+
+                <Button
+                    android:id="@id/loginnum7"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="7"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" 
+                    android:tag="7" />
+
+                <Button
+                    android:id="@id/loginnum8"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" 
+                    android:tag="8" />
+
+                <Button
+                    android:id="@id/loginnum9"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="9"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" 
+                    android:tag="9"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20.0dip" >
+
+                <Button
+                    android:id="@id/login_clear"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:text="Clear"
+                    android:textColor="#9D261A"
+                    android:textSize="28dp" 
+                    android:gravity="center" />
+
+                <Button
+                    android:id="@id/loginnum0"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#9D261A"
+                    android:textSize="28sp" 
+                    android:tag="0"/>
+
+                <Button
+                    android:id="@+id/loginTrans"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/login_trans"
+                    android:textSize="28sp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30.0dip" >
+
+                <Button
+                    android:id="@id/loginBtn"
+                    android:layout_width="184dp"
+                    android:layout_height="45dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/button_clock_in"
+                    android:text="Clock In"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/but_set"
+        android:layout_width="wrap_content"
+        android:layout_height="50.0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:text=""
+        android:textColor="#8F0000" />
+
+</RelativeLayout>

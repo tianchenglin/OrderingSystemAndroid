@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.utopia.activity"
+    android:versionCode="2"
+    android:versionName="2.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        <activity
+            android:name="com.utopia.activity.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.utopia.activity.MainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.MenusAcitvity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.OrderFormActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.SettingActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.utopia.activity.StatisticActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.DeskActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.OrdersAcitvity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.CheckBillActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.OrderMenuDetialActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/MyDialogStyle"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.utopia.activity.DeviceListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.PayBillActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/MyDialogStyle"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.utopia.activity.MainSpellActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.CookActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.PersonalDailyReportActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.CloseReportActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.DropsActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.PayOutActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.PurchaseActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.ShiftReportActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.ChoosePrinterCashierActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.CashierActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.EndActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.utopia.activity.CookHistoryActivity"
+            android:screenOrientation="landscape" />
+        
+        <activity
+            android:name="com.utopia.activity.DeskMenuActivity"
+            android:screenOrientation="landscape" />
+    </application>
+
+</manifest>

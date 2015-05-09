@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dip"
+    android:layout_height="fill_parent"
+    android:background="#7B0000"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/menu_setting"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/setting" />
+    </LinearLayout>
+
+    <ImageView 
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_split"
+        />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/menu_regular_tables"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/regular_tables" />
+    </LinearLayout>
+    <ImageView 
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_split"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/menu_liquors"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/liquors" />
+    </LinearLayout>
+    <ImageView 
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_split"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/menu_sushi_bar"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sushi_bar" />
+    </LinearLayout>
+    <ImageView 
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_split"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/menu_take_out"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/take_out" />
+    </LinearLayout>
+    <ImageView 
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_split"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/menu_dilivery"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dilivery" />
+    </LinearLayout>
+
+</LinearLayout>

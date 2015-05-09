@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bar_top"
+    android:layout_width="fill_parent"
+    android:layout_height="20dip"
+    android:background="@drawable/bar_bg_top"
+    android:orientation="vertical"
+    android:paddingRight="6.0dip" >
+
+    <Button
+        android:id="@+id/goback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="6.0dip"
+        android:background="@drawable/previous_bg"
+        android:text="Back"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:id="@id/spell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical" >
+
+        <RelativeLayout
+            android:id="@id/RelativeLayout5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@id/keyspell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/key_text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="26.0sp" />
+
+            <ImageButton
+                android:id="@id/keyspellclear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-30.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_toRightOf="@id/keyspell"
+                android:background="@drawable/key_spellclear" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

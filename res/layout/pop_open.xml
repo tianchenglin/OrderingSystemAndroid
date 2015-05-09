@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/open_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="30.0dip" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="2.0"
+            android:gravity="left|center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="215dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginRight="10dip"
+                    android:gravity="right"
+                    android:text="@string/mtable_no"
+                    android:textColor="@color/white"
+                    android:textSize="20.0sp" />
+
+                <TextView
+                    android:id="@id/table_popNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/open_text"
+                    android:gravity="center"
+                    android:padding="2.0dip"
+                    android:textColor="@color/black"
+                    android:textSize="20.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="215dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginRight="10dip"
+                    android:gravity="right"
+                    android:text="@string/mtable_customer"
+                    android:textColor="@color/white"
+                    android:textSize="20.0sp" />
+
+                <ImageButton
+                    android:id="@id/table_person_cut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/addfood_dec" />
+
+                <TextView
+                    android:id="@id/mtableCustomerTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/open_text2"
+                    android:gravity="center"
+                    android:padding="2.0dip"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="20.0sp" />
+
+                <ImageButton
+                    android:id="@id/table_person_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/addfood_inc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="215dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginRight="10dip"
+                    android:gravity="right"
+                    android:text="@string/mtable_pdaid"
+                    android:textColor="@color/white"
+                    android:textSize="20.0sp" />
+
+                <TextView
+                    android:id="@id/pdaId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/open_text"
+                    android:gravity="center"
+                    android:padding="2.0dip"
+                    android:textColor="@color/black"
+                    android:textSize="20.0sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.5"
+            android:gravity="bottom" >
+
+            <Button
+                android:id="@id/table_pop_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="100.0dip"
+                android:layout_marginRight="20.0dip"
+                android:background="@drawable/addfood_ok"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="18.0sp" />
+
+            <Button
+                android:id="@id/table_pop_cancle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="20.0dip"
+                android:background="@drawable/addfood_cancle"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="18.0sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
