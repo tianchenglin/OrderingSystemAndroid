@@ -20,7 +20,6 @@ import com.utopia.utils.JsonResolveUtils;
 
 public class CashierActivity extends BaseActivity implements OnClickListener {
 private int i = 0 ;
-int j = 0 ;
 	private TextView editText;
 	private String initMoney;
 	private String curMoney = "0";
