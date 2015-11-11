@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/desk_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/d"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:padding="2.0dip" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="invisible"
+         >
+
+        <LinearLayout
+            android:id="@+id/delivery_desk"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/waiter_name"
+                android:layout_width="fill_parent"
+                android:layout_height="25dip"
+                android:background="#838E66"
+                android:clickable="false"
+                android:text="Khjjkl"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/desk_money"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:gravity="left"
+                android:text="Khjjkl"
+                android:textColor="@color/black"
+                android:textSize="16.0sp" />
+
+            <TextView
+                android:id="@+id/desk_state"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:gravity="center"
+                android:text="Khjjkl"
+                android:textColor="@color/black"
+                android:textSize="24.0sp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/desk_name"
+                    android:layout_width="50dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dip"
+                    android:gravity="left"
+                    android:text="Khjjkl"
+                    android:textColor="@color/black"
+                    android:textSize="12.0sp" />
+
+                <ImageView
+                    android:id="@+id/clock"
+                    android:layout_width="25dip"
+                    android:layout_height="25dip"
+                    android:layout_marginLeft="20dip"
+                    android:background="@drawable/clock" />
+
+                <TextView
+                    android:id="@+id/desk_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17:50"
+                    android:textColor="@color/black"
+                    android:textSize="12.0sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

@@ -3,106 +3,365 @@
     android:layout_width="200dip"
     android:layout_height="fill_parent"
     android:background="#7B0000"
-    android:orientation="vertical" >
-
+ >
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none" >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/menu_setting"
+        android:layout_width="200dip"
+        android:layout_height="122dp"
+        android:gravity="center"
+        android:orientation="vertical" >
 
-        <ImageView
-            android:id="@+id/menu_setting"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:src="@drawable/setting" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:src="@drawable/setting" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Setting"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
 
-    <ImageView 
+    <ImageView
         android:layout_width="200dip"
         android:layout_height="wrap_content"
-        android:src="@drawable/menu_split"
-        />
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center" >
+        android:src="@drawable/menu_split" />
 
-        <ImageView
-            android:id="@+id/menu_regular_tables"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:src="@drawable/regular_tables" />
+    <LinearLayout
+        android:id="@+id/menu_regular_tables"
+        android:layout_width="wrap_content"
+        android:layout_height="122dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:src="@drawable/regular_tables" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Regular Tables"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
-    <ImageView 
+
+    <ImageView
         android:layout_width="200dip"
         android:layout_height="wrap_content"
-        android:src="@drawable/menu_split"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center" >
+        android:src="@drawable/menu_split" />
 
-        <ImageView
-            android:id="@+id/menu_liquors"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:src="@drawable/liquors" />
+    <LinearLayout
+        android:id="@+id/menu_liquors"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/menu_liquors"
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:src="@drawable/liquors" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Liquors"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
-    <ImageView 
+
+    <ImageView
         android:layout_width="200dip"
         android:layout_height="wrap_content"
-        android:src="@drawable/menu_split"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center" >
+        android:src="@drawable/menu_split" />
 
-        <ImageView
-            android:id="@+id/menu_sushi_bar"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sushi_bar" />
+    <LinearLayout
+        android:id="@+id/menu_sushi_bar"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sushi_bar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Sushi Bar"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
-    <ImageView 
+
+    <ImageView
         android:layout_width="200dip"
         android:layout_height="wrap_content"
-        android:src="@drawable/menu_split"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center" >
+        android:src="@drawable/menu_split" />
 
-        <ImageView
-            android:id="@+id/menu_take_out"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:src="@drawable/take_out" />
+    <LinearLayout
+        android:id="@+id/menu_take_out"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:src="@drawable/take_out" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Take Out"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
-    <ImageView 
+
+    <ImageView
         android:layout_width="200dip"
         android:layout_height="wrap_content"
-        android:src="@drawable/menu_split"
-        />
+        android:src="@drawable/menu_split" />
+
     <LinearLayout
+        android:id="@+id/menu_dilivery"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center" >
+        android:layout_height="122dp"
+        android:gravity="center"
+        android:orientation="vertical" >
 
-        <ImageView
-            android:id="@+id/menu_dilivery"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:src="@drawable/dilivery" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dilivery" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Dilivery"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
+    <ImageView
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_split" />
+   
+    <LinearLayout
+        android:id="@+id/menu_staff"
+        android:layout_width="200dip"
+        android:layout_height="140dp"
+      
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:text="Staff"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+           <LinearLayout
+            android:id="@+id/staff_ll1"
+            android:layout_width="200dip"
+            android:layout_height="60dp"
+            android:gravity="center" >
 
+            <TextView
+                
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="MY SALES REPORT"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        
+        </LinearLayout>
+       <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/menu_split" />
+    <LinearLayout
+            android:id="@+id/staff_ll2"
+            android:layout_width="200dip"
+            android:layout_height="60dp"
+            android:gravity="center" >
+
+            <TextView
+                
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="CURRENT DRAWER"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+         
+    </LinearLayout>
+      <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_split" />
+      
+    <LinearLayout
+        android:id="@+id/menu_manager"
+        android:layout_width="200dip"
+        android:layout_height="140dp"
+        
+        android:orientation="vertical"
+        >
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:text="Manager"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+    <LinearLayout
+            android:id="@+id/manager_ll1"
+            android:layout_width="200dip"
+            android:layout_height="60dp"
+            android:gravity="center" >
+
+            <TextView
+                
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="SALES REPORT"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/menu_split" />
+    <LinearLayout
+           android:id="@+id/manager_ll2"
+            android:layout_width="200dip"
+            android:layout_height="60dp"
+            android:gravity="center" >
+
+            <TextView
+                
+                android:layout_width="200dip"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="DRAWERS HISTORY"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+   <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_split" />
+ </LinearLayout>
+</ScrollView>
 </LinearLayout>

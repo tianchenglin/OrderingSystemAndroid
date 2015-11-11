@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TwoLineListItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:mode="twoLine" >
+
+    <TextView
+        android:id="@+id/auto_text_name"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="8dip"
+        android:text="hiii"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/auto_text_phone"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dip"
+        android:layout_toRightOf="@id/auto_text_name"
+        android:text="hiii"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <!-- android:layout_marginStart="?android:attr/listPreferredItemPaddingStart" -->
+
+    <TextView
+        android:id="@+id/auto_text_address"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/auto_text_name"
+        android:layout_below="@id/auto_text_name"
+        android:text="hiii"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#C1C1C1" />
+
+</TwoLineListItem>

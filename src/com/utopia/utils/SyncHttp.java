@@ -18,9 +18,9 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 /**
- * @author utopia
+ * @author U
  * 
- *         以同步方式发送Http请求
+ *  以同步方式发送Http请求
  */
 public class SyncHttp {
 

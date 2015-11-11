@@ -21,34 +21,24 @@ public class CloseReportActivity extends BaseActivity implements OnClickListener
 	
 	private TextView editText;
 	private String curMoney = "0";
-	
-	private HomeKeyLocker mHomeKeyLocker;
+	 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.close_shift_1);
-		ExitApplication.getInstance().addActivity(this);// 加入退出栈
-		mHomeKeyLocker = new HomeKeyLocker();
-		mHomeKeyLocker.lock(CloseReportActivity.this);
+		ExitApplication.getInstance().addActivity(this);// 加入退出栈 
 		
 		initViews();
 		initEvents();
 	}
 	
 	
-	protected void onDestroy() {
-		mHomeKeyLocker.unlock();
-		mHomeKeyLocker = null;
-		super.onDestroy();
-	}
+ 
 	@Override
 	public void onClick(View view) {
-		switch(view.getId()){
-		case R.id.goback:
-			startActivity(new Intent(this, MainActivity.class));
-			break;
+		switch(view.getId()){ 
 		case R.id.et_OK:
 			//存入收银机表 , 操作员id和操作时间 插入  ， 当前现金为初始现金 + 放入现金 ，状态为 drop 
 			//c
@@ -141,7 +131,7 @@ public class CloseReportActivity extends BaseActivity implements OnClickListener
 	@Override
 	protected void initEvents() {
 		findViewById(R.id.et_OK).setOnClickListener(this);
-		findViewById(R.id.goback).setOnClickListener(this);
+ 
 		findViewById(R.id.btn_one).setOnClickListener(this);
 		findViewById(R.id.btn_two).setOnClickListener(this);
 		findViewById(R.id.btn_three).setOnClickListener(this);
@@ -154,7 +144,6 @@ public class CloseReportActivity extends BaseActivity implements OnClickListener
 		findViewById(R.id.btn_zero).setOnClickListener(this);
 		findViewById(R.id.btn_dot).setOnClickListener(this);
 		findViewById(R.id.btn_clear).setOnClickListener(this);
-		findViewById(R.id.et_OK).setOnClickListener(this);
 		
 	}
 }

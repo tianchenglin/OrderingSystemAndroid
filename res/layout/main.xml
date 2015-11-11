@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@id/RelativeLayout_starting"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/login_background"
@@ -14,7 +13,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/login_top"
+        android:background="@drawable/bar_bg_top"
         android:gravity="center" >
 
         <TextView
@@ -113,7 +112,7 @@
                 android:layout_marginTop="30.0dip" >
 
                 <Button
-                    android:id="@id/loginnum1"
+                    android:id="@+id/loginnum1"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_marginLeft="20.0dip"
@@ -126,7 +125,7 @@
                     android:textSize="28dp" />
 
                 <Button
-                    android:id="@id/loginnum2"
+                    android:id="@+id/loginnum2"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -140,7 +139,7 @@
                     android:tag="2" />
 
                 <Button
-                    android:id="@id/loginnum3"
+                    android:id="@+id/loginnum3"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -161,7 +160,7 @@
                 android:layout_marginTop="20.0dip" >
 
                 <Button
-                    android:id="@id/loginnum4"
+                    android:id="@+id/loginnum4"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -175,7 +174,7 @@
                     android:tag="4"/>
 
                 <Button
-                    android:id="@id/loginnum5"
+                    android:id="@+id/loginnum5"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -189,7 +188,7 @@
                     android:tag="5" />
 
                 <Button
-                    android:id="@id/loginnum6"
+                    android:id="@+id/loginnum6"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -210,7 +209,7 @@
                 android:layout_marginTop="20.0dip" >
 
                 <Button
-                    android:id="@id/loginnum7"
+                    android:id="@+id/loginnum7"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -224,7 +223,7 @@
                     android:tag="7" />
 
                 <Button
-                    android:id="@id/loginnum8"
+                    android:id="@+id/loginnum8"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -238,7 +237,7 @@
                     android:tag="8" />
 
                 <Button
-                    android:id="@id/loginnum9"
+                    android:id="@+id/loginnum9"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -259,7 +258,7 @@
                 android:layout_marginTop="20.0dip" >
 
                 <Button
-                    android:id="@id/login_clear"
+                    android:id="@+id/login_clear"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -272,7 +271,7 @@
                     android:gravity="center" />
 
                 <Button
-                    android:id="@id/loginnum0"
+                    android:id="@+id/loginnum0"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
@@ -304,7 +303,7 @@
                 android:layout_marginTop="30.0dip" >
 
                 <Button
-                    android:id="@id/loginBtn"
+                    android:id="@+id/loginBtn"
                     android:layout_width="184dp"
                     android:layout_height="45dp"
                     android:layout_centerHorizontal="true"

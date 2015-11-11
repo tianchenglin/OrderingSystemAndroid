@@ -33,36 +33,15 @@ public class DropsActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.drops);
-		ExitApplication.getInstance().addActivity(this);// 加入退出栈
-		mHomeKeyLocker = new HomeKeyLocker();
-		mHomeKeyLocker.lock(DropsActivity.this);
+		ExitApplication.getInstance().addActivity(this);// 加入退出栈  
 
 		initViews();
 		initEvents();
 	}
-
-	protected void onDestroy() {
-		mHomeKeyLocker.unlock();
-		mHomeKeyLocker = null;
-		super.onDestroy();
-	}
-
-	/*
-	 * 屏蔽返回按键(non-Javadoc)
-	 * 
-	 * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
-	 */
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		return true;
-	}
-
+   
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
-		case R.id.goback:
-			startActivity(new Intent(this, DeskMenuActivity.class));
-			break;
 		case R.id.et_OK:
 			// 存入收银机表 , 操作员id和操作时间 插入 ， 当前现金为初始现金 + 放入现金 ，状态为 drop
 			// a
@@ -74,7 +53,6 @@ public class DropsActivity extends BaseActivity implements OnClickListener {
 			}
 			insert();
 			new RefreshAsyncTask().execute();
-			startActivity(new Intent(this, DeskMenuActivity.class));
 			break;
 		case R.id.btn_one:
 			curMoney = editText.getText().toString() + "1";
@@ -151,6 +129,8 @@ public class DropsActivity extends BaseActivity implements OnClickListener {
 			super.onPostExecute(result);
 			System.out.println("调用onPostExecute()方法--->异步任务执行完毕");
 
+			DropsActivity.this.finish();
+
 		}
 
 		// onCancelled()方法用于异步任务被取消时,在主线程中执行相关的操作
@@ -195,6 +175,6 @@ public class DropsActivity extends BaseActivity implements OnClickListener {
 		findViewById(R.id.btn_dot).setOnClickListener(this);
 		findViewById(R.id.btn_clear).setOnClickListener(this);
 		findViewById(R.id.et_OK).setOnClickListener(this);
-		findViewById(R.id.goback).setOnClickListener(this);
+
 	}
 }

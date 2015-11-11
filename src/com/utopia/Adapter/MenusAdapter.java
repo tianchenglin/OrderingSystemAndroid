@@ -4,7 +4,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 
 import android.content.Context;
-import android.database.Cursor; 
+import android.database.Cursor;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.utopia.Dao.sql_Product;
-import com.utopia.Dialog.pop_order;
 import com.utopia.Model.d_Product;
 import com.utopia.activity.R;
 import com.utopia.utils.Constant;
@@ -167,7 +166,7 @@ public class MenusAdapter extends BaseAdapter implements
 			if(table.equals("Select Tables")){
 				showCustomToast("Please select tables");
 			}else{
-				new pop_order(this.context, paramView, false);				
+				//new pop_order(this.context, paramView, false);				
 			}
 		}
 		
@@ -181,7 +180,7 @@ public class MenusAdapter extends BaseAdapter implements
 			if(table.equals("Select Tables")){
 				showCustomToast("Please select tables");
 			}else{
-				new pop_order(this.context, paramView, false);				
+				//new pop_order(this.context, paramView, false);				
 			}
 		}
 		if (paramView.getId() == R.id.cutBtnRecom) {
@@ -194,7 +193,7 @@ public class MenusAdapter extends BaseAdapter implements
 			if(table.equals("Select Tables")){
 				showCustomToast("Please select tables");
 			}else{
-				new pop_order(this.context, paramView, false);				
+				//new pop_order(this.context, paramView, false);				
 			}
 		}
 		
@@ -202,7 +201,7 @@ public class MenusAdapter extends BaseAdapter implements
 			if(table.equals("Select Tables")){
 				showCustomToast("Please select tables");
 			}else{
-				new pop_order(this.context, paramView, false);				
+				//new pop_order(this.context, paramView, false);				
 			}
 	}
 

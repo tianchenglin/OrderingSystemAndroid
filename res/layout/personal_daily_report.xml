@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/login_background"
     android:gravity="center_horizontal"
     android:orientation="vertical" 
     android:keepScreenOn="true">
 
-    <include layout="@layout/ok_top" />
+    <include layout="@layout/cashier_top" />
 
     <LinearLayout
         android:layout_width="match_parent"

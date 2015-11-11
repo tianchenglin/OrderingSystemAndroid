@@ -3,7 +3,7 @@
     android:id="@+id/bar_top"
     android:layout_width="fill_parent"
     android:layout_height="45dip"
-    android:background="@drawable/login_top"
+    android:background="#404040"
     android:orientation="vertical"
     android:paddingRight="6.0dip" >
 

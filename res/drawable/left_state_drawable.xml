@@ -14,7 +14,7 @@
                      android:topRightRadius="0dp"    
                      android:bottomRightRadius="0dp"   
                      android:bottomLeftRadius="8dp"/> 
-            <solid android:color="#5E5E5E"/>
+            <solid android:color="#81CB12"/>
         </shape>
     </item> 
     <item>
@@ -23,7 +23,7 @@
                      android:topRightRadius="0dp"    
                      android:bottomRightRadius="0dp"   
                      android:bottomLeftRadius="8dp"/> 
-            <solid android:color="#FFFFFF"/>
+            <solid android:color="#ffffff"/>
         </shape>
     </item>
 </selector>

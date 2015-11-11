@@ -1,6 +1,6 @@
 package com.utopia.Model;
 
-
+//
 public class d_SaleRecord {
 	
 	private String PayId;
@@ -12,7 +12,7 @@ public class d_SaleRecord {
 	private int rebate;
 	private String CreateTime;
 	private String closeTime;
-	private String status;
+	private String status;    //状态
 	private String desk_name;
 	private String OtherSpecNo1;	//size
 	private String OtherSpecNo2;	//hotness
@@ -22,6 +22,8 @@ public class d_SaleRecord {
 	private float tip ; 		//小费
 	private float discount ;    //折扣
 	private int ItemNo;
+	private int customerNo ;    //顾客数量
+	private int priority;
 	
 	public d_SaleRecord(){
 		
@@ -31,29 +33,47 @@ public class d_SaleRecord {
 			String pdtName, int number, double price, int rebate,
 			String createTime, String closeTime, String status, String desk_name,
 			String otherSpecNo1, String otherSpecNo2, String otherSpec,
-			String waiter, float tax,float tip,float discount,int ItemNo) {
+			String waiter, float tax,float tip,float discount,int ItemNo,int customerNo,int priority) {
 		super();
-		PayId = payId;
-		BILLID = bILLID;
-		PdtCODE = pdtCODE;
-		PdtName = pdtName;
+		this.PayId = payId;
+		this.BILLID = bILLID;
+		this.PdtCODE = pdtCODE;
+		this.PdtName = pdtName;
 		this.number = number;
-		Price = price;
+		this.Price = price;
 		this.rebate = rebate;
-		CreateTime = createTime;
+		this.CreateTime = createTime;
 		this.closeTime = closeTime;
 		this.status = status;
 		this.desk_name = desk_name;
-		OtherSpecNo1 = otherSpecNo1;
-		OtherSpecNo2 = otherSpecNo2;
-		OtherSpec = otherSpec;
-		Waiter = waiter;
+		this.OtherSpecNo1 = otherSpecNo1;
+		this.OtherSpecNo2 = otherSpecNo2;
+		this.OtherSpec = otherSpec;
+		this.Waiter = waiter;
 		this.tax = tax;
 		this.tip = tip;
 		this.discount = discount ;
 		this.ItemNo = ItemNo;
+		this.customerNo = customerNo ;
+		this.priority=priority;
 	}
 
+
+	public int getCustomerNo() {
+		return customerNo;
+	}
+
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+
+	public void setCustomerNo(int customerNo) {
+		this.customerNo = customerNo;
+	}
 
 	public int getItemNo() {
 		return ItemNo;
@@ -119,8 +139,8 @@ public class d_SaleRecord {
 	public int getRebate() {
 		return rebate;
 	}
-	public void setRebate(int rebate) {
-		this.rebate = rebate;
+	public void setRebate(int f) {
+		this.rebate = f;
 	}
 	public String getCreateTime() {
 		return CreateTime;
@@ -196,9 +216,10 @@ public class d_SaleRecord {
 				+ number + "\", \"Price\":\"" + Price + "\", \"rebate\":\"" + rebate
 				+ "\", \"CreateTime\":\"" + CreateTime + "\", \"closeTime\":\"" + closeTime
 				+ "\", \"status\":\"" + status + "\", \"desk_name\":\"" + desk_name
+				+ "\", \"OtherSpec\":\"" + OtherSpec 
 				+ "\", \"OtherSpecNo1\":\"" + OtherSpecNo1 + "\", \"OtherSpecNo2\":\""
 				
-				+ OtherSpecNo2 + "\", \"ItemNo\":\"" + ItemNo + "\", \"OtherSpec\":\"null\", \"Waiter\":\""
+				+ OtherSpecNo2 + "\", \"ItemNo\":\"" + ItemNo + "\", \"Waiter\":\""
 				+ Waiter + "\", \"tax\":\"" + tax + "\"}";
 	}
 	

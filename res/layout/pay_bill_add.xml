@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:clickable="true"
+    android:keepScreenOn="true"
+    android:orientation="vertical"
+    android:padding="5.0dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dip"
+        android:layout_marginRight="40dip"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:text="Bill"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_main"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/ll_main_1"
+                    android:layout_width="320dp"
+                    android:layout_height="650dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#c6c6c6"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="4dp"
+                        android:paddingTop="8dp" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:orientation="vertical"
+                            android:paddingBottom="10dip" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Qty.                            Price"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="25sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <ListView
+                        android:id="@id/menu_list"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dip"
+                        android:layout_weight="1.0"
+                        android:cacheColorHint="#00000000"
+                        android:divider="@drawable/menu_split"
+                        android:footerDividersEnabled="false"
+                        android:headerDividersEnabled="false"
+                        android:listSelector="@android:color/transparent"
+                        android:paddingLeft="2dip"
+                        android:paddingRight="10dip" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="#c6c6c6"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="40.0dip"
+                            android:paddingTop="10dip" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="40dp"
+                                android:text="Due:"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/bill_due"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="40dp"
+                                android:textColor="@color/black" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="40.0dip"
+                            android:paddingTop="10dip" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="40dp"
+                                android:text="Tips:"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/bill_tips"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="40dp"
+                                android:text="$0.00"
+                                android:textColor="@color/black" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginTop="15dip"
+                                android:text="Pay:"
+                                android:textColor="@color/black" />
+
+                            <EditText
+                                android:id="@+id/bill_pay"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="40dp"
+                                android:editable="false"
+                                android:clickable="true"
+                                android:text="$0.00"
+                                android:textColor="@color/black" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="45.0dip"
+                            android:background="@android:color/white" >
+
+                            <Button
+                                android:id="@+id/bill_add_credit"
+                                android:layout_width="160dp"
+                                android:layout_height="45.0dip"
+                                android:background="@color/white"
+                                android:text="Credit"
+                                android:textColor="@color/black"
+                                android:textSize="22sp" />
+
+                            <TextView
+                                android:id="@+id/divide"
+                                android:layout_width="1dp"
+                                android:layout_height="45.0dip"
+                                android:layout_toRightOf="@id/bill_add_credit"
+                                android:background="@color/black" />
+
+                            <Button
+                                android:id="@+id/bill_add_cash"
+                                android:layout_width="160dp"
+                                android:layout_height="45.0dip"
+                                android:layout_toRightOf="@id/divide"
+                                android:background="@color/white"
+                                android:text="Cash"
+                                android:textColor="@color/black"
+                                android:textSize="22sp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

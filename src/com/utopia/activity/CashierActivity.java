@@ -4,7 +4,7 @@ import java.util.Date;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle; 
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -19,13 +19,12 @@ import com.utopia.utils.ExitApplication;
 import com.utopia.utils.JsonResolveUtils;
 
 public class CashierActivity extends BaseActivity implements OnClickListener {
-private int i = 0 ;
 	private TextView editText;
 	private String initMoney;
 	private String curMoney = "0";
 	private HomeKeyLocker mHomeKeyLocker;
 	d_Cashier localCashier = new d_Cashier();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -34,38 +33,43 @@ private int i = 0 ;
 		ExitApplication.getInstance().addActivity(this);
 		mHomeKeyLocker = new HomeKeyLocker();
 		mHomeKeyLocker.lock(CashierActivity.this);
-		
+
 		initViews();
 		initEvents();
 	}
+
 	protected void onDestroy() {
 		mHomeKeyLocker.unlock();
 		mHomeKeyLocker = null;
 		super.onDestroy();
 	}
+
 	@Override
 	public void onClick(View view) {
 
-		if(view.getId()!=R.id.next && view.getId()!=R.id.goback&& view.getId()!=R.id.btn_clear){
-			if(editText.getText().toString().length()>8){
+		if (view.getId() != R.id.next && view.getId() != R.id.goback
+				&& view.getId() != R.id.btn_clear) {
+			if (editText.getText().toString().length() > 8) {
 				return;
 			}
-			if(editText.getText().toString().length()==8&&view.getId()==R.id.btn_dot){
+			if (editText.getText().toString().length() == 8
+					&& view.getId() == R.id.btn_dot) {
 				showCustomToast("The input is illegal...");
 				return;
 			}
 		}
 		switch (view.getId()) {
-		case R.id.next:
+		case R.id.ok:
 			initMoney = editText.getText().toString();
-			
-			/*if(initMoney.equals("")){
-				showCustomToast("Please input the initial amount of money...");
-				break;
-			}*/
+
+			/*
+			 * if(initMoney.equals("")){
+			 * showCustomToast("Please input the initial amount of money...");
+			 * break; }
+			 */
 			insert();
-			new RefreshAsyncTask().execute();			
-		
+			new RefreshAsyncTask().execute();
+            
 			Constant.clockInTime = DateUtils.getDateEN();
 			CashierActivity.this.startActivity(new Intent(CashierActivity.this,
 					DeskMenuActivity.class));
@@ -106,7 +110,7 @@ private int i = 0 ;
 			break;
 		case R.id.btn_dot:
 			if (!editText.getText().toString().contains(".")) {
-				if(editText.getText().toString().length()==0){
+				if (editText.getText().toString().length() == 0) {
 					editText.setText("0");
 				}
 				editText.setText(editText.getText().toString() + ".");
@@ -126,23 +130,22 @@ private int i = 0 ;
 			editText.setText(curMoney);
 		}
 	}
-	
 
 	private void insert() {
-		if(initMoney.equals("")){
-			
-		}else{
+		if (initMoney.equals("")) {
+
+		} else {
 			localCashier.setInitMoney(Float.parseFloat(initMoney));
 			localCashier.setCreateTime(DateUtils.getDateEN());
 			localCashier.setUserCode(Constant.userCode);
 			localCashier.setCashierId(Constant.cashierId);
 			localCashier.setStatus("init");
 
-		    new sql_Cashier(this).saveInit(localCashier);
+			new sql_Cashier(this).save(localCashier);
 		}
-		
+
 	}
-	
+
 	private class RefreshAsyncTask extends AsyncTask<Void, Void, Boolean> {
 		// onPreExecute()方法用于在执行异步任务前,主线程做一些准备工作
 		@Override
@@ -174,8 +177,7 @@ private int i = 0 ;
 			System.out.println("调用onCancelled()方法--->异步任务被取消");
 		}
 	}
-	
-	
+
 	@Override
 	protected void initViews() {
 		editText = (TextView) findViewById(R.id.cashier_initMoney);
@@ -195,6 +197,6 @@ private int i = 0 ;
 		findViewById(R.id.btn_zero).setOnClickListener(this);
 		findViewById(R.id.btn_dot).setOnClickListener(this);
 		findViewById(R.id.btn_clear).setOnClickListener(this);
-		findViewById(R.id.next).setOnClickListener(this);
+		findViewById(R.id.ok).setOnClickListener(this);
 	}
 }

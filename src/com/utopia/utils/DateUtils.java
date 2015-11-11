@@ -2,18 +2,11 @@ package com.utopia.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import android.content.Context;
 
-/**
- * @fileName DateUtils.java
- * @package com.immomo.momo.android.util
- * @description 日期工具类
- * @author 任东卫
- * @email 86930007@qq.com
- * @version 1.0
- */
 public class DateUtils {
 	/**
 	 * 获取yyyyMMdd格式日期
@@ -49,7 +42,21 @@ public class DateUtils {
 		return date;// 2012年10月03日 23:41:31
 	}
 	
-
+	public static int getHour(){
+		Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
+//	    int year = c.get(Calendar.YEAR); 
+//	   int month = c.get(Calendar.MONTH); 
+//	   int date = c.get(Calendar.DATE); 
+	   int hour = c.get(Calendar.HOUR_OF_DAY); 
+//	int minute = c.get(Calendar.MINUTE); 
+//	int second = c.get(Calendar.SECOND); 
+	return hour;
+	}
+	public static int getminute(){
+		Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
+	    int minute = c.get(Calendar.MINUTE); 
+	return minute;
+	}
 
 	public static String getDateEN() {
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -60,11 +67,18 @@ public class DateUtils {
 	public static String getDate() {
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 		String date = format.format(new Date(System.currentTimeMillis()));
+	
 		return date;
 	}
 
 	public static String getDateWN() {
 		SimpleDateFormat format1 = new SimpleDateFormat("HH:mm:ss MM-dd-yyyy ");
+		String date1 = format1.format(new Date(System.currentTimeMillis()));
+		return date1;//  23:41:31 10-03-2012
+	}
+	
+	public static String getTime() {
+		SimpleDateFormat format1 = new SimpleDateFormat("HH:mm");
 		String date1 = format1.format(new Date(System.currentTimeMillis()));
 		return date1;//  23:41:31 10-03-2012
 	}

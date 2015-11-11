@@ -12,13 +12,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.utopia.Dao.sql_SaleRecord;
-import com.utopia.Service.ActivityViewManager;
 import com.utopia.Service.HomeKeyLocker;
-import com.utopia.activity.R;
 import com.utopia.utils.Constant;
 import com.utopia.utils.ExitApplication;
 import com.utopia.utils.JsonResolveUtils;
@@ -26,7 +23,6 @@ import com.utopia.utils.JsonResolveUtils;
 @SuppressWarnings("deprecation")
 public class MainActivity extends ActivityGroup implements View.OnClickListener {
 	private TextView foodNum;
-	private ActivityViewManager mViewManager;
 	private HomeKeyLocker mHomeKeyLocker;
 	protected List<AsyncTask<Void, Void, Boolean>> mAsyncTasks = new ArrayList<AsyncTask<Void, Void, Boolean>>();
 
@@ -41,9 +37,6 @@ public class MainActivity extends ActivityGroup implements View.OnClickListener 
 		
 		
 		this.foodNum = ((TextView) findViewById(R.id.foodNum));
-		this.mViewManager = new ActivityViewManager(this);
-
-		this.mViewManager.setBtnindex(Constant.mainmgindex);
 		Constant.foodnumhandler = this.handler;
 		update_foodnum();
 	}
@@ -54,7 +47,6 @@ public class MainActivity extends ActivityGroup implements View.OnClickListener 
 				|| (paramView.getId() == R.id.btn3)
 				|| (paramView.getId() == R.id.btn4)
 				|| (paramView.getId() == R.id.btn5))
-			this.mViewManager.setCurBtnPos(paramView.getId());
 		
 		
 		

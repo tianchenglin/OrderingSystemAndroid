@@ -13,7 +13,7 @@ public class d_Desk {
 	private int col;
 	private int delmark;
 	private int message ; 
-
+    
 	public d_Desk() {
 	}
 
@@ -98,7 +98,7 @@ public class d_Desk {
 	public void setStarttime(String starttime) {
 		this.starttime = starttime;
 	}
-
+    
 	public int getPeople_num() {
 		return people_num;
 	}
@@ -130,7 +130,7 @@ public class d_Desk {
 	public void setDelmark(int delmark) {
 		this.delmark = delmark;
 	}
-
+   
 	@Override
 	public String toString() {
 		return "d_Desk [id=" + id + ", desk_name=" + desk_name + ", message="

@@ -1,15 +1,16 @@
 package com.utopia.widget;
 
-import com.utopia.activity.DeskMenuActivity;
-
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
+
+import com.utopia.activity.DeskMenuActivity;
 
 public class MyScrollLayout extends ViewGroup {
 
@@ -28,6 +29,7 @@ public class MyScrollLayout extends ViewGroup {
 	private int mTouchState = TOUCH_STATE_REST;
 	private int mTouchSlop;
 	private float mLastMotionX;
+	private float mLastMotionY;
 
 	private PageListener pageListener;
 
@@ -73,7 +75,7 @@ public class MyScrollLayout extends ViewGroup {
 		/**
 		 * wrap_content 传进去的是AT_MOST 固定数值或fill_parent 传入的模式是EXACTLY
 		 */
-		
+
 		// The children are given the same width and height as the scrollLayout
 		final int count = getChildCount();
 		for (int i = 0; i < count; i++) {
@@ -143,6 +145,7 @@ public class MyScrollLayout extends ViewGroup {
 
 		final int action = event.getAction();
 		final float x = event.getX();
+		final float y = event.getY();
 
 		switch (action) {
 		case MotionEvent.ACTION_DOWN:
@@ -150,10 +153,13 @@ public class MyScrollLayout extends ViewGroup {
 				mScroller.abortAnimation();
 			}
 			mLastMotionX = x;
+			mLastMotionY = y;
 			break;
 		case MotionEvent.ACTION_MOVE:
 			int deltaX = (int) (mLastMotionX - x);
 			mLastMotionX = x;
+			int deltaY = (int) (mLastMotionY - x);
+			mLastMotionY = y;
 
 			scrollBy(deltaX, 0);
 			break;
@@ -199,6 +205,7 @@ public class MyScrollLayout extends ViewGroup {
 		}
 
 		final float x = ev.getX();
+		final float y = ev.getY();
 
 		switch (action) {
 		case MotionEvent.ACTION_MOVE:
@@ -206,12 +213,18 @@ public class MyScrollLayout extends ViewGroup {
 				DeskMenuActivity m = (DeskMenuActivity) getContext();
 				m.getSlideMenu().requestDisallowInterceptTouchEvent(true);
 			}
-			
-			
+
 			final int xDiff = (int) Math.abs(mLastMotionX - x);
-			if (xDiff > mTouchSlop) {
-				mTouchState = TOUCH_STATE_SCROLLING;
+			final int yDiff = (int) Math.abs(mLastMotionY - y);
+
+			if (yDiff > mTouchSlop) {
+				return true ; 
+			} else {
+				if (xDiff > mTouchSlop) {
+					mTouchState = TOUCH_STATE_SCROLLING;
+				}
 			}
+
 			break;
 		case MotionEvent.ACTION_DOWN:
 			if (getContext() instanceof DeskMenuActivity) {
@@ -219,8 +232,12 @@ public class MyScrollLayout extends ViewGroup {
 				m.getSlideMenu().requestDisallowInterceptTouchEvent(true);
 			}
 			mLastMotionX = x;
-			mTouchState = mScroller.isFinished() ? TOUCH_STATE_REST
-					: TOUCH_STATE_SCROLLING;
+			mLastMotionY = y;
+			mTouchState = TOUCH_STATE_REST;
+			/*
+			 * mTouchState = mScroller.isFinished() ? TOUCH_STATE_REST :
+			 * TOUCH_STATE_SCROLLING;
+			 */
 			break;
 
 		case MotionEvent.ACTION_CANCEL:
@@ -229,9 +246,10 @@ public class MyScrollLayout extends ViewGroup {
 				m.getSlideMenu().requestDisallowInterceptTouchEvent(true);
 			}
 		case MotionEvent.ACTION_UP:
-			
+
 			/*
-			 * 重点： 滑动冲突的时候 ， 调用父滑动的requestDisallowInterceptTouchEvent方法 ，使子滑动有效 。 
+			 * 重点： 滑动冲突的时候 ， 调用父滑动的requestDisallowInterceptTouchEvent方法 ，使子滑动有效
+			 * 。
 			 */
 			if (getContext() instanceof DeskMenuActivity) {
 				DeskMenuActivity m = (DeskMenuActivity) getContext();

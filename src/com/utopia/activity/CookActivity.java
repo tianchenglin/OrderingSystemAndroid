@@ -5,10 +5,12 @@ import java.util.List;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message; 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -16,7 +18,10 @@ import android.widget.ListView;
 import com.utopia.Adapter.CookOrderSaleRecordAdapter;
 import com.utopia.Base.BaseActivity;
 import com.utopia.Dao.sql_SaleRecord;
+import com.utopia.Dao.sql_Sales;
+import com.utopia.Model.d_Sale;
 import com.utopia.Model.d_SaleRecord;
+import com.utopia.Model.d_Saleandpdt;
 import com.utopia.Service.BluetoothService;
 import com.utopia.Service.HomeKeyLocker;
 import com.utopia.utils.Constant;
@@ -29,7 +34,8 @@ public class CookActivity extends BaseActivity implements View.OnClickListener {
 
 	private Button current;
 	private Button history;
-	private List<d_SaleRecord> saleRecord;
+	private List<d_Sale> saleRecord;
+	private List<d_Saleandpdt> sale;
 	private ListView localListView;
 	private HomeKeyLocker mHomeKeyLocker;
 
@@ -89,9 +95,13 @@ public class CookActivity extends BaseActivity implements View.OnClickListener {
 
 		case R.id.current:
 			initlist();
+			current.setBackgroundColor(Color.parseColor("#7EA343"));
+			history.setBackgroundColor(Color.parseColor("#666666"));
 			break;
 		case R.id.history:
 			initHistoryList();
+			current.setBackgroundColor(Color.parseColor("#666666"));
+			history.setBackgroundColor(Color.parseColor("#7EA343"));
 			break;
 
 		}
@@ -114,6 +124,8 @@ public class CookActivity extends BaseActivity implements View.OnClickListener {
 		localListView = (ListView) findViewById(R.id.cook_menu_list);
 		current = (Button) findViewById(R.id.current);
 		history = (Button) findViewById(R.id.history);
+		current.setBackgroundColor(Color.parseColor("#7EA343"));
+		history.setBackgroundColor(Color.parseColor("#666666"));
 	}
 
 	@Override
@@ -144,6 +156,7 @@ public class CookActivity extends BaseActivity implements View.OnClickListener {
 		protected String doInBackground(String... params) {
 			System.out.println("调用doInBackground()方法--->开始执行异步任务");
 			saleRecord = new JsonResolveUtils(CookActivity.this).getSaleRecords();
+			sale=new JsonResolveUtils(CookActivity.this).getSaleandpdt();
 			return null;
 		}
 
@@ -154,7 +167,6 @@ public class CookActivity extends BaseActivity implements View.OnClickListener {
 			System.out.println("调用onPostExecute()方法--->异步任务执行完毕");
 			handler.sendEmptyMessage(0);
 		}
-
 		// onCancelled()方法用于异步任务被取消时,在主线程中执行相关的操作
 		@Override
 		protected void onCancelled() {
@@ -174,8 +186,9 @@ public class CookActivity extends BaseActivity implements View.OnClickListener {
 			// 此处可以更新UI
 			if(saleRecord.size()>0){
 				for(int i = 0 ; i < saleRecord.size() ; i++)
-					new sql_SaleRecord().save(saleRecord.get(i));
+					new sql_Sales().saveInit(saleRecord.get(i));
 				Constant.lastTime = new sql_SaleRecord().getLastTime();
+				
 				Refresh();
 			}
 		}

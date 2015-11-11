@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/bill_layout"
+    android:layout_width="240dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/bill_bg"
+    android:orientation="vertical" >
+
+    <!-- android:id="@id/bill" -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="45dp"
+            android:background="#585858" >
+
+            <TextView
+                android:id="@id/bill_text"
+                android:layout_width="190dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="BILL1"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/bt_delete_item"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/sub_item" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:background="#5C6151" >
+
+            <TextView
+                android:id="@id/qt_text"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Qty."
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@id/pri_text"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Price"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@id/menu_list1"
+            android:layout_width="240dp"
+            android:layout_height="580dip"
+            android:layout_weight="1.0"
+            android:divider="#0000"
+            android:dividerHeight="1px" >
+        </ListView>
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:background="#585858"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@id/bill_money1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="120dp"
+                android:text="18.60"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="214dp"
+            android:background="#DEE2D5"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <EditText
+                    android:id="@+id/tipAmount"
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="right"
+                    android:hint="Tip Amount" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <EditText
+                    android:id="@+id/PaidAmount"
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="right"
+                    android:hint="Paid Amount" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@id/tt1"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:text="Payment Method"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" 
+                    android:background="#DEE2D5"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:src="@drawable/shang"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/printer_bill"
+                    android:layout_width="140dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/printbtn_bg"
+                    android:text="PRINT"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

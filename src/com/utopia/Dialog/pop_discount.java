@@ -1,18 +1,26 @@
 package com.utopia.Dialog;
 
+import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.database.Cursor;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.utopia.Adapter.OrdersSalerecordAdapter;
+import com.utopia.Base.BaseActivity;
 import com.utopia.Dao.sql_SaleRecord;
 import com.utopia.Model.d_SaleRecord;
 import com.utopia.activity.OrdersAcitvity;
 import com.utopia.activity.R;
+import com.utopia.widget.MyTextView;
 
 /*
  * 输入税率
@@ -28,11 +36,14 @@ public class pop_discount implements View.OnClickListener {
 	private TextView menu_discountEdit;
 	private CheckBox tax_cb;
 	private TextView discount_text ; 
+	private String desk_name;
 	private d_SaleRecord localSaleRecord ; 
-	public pop_discount(Context context, View paramView,d_SaleRecord localSaleRecord) {
-		this.localSaleRecord = localSaleRecord;
+	public pop_discount(Context context, View paramView,String desk_name) {
+   
+	   // this.localSaleRecord = localSaleRecord;
 		this.context = context;
-		if (this.popupWindow != null)
+		this.desk_name=desk_name;
+		if (this.popupWindow != null)	
 			return;
 		View localView = LayoutInflater.from(context).inflate(
 				R.layout.pop_discount, null);
@@ -41,7 +52,7 @@ public class pop_discount implements View.OnClickListener {
 		this.popupWindow.update();
 		this.popupWindow.showAtLocation(paramView, 16, 0, 0);
 		//this.password = ((EditText) localView.findViewById(R.id.login_pwd));
-		menu_discountEdit =  (TextView) paramView;//.findViewById(R.id.menu_discount);		
+		menu_discountEdit = (TextView) paramView;//.findViewById(R.id.menu_discount);		
 		discount = (TextView) localView.findViewById(R.id.discount);
 		localView.findViewById(R.id.discount_Ok).setOnClickListener(this);
 		localView.findViewById(R.id.btn_one).setOnClickListener(this);
@@ -70,15 +81,26 @@ public class pop_discount implements View.OnClickListener {
 		case R.id.discount_Ok:
 			tax_rate = discount.getText().toString();	
 			menu_discountEdit.setText(tax_rate);  
+			
 			if(menu_discountEdit.getText().toString().equals(""))
-				menu_discountEdit.setText("1");
-			localSaleRecord.setDiscount(Float.valueOf(menu_discountEdit.getText().toString()));
-			//在数据库中更新折扣 
-			new sql_SaleRecord().update_discount(localSaleRecord);
+				menu_discountEdit.setText("1.00");
+			if(Float.valueOf(menu_discountEdit.getText().toString().trim())<0 ||
+					Float.valueOf(menu_discountEdit.getText().toString().trim())>1){
+				    showCustomToast("sorry,discount must between 0 and 1.");
+			}else{
+			Log.i("tag",menu_discountEdit.getText().toString().trim()+"    nnnnnnnnnn");
+//			
+			//localSaleRecord.setDiscount(Float.valueOf(menu_discountEdit.getText().toString().trim()));
+//			}
+			//在数据库中更新折扣  
+			//Log.i("tag",m_SaleRecord.getDiscount()+"");
+		    new sql_SaleRecord().update_discountAll(menu_discountEdit.getText().toString().trim(),desk_name);
+			//new sql_SaleRecord().update_discount(localSaleRecord);
+			Log.i("tag","设置discount、、、、");
 			
 			((OrdersAcitvity)context).Refresh();
 			closePop();
-			
+			}
 			break;
 		case R.id.btn_one:
 			tax_rate_view = discount.getText().toString() + "1";
@@ -132,6 +154,16 @@ public class pop_discount implements View.OnClickListener {
 			discount.setText(tax_rate_view);
 		}
 		
+	}
+	public void showCustomToast(String text) {
+		View toastRoot = LayoutInflater.from(context).inflate(
+				R.layout.common_toast, null);
+		((MyTextView) toastRoot.findViewById(R.id.toast_text)).setText(text);
+		Toast toast = new Toast(context);
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		toast.setDuration(Toast.LENGTH_SHORT);
+		toast.setView(toastRoot);
+		toast.show();
 	}
 
 }

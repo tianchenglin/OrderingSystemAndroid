@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/titleBar"
+        layout="@layout/layout_title_bar" />
+
+    <com.utopia.widget.SlideMenu
+        android:id="@+id/slide_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <include layout="@layout/layout_menu" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#EEEEEE"
+            android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="9dip"
+                    android:background="@drawable/linearlayout"
+                    android:keepScreenOn="true"
+                    android:orientation="vertical"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="0dp" >
+            <GridView
+                android:id="@+id/pickup_grid"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:gravity="center_horizontal"
+                android:horizontalSpacing="10.0dip"
+                android:numColumns="8"
+                android:verticalSpacing="20.0dip" />
+            </RelativeLayout>
+        </LinearLayout>
+    </com.utopia.widget.SlideMenu>
+
+</LinearLayout>

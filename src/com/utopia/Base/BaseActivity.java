@@ -2,8 +2,7 @@ package com.utopia.Base;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-
+import java.util.List; 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -44,6 +43,7 @@ public abstract class BaseActivity extends FragmentActivity {
 		mScreenWidth = metric.widthPixels;
 		mScreenHeight = metric.heightPixels;
 		mDensity = metric.density;
+		Log.i("tag",getClass().getSimpleName());
 	}
 
 	@Override
@@ -51,11 +51,7 @@ public abstract class BaseActivity extends FragmentActivity {
 		clearAsyncTask();
 		super.onDestroy();
 	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		return false;
-	}
+ 
 
 	/** 初始化视图 **/
 	protected abstract void initViews();

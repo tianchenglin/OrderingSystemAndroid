@@ -2,8 +2,7 @@ package com.utopia.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.util.Log;
+import android.util.AttributeSet; 
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -344,8 +343,7 @@ public class SlideMenu extends ViewGroup {
 	}
 
 	public void openMenu() {
-		mCurrentScreen = SCREEN_MENU;
-		Log.e("SlideMenu","查看打开时间");
+		mCurrentScreen = SCREEN_MENU; 
 		snapToScreen(mCurrentScreen);
 	}
 

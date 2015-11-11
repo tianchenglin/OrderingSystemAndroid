@@ -22,46 +22,34 @@ public class PayOutActivity extends BaseActivity implements OnClickListener {
 
 	private TextView editText;
 	private String curMoney = "0";
-	private String payoutMoney;
-	private HomeKeyLocker mHomeKeyLocker;
+	private String payoutMoney; 
 	d_Cashier localCashier = new d_Cashier();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.payout);
-		ExitApplication.getInstance().addActivity(this);// 加入退出栈
-		mHomeKeyLocker = new HomeKeyLocker();
-		mHomeKeyLocker.lock(PayOutActivity.this);
+		ExitApplication.getInstance().addActivity(this);// 加入退出栈 
 		
 		initViews();
 		initEvents();
 
-	}
-	protected void onDestroy() {
-		mHomeKeyLocker.unlock();
-		mHomeKeyLocker = null;
-		super.onDestroy();
-	}
+	} 
 	@Override
 	public void onClick(View view) {
 		// TODO Auto-generated method stub
 		switch (view.getId()) {
-		case R.id.goback:
-			startActivity(new Intent(this, DeskMenuActivity.class));
-			break;
 		case R.id.et_OK:
 			// 存入收银机表 , 操作员id和操作时间 插入 ， 当前现金为初始现金 + 放入现金 ，状态为 payout
 			
 			payoutMoney = editText.getText().toString();
 
 			if (payoutMoney.equals("")) {
-				showCustomToast("Input Number");
+				showCustomToast("Please Input Number…");
 				break;
 			}
 			insert();
-			new RefreshAsyncTask().execute();			
-			startActivity(new Intent(this, DeskMenuActivity.class));
+			new RefreshAsyncTask().execute();		
 			break;
 		case R.id.btn_one:
 			curMoney = editText.getText().toString() + "1";
@@ -150,6 +138,8 @@ public class PayOutActivity extends BaseActivity implements OnClickListener {
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
 			System.out.println("调用onPostExecute()方法--->异步任务执行完毕");
+			
+			PayOutActivity.this.finish();
 
 		}
 
@@ -180,7 +170,6 @@ public class PayOutActivity extends BaseActivity implements OnClickListener {
 		findViewById(R.id.btn_dot).setOnClickListener(this);
 		findViewById(R.id.btn_clear).setOnClickListener(this);
 		findViewById(R.id.et_OK).setOnClickListener(this);
-		findViewById(R.id.goback).setOnClickListener(this);
 
 	}
 }

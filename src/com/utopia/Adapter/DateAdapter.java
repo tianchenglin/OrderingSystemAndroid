@@ -5,7 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle; 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,13 +25,12 @@ public class DateAdapter extends BaseAdapter {
 	private Context context;
 	/** 列表. */
 	private List<d_Product> lstDate;
-
-	// 每页显示的Item个数
 	public static final int SIZE = 27;
 
-	private String md5 ; 
+	private String md5;
+
 	public DateAdapter(Context mContext, List<d_Product> list, int page,
-			TextView textview_menuDesc,String md5) {
+			TextView textview_menuDesc, String md5) {
 		this.md5 = md5;
 		this.context = mContext;
 		lstDate = new ArrayList<d_Product>();
@@ -75,23 +74,24 @@ public class DateAdapter extends BaseAdapter {
 		// 实例化控件
 		menuTitle = (TextView) convertView.findViewById(R.id.menu_title);
 		imageView = (ImageView) convertView.findViewById(R.id.menu_bg);
-		imageView.setBackgroundResource(R.drawable.a);
+		//imageView.setBackgroundResource(R.drawable.a);
 		imageView.setTag(menu);
 		// 显示菜品描叙
 		imageView.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				if (event.getAction() == MotionEvent.ACTION_UP) {
-					// 松开事件发生后执行代码的区域
+					if (event.getAction() == MotionEvent.ACTION_UP) {
+						// 松开事件发生后执行代码的区域
+						Intent intent = new Intent(context,
+								OrderMenuDetialActivity.class);
+						Bundle mBundle = new Bundle();
+						mBundle.putSerializable("d_Product",
+								(d_Product) v.getTag());
+						mBundle.putString("md5", md5);
+						intent.putExtras(mBundle);
+						context.startActivity(intent);
 
-					imageView.setBackgroundResource(R.drawable.b);
-					Intent intent = new Intent(context, OrderMenuDetialActivity.class);
-					Bundle mBundle = new Bundle();      
-			        mBundle.putSerializable("d_Product",(d_Product)v.getTag()); 
-			        mBundle.putString("md5", md5);
-			        intent.putExtras(mBundle); 
-					context.startActivity(intent);
-				}
+					}
 				return false;
 			}
 		});
@@ -102,7 +102,8 @@ public class DateAdapter extends BaseAdapter {
 		imageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(context, OrderMenuDetialActivity.class);
+				Intent intent = new Intent(context,
+						OrderMenuDetialActivity.class);
 				context.startActivity(intent);
 				notifyDataSetChanged();
 			}

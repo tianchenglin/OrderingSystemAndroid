@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@id/LinearLayout1"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="200dp"
+  
     android:descendantFocusability="blocksDescendants" >
 
     <RelativeLayout
+        
         android:layout_width="251dp"
-        android:layout_height="fill_parent"
+        android:layout_height="150dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -18,7 +20,8 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:text="Dish Name一"
-            android:textColor="@color/saddlebrown" />
+            android:textColor="@color/saddlebrown" 
+            android:textSize="30.0sp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -34,7 +37,7 @@
             android:layout_centerInParent="true"
             android:text="0"
             android:textColor="@color/saddlebrown"
-            android:textSize="20.0sp" />
+            android:textSize="30.0sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -51,7 +54,7 @@
             android:padding="5.0dip"
             android:text="0"
             android:textColor="@color/saddlebrown"
-            android:textSize="20.0sp" />
+            android:textSize="30.0sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -67,7 +70,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="HOTNESS"
-            android:textColor="@color/saddlebrown" />
+            android:textColor="@color/saddlebrown" 
+            android:textSize="30.0sp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -83,7 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="NOTES"
-            android:textColor="@color/saddlebrown" />
+            android:textColor="@color/saddlebrown"
+            android:textSize="30.0sp" />
     </RelativeLayout>
     
     <RelativeLayout
@@ -99,7 +104,8 @@
             android:layout_centerInParent="true"
             android:layout_marginRight="5.0dip"
             android:layout_toLeftOf="@id/c6_quantity"
-            android:textColor="@color/black" />
+            android:textColor="@color/black" 
+           />
     </RelativeLayout>
     
     <RelativeLayout
@@ -110,15 +116,16 @@
 
         <Button
             android:id="@+id/Done"
-			android:layout_width="100dp"
-			android:layout_height="80dp"
-            android:layout_centerInParent="true"
-            android:layout_marginRight="5.0dip"
-            android:layout_toLeftOf="@id/c6_quantity"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/done_btn"
+            android:focusable="false"
             android:text="Done"
             android:textColor="@color/black"
-            android:background="@drawable/done_btn"
-            android:focusable="false" />
+            android:textSize="30.0sp" />
+
     </RelativeLayout>
 
 </LinearLayout>

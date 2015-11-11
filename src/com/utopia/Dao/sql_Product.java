@@ -63,31 +63,49 @@ public class sql_Product {
 				new Object[] { paramString });
 	}
 
-	public ArrayList<d_Product> recordlist(String paramString) {
-		ArrayList<d_Product> localArrayList = new ArrayList<d_Product>();
+	public d_Product recordlist(String PdtCode) {
+		d_Product locald_Product = new d_Product();
 		Cursor localCursor = this.db.rawQuery(
-				"select * from Product order by PdtCode", null);
-		while (localCursor.moveToNext()) {
-			d_Product locald_Product = new d_Product();
-			locald_Product.setPdtID(localCursor.getString(0));
-			locald_Product.setPdtCode(localCursor.getString(1));
-			locald_Product.setPdtName(localCursor.getString(2));
-			locald_Product.setPdtUnit(localCursor.getString(3));
-			locald_Product.setPdtSalePrice1(localCursor.getFloat(4));
-			locald_Product.setPdtSalePrice2(localCursor.getFloat(5));
-			localArrayList.add(locald_Product);
+				"select * from Product where PdtCode=?", new String[]{PdtCode});
+		if (localCursor.moveToNext()) {
+			
+			locald_Product.setPdtID(localCursor.getString(localCursor.getColumnIndex("PdtID")));
+			locald_Product.setPdtCode(localCursor.getString(localCursor.getColumnIndex("PdtCode")));
+			locald_Product.setPdtName(localCursor.getString(localCursor.getColumnIndex("PdtName")));
+			locald_Product.setPdtPy(localCursor.getString(localCursor.getColumnIndex("PdtPy")));
+			locald_Product.setPdtUnit(localCursor.getString(localCursor.getColumnIndex("PdtUnit")));
+			locald_Product.setPdtSalePrice1(localCursor.getFloat(localCursor.getColumnIndex("PdtSalePrice1")));
+			locald_Product.setPdtSalePrice2(localCursor.getFloat(localCursor.getColumnIndex("PdtSalePrice2")));
+			locald_Product.setPdtID(localCursor.getString(localCursor.getColumnIndex("PdtID")));
+			locald_Product.setPdtCode(localCursor.getString(localCursor.getColumnIndex("PdtCode")));
+			locald_Product.setPdtName(localCursor.getString(localCursor.getColumnIndex("PdtName")));
+			locald_Product.setPdtPy(localCursor.getString(localCursor.getColumnIndex("PdtPy")));
+			locald_Product.setPdtUnit(localCursor.getString(localCursor.getColumnIndex("PdtUnit")));
+			locald_Product.setPdtSalePrice1(localCursor.getFloat(localCursor.getColumnIndex("PdtSalePrice1")));
+			locald_Product.setPdtSalePrice2(localCursor.getFloat(localCursor.getColumnIndex("PdtSalePrice2")));
+			locald_Product.setPdtID(localCursor.getString(localCursor.getColumnIndex("PdtID")));
+			locald_Product.setPdtCode(localCursor.getString(localCursor.getColumnIndex("PdtCode")));
+			locald_Product.setPdtName(localCursor.getString(localCursor.getColumnIndex("PdtName")));
+			locald_Product.setPdtPy(localCursor.getString(localCursor.getColumnIndex("PdtPy")));
+			locald_Product.setPdtUnit(localCursor.getString(localCursor.getColumnIndex("PdtUnit")));
+			locald_Product.setPdtSalePrice1(localCursor.getFloat(localCursor.getColumnIndex("PdtSalePrice1")));
+			locald_Product.setPdtSalePrice2(localCursor.getFloat(localCursor.getColumnIndex("PdtSalePrice2")));
 		}
 		localCursor.close();
-		return localArrayList;
+		return locald_Product;
 	}
 
 	public ArrayList<d_Product> queryMenus(String TypeId) {
 		ArrayList<d_Product> localArrayList = new ArrayList<d_Product>();
+		
+
+		
 		Cursor localCursor = this.db.rawQuery(
-				"select * from Product  where TypeId='" + TypeId
+				"select * from Product  where TypeId='" + Integer.parseInt(TypeId)
 						+ "' order by PdtCode", null);
 		while (localCursor.moveToNext()) {
 			d_Product locald_Product = new d_Product();
+			
 			locald_Product.setPdtID(localCursor.getString(localCursor.getColumnIndex("PdtID")));
 			locald_Product.setPdtCode(localCursor.getString(localCursor.getColumnIndex("PdtCode")));
 			locald_Product.setPdtName(localCursor.getString(localCursor.getColumnIndex("PdtName")));

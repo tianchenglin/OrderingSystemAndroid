@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="60dip"
-        android:background="@drawable/bar_bg_top"
+        android:background="#404040"
         android:orientation="vertical"
         android:paddingRight="6.0dip" >
 

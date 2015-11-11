@@ -37,7 +37,7 @@ public class DeviceListActivity extends BaseActivity {
 	// Member fields
 	private BluetoothAdapter mBtAdapter;
 	private ArrayAdapter<String> mPairedDevicesArrayAdapter;
-	private int i = 0;
+	private int i = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,21 +45,11 @@ public class DeviceListActivity extends BaseActivity {
 		ExitApplication.getInstance().addActivity(this);
 		// Setup the window
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		setContentView(R.layout.device_list);
-
+		setContentView(R.layout.device_list); 
 		// Set result CANCELED incase the user backs out
 		setResult(Activity.RESULT_CANCELED);
 
-		Button next = (Button) findViewById(R.id.next);
-		next.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(DeviceListActivity.this,
-						CashierActivity.class));
-			}
-		});
+		 
 		// Initialize array adapters. One for already paired devices and
 		// one for newly discovered devices
 		mPairedDevicesArrayAdapter = new ArrayAdapter<String>(this,
@@ -118,7 +108,7 @@ public class DeviceListActivity extends BaseActivity {
 		public void onItemClick(AdapterView<?> av, View v, int arg2, long arg3) {
 			if (v.isEnabled()) {
 				String info = ((TextView) v).getText().toString();
-				v.setEnabled(false);
+				v.setEnabled(false); 
 				if (preView != null) {
 					preView.setEnabled(true);
 					preView.setWidth(348);
@@ -126,8 +116,11 @@ public class DeviceListActivity extends BaseActivity {
 					preView.setPadding(0, 0, 0, 50);
 				}
 				preView = (TextView) v;
-				Constant.printerAddress = info.substring(info.length() - 17);
-				printTest();
+				//Constant.printerAddress = info.substring(info.length() - 17);
+				//printTest();
+				startActivity(new Intent(DeviceListActivity.this,
+						CashierActivity.class));
+				
 			}
 		}
 	};
@@ -153,7 +146,7 @@ public class DeviceListActivity extends BaseActivity {
 						Thread.sleep(500);
 						if (i++ > 30) {
 							mService.stop();
-							Thread.sleep(1500);
+							Thread.sleep(500);
 							return false;
 						}
 					}
@@ -167,7 +160,7 @@ public class DeviceListActivity extends BaseActivity {
 					} catch (UnsupportedEncodingException e) {
 						send = message.getBytes();
 					}
-					mService.write(send);
+					//mService.write(send);
 					mService.stop();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
@@ -182,6 +175,9 @@ public class DeviceListActivity extends BaseActivity {
 				dismissLoadingDialog();
 				if (!result) {
 					showCustomToast("Printer authentication failed !");
+				}else{ 
+					startActivity(new Intent(DeviceListActivity.this,
+							CashierActivity.class));
 				}
 			}
 		});
@@ -193,7 +189,7 @@ public class DeviceListActivity extends BaseActivity {
 	private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			String action = intent.getAction();
+			String action = intent.getAction(); 
 			if (BluetoothDevice.ACTION_FOUND.equals(action)) {
 				BluetoothDevice device = intent
 						.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);

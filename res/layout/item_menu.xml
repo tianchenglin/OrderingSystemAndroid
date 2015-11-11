@@ -5,8 +5,10 @@
 
     <ImageView
         android:id="@+id/menu_bg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="124dip"
+        android:layout_height="124dip" 
+        android:background="@drawable/menu_bg"
+        />
 
     <TextView
         android:id="@+id/menu_title"
@@ -15,7 +17,6 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#ffffff" />
+        android:textColor="#000" />
 
 </RelativeLayout>

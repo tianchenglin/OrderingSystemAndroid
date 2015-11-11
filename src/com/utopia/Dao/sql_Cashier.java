@@ -30,7 +30,7 @@ public class sql_Cashier {
 		db.close();
 	}
 
-	public void saveInit(d_Cashier localCashier) {
+	public void save(d_Cashier localCashier) {
 		localCashier.setChangeMoney(0);
 		SQLiteDatabase localSQLiteDatabase = this.db;
 		Object[] arrayOfObject = new Object[5];
@@ -149,11 +149,11 @@ public class sql_Cashier {
 						arrayOfObject);
 	}
 
-	public void delete() {
+	public void clear_all() {
 		db.execSQL("delete from cashier");
 	}
 
-	public void saveOnline(d_Cashier localCashier) {
+	public void saveInit(d_Cashier localCashier) {
 		SQLiteDatabase localSQLiteDatabase = this.db;
 		Object[] arrayOfObject = new Object[8];
 		arrayOfObject[0] = localCashier.getId();

@@ -2,6 +2,7 @@ package com.utopia.Adapter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.AsyncTask; 
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,13 +54,15 @@ public class CookOrderSaleRecordAdapter extends BaseAdapter implements
 	}
 
 	public void open() {
+        String current_time=DateUtils.getDateEN();
 		m_CallCursor = new sql_SaleRecord().recordlist3("select * from "
-				+ "SaleRecord where status=='Sent'");
+				+ "saleandpdt as s1 join SaleRecord as s2 on s1.salerecordId=s2.itemNo" +
+				" where status1='Sent' and createTime <='"+current_time+"'");
 	}
-
+    //and CreateTime <= 'current_time'
 	public void openHistory() {
 		m_CallCursor = new sql_SaleRecord().recordlist3("select * from "
-				+ "SaleRecord where status = 'Done'");
+				+ "saleandpdt as s1 join SaleRecord as s2 on s1.salerecordId=s2.itemNo where status1 = 'Done'");
 	}
 
 	@Override
@@ -80,7 +85,10 @@ public class CookOrderSaleRecordAdapter extends BaseAdapter implements
 		if (paramView == null) {
 			View localView = LayoutInflater.from(this.context).inflate(
 					R.layout.cook_order_list, null);
+			
 			AppItem localAppItem2 = new AppItem();
+			//布局
+			localAppItem2.item_ll=(LinearLayout)localView.findViewById(R.id.LinearLayout1);
 			// 菜名
 			localAppItem2.menu_name = ((TextView) localView
 					.findViewById(R.id.menu_name));
@@ -105,32 +113,35 @@ public class CookOrderSaleRecordAdapter extends BaseAdapter implements
 		}
 		
 		this.m_CallCursor.moveToPosition(paramInt);
+	    
 		d_SaleRecord locald_SaleRecord = new d_SaleRecord();
 		locald_SaleRecord.setDesk_name(this.m_CallCursor.getString(m_CallCursor
-				.getColumnIndex("desk_name")));
-		locald_SaleRecord.setBILLID(this.m_CallCursor.getString(m_CallCursor
-				.getColumnIndex("BILLID")));
+				.getColumnIndex("deskName")));
+//		locald_SaleRecord.setBILLID(this.m_CallCursor.getString(m_CallCursor
+//				.getColumnIndex("BILLID")));
 		locald_SaleRecord.setPdtCODE(this.m_CallCursor.getString(m_CallCursor
-				.getColumnIndex("PdtCODE")));
+				.getColumnIndex("pdtCode")));
 		locald_SaleRecord.setPdtName(this.m_CallCursor.getString(m_CallCursor
-				.getColumnIndex("PdtName")));
+				.getColumnIndex("pdtName")));
 		locald_SaleRecord.setNumber((int) Float.valueOf(
 				this.m_CallCursor.getString(m_CallCursor
 						.getColumnIndex("number"))).floatValue());
 		locald_SaleRecord.setPrice(Float.valueOf(
 				this.m_CallCursor.getString(m_CallCursor
-						.getColumnIndex("Price"))).floatValue());
+						.getColumnIndex("price"))).floatValue());
 		locald_SaleRecord.setOtherSpecNo1(this.m_CallCursor
-				.getString(m_CallCursor.getColumnIndex("OtherSpecNo1")));
+				.getString(m_CallCursor.getColumnIndex("otherspec1")));
 		locald_SaleRecord.setOtherSpecNo2(this.m_CallCursor
-				.getString(m_CallCursor.getColumnIndex("OtherSpecNo2")));
+				.getString(m_CallCursor.getColumnIndex("otherspec2")));
 		locald_SaleRecord.setOtherSpec(this.m_CallCursor.getString(m_CallCursor
-				.getColumnIndex("OtherSpec")));
+				.getColumnIndex("otherspec0")));
 		locald_SaleRecord.setCreateTime(this.m_CallCursor
-				.getString(m_CallCursor.getColumnIndex("CreateTime")));
+				.getString(m_CallCursor.getColumnIndex("createTime1")));
 		locald_SaleRecord.setCloseTime(this.m_CallCursor
-				.getString(m_CallCursor.getColumnIndex("closeTime")));
-
+				.getString(m_CallCursor.getColumnIndex("closeTime1")));
+        
+		
+		
 		// 从localView读取数据
 		AppItem localAppItem1 = (AppItem) paramView.getTag();
 		localAppItem1.menu_name.setText(locald_SaleRecord.getPdtName());
@@ -140,20 +151,31 @@ public class CookOrderSaleRecordAdapter extends BaseAdapter implements
 		localAppItem1.notes.setText(locald_SaleRecord.getOtherSpec());
 		localAppItem1.createTime.setText(locald_SaleRecord.getCreateTime());
 		localAppItem1.done.setEnabled(false);
+		
 		if(m_CallCursor.getString(m_CallCursor
 				.getColumnIndex("status")).equals("Sent")){
 			localAppItem1.done.setEnabled(true);
 		}
 		if (isHistory) {
 			localAppItem1.done.setText(locald_SaleRecord.getCloseTime());
+		
+			localAppItem1.done.setBackgroundColor(Color.parseColor("#E6E6E6"));
 		} else {
+			//判断该菜是否被设置了优先级
+			if(locald_SaleRecord.getOtherSpecNo1().equals("true")){
+				localAppItem1.item_ll.setBackgroundColor(Color.parseColor("#672424"));
+		     }else{
+		    	 localAppItem1.item_ll.setBackgroundColor(Color.parseColor("#E6E6E6"));
+		     }
 			localAppItem1.done.setTag(locald_SaleRecord);
 			localAppItem1.done.setOnClickListener(this);
+			
 		}
 		return paramView;
 	}
 
 	class AppItem {
+		LinearLayout item_ll;
 		TextView menu_name;
 		TextView menu_qty;
 		TextView menu_status;
@@ -172,15 +194,10 @@ public class CookOrderSaleRecordAdapter extends BaseAdapter implements
 		if (view.getId() == R.id.Done) {
 			//showCustomToast("Done");
 			current_sr = (d_SaleRecord) view.getTag();
-			new sql_SaleRecord().update("Done", DateUtils.getDateEN(),
-					current_sr.getPdtName(), current_sr.getDesk_name());
-
-			// 发送后台 ， done
-
+			// 发送后台 ， done 
 			new RefreshAsyncTask().execute();
 			// 刷新界面
-			CookActivity.sladapter.open();
-			CookActivity.sladapter.notifyDataSetChanged();
+			
 		}
 	}
 
@@ -201,7 +218,7 @@ public class CookOrderSaleRecordAdapter extends BaseAdapter implements
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -220,6 +237,10 @@ public class CookOrderSaleRecordAdapter extends BaseAdapter implements
 				if(mLd.isShowing()){
 					mLd.dismiss();
 				}
+				new sql_SaleRecord().update("Done", DateUtils.getDateEN(), 
+						current_sr.getPdtName(), current_sr.getDesk_name());
+				CookActivity.sladapter.open();
+				CookActivity.sladapter.notifyDataSetChanged();
 				showCustomToast("send status successed !");
 			}
 		}

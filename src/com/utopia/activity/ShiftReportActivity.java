@@ -38,8 +38,7 @@ public class ShiftReportActivity extends BaseActivity implements
 	private TextView tv_cre3;
 	private TextView tv_pay1; // payout
 	private TextView tv_pur1; // purchase
-	private TextView tv_drops1; // drops
-	private HomeKeyLocker mHomeKeyLocker;
+	private TextView tv_drops1; // drops 
 	private List<d_Bill> bills;
 	private List<d_Cashier> cashiers;
 
@@ -47,39 +46,16 @@ public class ShiftReportActivity extends BaseActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.shift_report_1);
-		ExitApplication.getInstance().addActivity(this);// 加入退出栈
-		mHomeKeyLocker = new HomeKeyLocker();
-		mHomeKeyLocker.lock(ShiftReportActivity.this);
+		ExitApplication.getInstance().addActivity(this);// 加入退出栈 
 
 		initViews();
 		initEvents();
 	}
-
-	protected void onDestroy() {
-		mHomeKeyLocker.unlock();
-		mHomeKeyLocker = null;
-		super.onDestroy();
-	}
-
-	/*
-	 * 屏蔽返回按键(non-Javadoc)
-	 * 
-	 * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
-	 */
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
-
+ 
+ 
 	@Override
 	public void onClick(View view) {
-		switch (view.getId()) {
-		case R.id.goback:
-			startActivity(new Intent(this, MainActivity.class));
-			break;
+		switch (view.getId()) { 
 		}
 
 	}
@@ -128,55 +104,6 @@ public class ShiftReportActivity extends BaseActivity implements
 	}
 
 	@Override
-	protected void initEvents() {
-		// findViewById(R.id.goback).setOnClickListener(this);
-		new RefreshAsyncTask().execute();
-	}
-
-	private class RefreshAsyncTask extends AsyncTask<String, Integer, String> {
-		// onPreExecute()方法用于在执行异步任务前,主线程做一些准备工作
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-		}
-
-		// doInBackground()方法用于在执行异步任务,不可以更改主线程中UI
-		@Override
-		protected String doInBackground(String... params) {
-			System.out.println("调用doInBackground()方法--->开始执行异步任务");
-			bills = new JsonResolveUtils(ShiftReportActivity.this).getBills();
-			new sql_Bill().delete();
-			if (bills.size() > 0) {
-				for (int i = 0; i < bills.size(); i++) {
-					new sql_Bill().saveOnline(bills.get(i));
-				}
-				new sql_Bill().select();
-			}
-			
-			cashiers = new JsonResolveUtils(ShiftReportActivity.this).getCashiers();
-			new sql_Cashier().delete();
-			if(cashiers.size()>0){
-				for(int i = 0 ; i < cashiers.size();i++){
-					new sql_Cashier().saveOnline(cashiers.get(i));
-				}
-				
-				new sql_Cashier().select();
-			}
-			return null;
-		}
-
-		// onPostExecute()方法用于异步任务执行完成后,在主线程中执行的操作
-		@Override
-		protected void onPostExecute(String result) {
-			super.onPostExecute(result);
-			System.out.println("调用onPostExecute()方法--->异步任务执行完毕");
-		}
-
-		// onCancelled()方法用于异步任务被取消时,在主线程中执行相关的操作
-		@Override
-		protected void onCancelled() {
-			super.onCancelled();
-			System.out.println("调用onCancelled()方法--->异步任务被取消");
-		}
-	}
+	protected void initEvents() { 
+	} 
 }

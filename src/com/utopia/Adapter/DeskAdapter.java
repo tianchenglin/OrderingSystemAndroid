@@ -2,20 +2,25 @@ package com.utopia.Adapter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.List; 
+import java.util.List;
+
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView; 
+import android.widget.TextView;
+
 import com.utopia.Dao.sql_Product;
 import com.utopia.Dao.sql_SaleRecord;
 import com.utopia.Dao.sql_desk;
@@ -43,9 +48,10 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 	private String md5 = Md5.md5(Snippet.generateID());
 	public static final int SIZE = 35;
 	private int page = 0 ;
+	private int bageColor = R.drawable.badge_ifaux;
 	public DeskAdapter(Context paramContext) {
 		this.context = paramContext;
-		execsql(Constant.Area);
+		//execsql(Constant.Area);
 	}
 
 	public DeskAdapter(Context mContext, List<d_Desk> list, int page) {
@@ -96,24 +102,22 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 	public void execsql(String paramString) {
 		m_sql = ("select d.id,d.type_id,d.state,d.s_account,d.desk_name,d.statetime,d.starttime,d.people_num,d.row,d.col,d.message from desk as d JOIN Area as a ON trim(a.AreaId) = trim(d.type_id) where a.AreaName='"
 				+ paramString + "' order by d.row,d.col");
-		m_CallCursor = new sql_desk().recordlist(m_sql);
+		m_CallCursor = sql_desk.recordlist(m_sql);
 		prerow = precol = status = 0;
 		notifyDataSetChanged();
 	}
 
 	public int getCount() {
-		/*
-		 * if (this.m_CallCursor != null && m_CallCursor.getCount() > 0) {
-		 * m_CallCursor.moveToPosition(m_CallCursor.getCount() - 1); return
-		 * m_CallCursor.getInt(8) * 7 + m_CallCursor.getInt(9) - 1; } return 0;
-		 */
-		return lstDate.get(lstDate.size()-1).getRow()*7 + lstDate.get(lstDate.size()-1).getCol();
+		if(lstDate.size() > 0 ){
+			return lstDate.get(lstDate.size()-1).getRow()*7 + lstDate.get(lstDate.size()-1).getCol();			
+		}
+		else{
+			return 0 ; 
+		}
 
 	}
 
-	public Object getItem(int position) {/*
-										 * return Integer.valueOf(position);
-										 */
+	public Object getItem(int position) {
 		return lstDate.get(position);
 	}
 
@@ -126,7 +130,7 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 		if (paramView == null) {
 			paramView = LayoutInflater.from(this.context).inflate(
 					R.layout.desk_ltem, null);
-
+            
 			localAppItem2.waiter_name = ((Button) paramView
 					.findViewById(R.id.waiter_name));
 			localAppItem2.desk_money = ((TextView) paramView
@@ -135,6 +139,10 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 					.findViewById(R.id.desk_state));
 			localAppItem2.desk_time = ((TextView) paramView
 					.findViewById(R.id.desk_time));
+			localAppItem2.desk_name = ((TextView) paramView
+					.findViewById(R.id.desk_name));
+			localAppItem2.clock = ((ImageView) paramView
+					.findViewById(R.id.clock));
 			localAppItem2.ll = (LinearLayout) paramView
 					.findViewById(R.id.desk_content);
 			paramView.setTag(localAppItem2);
@@ -153,22 +161,6 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 		// m_CallCursor.moveToPosition(status);
 		d_Desk locald_keycode = new d_Desk();
 		locald_keycode = lstDate.get(status);
-		/*
-		 * locald_keycode.setId(lstDate.get(paramInt).getId());
-		 * locald_keycode.setType_id(lstDate.get(paramInt).getType_id());
-		 * locald_keycode.setState(lstDate.get(paramInt).getState());
-		 * locald_keycode.setS_account(lstDate.get(paramInt).getS_account());
-		 * locald_keycode.setDesk_name(lstDate.get(paramInt).getDesk_name());
-		 * locald_keycode.setStatetime(lstDate.get(paramInt).getStatetime());
-		 * locald_keycode.setStarttime(lstDate.get(paramInt).getStarttime());
-		 * locald_keycode.setPeople_num(lstDate.get(paramInt).getPeople_num());
-		 * locald_keycode.setRow(lstDate.get(paramInt).getRow());
-		 * locald_keycode.setCol(lstDate.get(paramInt).getCol());
-		 * locald_keycode.setDelmark(0);
-		 * locald_keycode.setMessage(lstDate.get(paramInt).getMessage());
-		 */
-		
-		
 		
 		if (precol < 7) {
 			precol++;
@@ -199,28 +191,33 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 							.getColumnIndex("number"));
 		}
 
-		m_sql = "select * from SaleRecord where status=='Doned' and desk_name='"
+		m_sql = "select * from SaleRecord where status='Doned' and desk_name='"
 				+ locald_keycode.getDesk_name() + "'";
 		m_CallCursor2 = new sql_Product().recordlist3(m_sql);
 
 		if (flag == m_CallCursor2.getCount() && flag != 0) {
 			locald_keycode.setState("Delivered");
 		}
+		
 		m_CallCursor2.close();
 		localAppItem2.ll.setOnClickListener(this);
 		localAppItem2.waiter_name.setText(locald_keycode.getS_account());
 		localAppItem2.waiter_name.setTextSize(15);
+//        if(lstDate.get(paramInt).getState().equals("Unpaid")){
+//        	localAppItem2.waiter_name.setBackgroundColor(Color.parseColor("#FF4E4E"));
+//		}else{
+//			localAppItem2.waiter_name.setBackgroundColor(Color.parseColor("#838E66"));
+//		}
 		((LinearLayout) paramView.findViewById(R.id.desk_content))
-				.setBackgroundResource(R.drawable.desk_bg);
+				.setBackgroundResource(R.drawable.desk_normal);
 
+		localAppItem2.desk_name.setText(locald_keycode.getDesk_name());
 		if (locald_keycode.getState().equals("EMPTY")) {
 			localAppItem2.waiter_name.setText(locald_keycode.getS_account());
-			localAppItem2.waiter_name.setTextSize(15);
-			localAppItem2.desk_state.setText(locald_keycode.getDesk_name());
-			localAppItem2.desk_state.setTextSize(17);
 		}
 
 		if (!locald_keycode.getState().equals("EMPTY")) {
+			localAppItem2.clock.setImageResource(R.drawable.clock);
 			BigDecimal bg = new BigDecimal(money);
 			localAppItem2.desk_money.setText("$"
 					+ bg.setScale(2, BigDecimal.ROUND_HALF_UP));
@@ -228,19 +225,35 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 			localAppItem2.desk_state.setText(locald_keycode.getState());
 			localAppItem2.desk_state.setTextSize(17);
 			if (locald_keycode.getStarttime().equals("")) {
-				localAppItem2.desk_time.setText(DateUtils.getDateWN());
+				
+				localAppItem2.desk_time.setText(DateUtils.getHour()+"h"+DateUtils.getminute()+"m");
 				localAppItem2.desk_time.setTextSize(15);
 			} else {
-				localAppItem2.desk_time.setText(locald_keycode.getStarttime());
-				localAppItem2.desk_time.setTextSize(15);
+				int hour=DateUtils.getHour();
+				//Log.i("tag",hour+"  当前小时数");
+				int minute=DateUtils.getminute();
+				//Log.i("tag",minute+"  当前分钟数");
+				int beginhour=Integer.parseInt(locald_keycode.getStarttime().substring(11, 13).trim());
+				int beginminute=Integer.parseInt(locald_keycode.getStarttime().substring(14, 16).trim());
+				int time_number=(hour*60+minute)-(beginhour*60+beginminute);
+	
+				int hour1=time_number/60;
+				int minute1=time_number%60;
+				localAppItem2.desk_time.setText(hour1-12+":"+minute1);
+				localAppItem2.desk_time.setTextSize(15);	
+				
 			}
-			if (Constant.currentStaff.getS_account().equals(
+			////////////////////////////////////////////
+			if (Constant.currentStaff.getS_name().equals(
 					locald_keycode.getS_account())) {
 				((LinearLayout) paramView.findViewById(R.id.desk_content))
-						.setBackgroundResource(Constant.currentStaff.getColor());
+						.setBackgroundResource(R.drawable.deskbg_self);
+				bageColor = R.drawable.badge_self;
+				//localAppItem2.ll.setOnClickListener(this);///修改
 			} else {
 				((LinearLayout) paramView.findViewById(R.id.desk_content))
-						.setBackgroundResource(R.drawable.desk_bg2);
+						.setBackgroundResource(R.drawable.deskbg_other);
+				bageColor = R.drawable.badge_other;
 				localAppItem2.ll.setOnClickListener(new OnClickListener() {
 
 					@Override
@@ -255,7 +268,7 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 			MyBadgeView badge = new MyBadgeView(context,
 					localAppItem2.waiter_name);
 			badge.setText(locald_keycode.getMessage() + "");
-			badge.setBackgroundResource(Constant.currentStaff.getColor2());
+			badge.setBackgroundResource(bageColor);
 			badge.setBadgePosition(MyBadgeView.POSITION_TOP_RIGHT);
 			badge.setTextSize(16);
 			badge.toggle(true);
@@ -264,21 +277,25 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 	}
 
 	public void onClick(View paramView) {
-		d_Desk locald_keycode = (d_Desk) paramView.getTag();
-		if (paramView.getId() == R.id.desk_content) {
-			Constant.table_id = locald_keycode.getDesk_name().toString();
-			if (locald_keycode.getState().equals("EMPTY")) {
-				new pop_open(this.context, paramView);
-			} else {
+		if(!Constant.pop){
+			d_Desk locald_keycode = (d_Desk) paramView.getTag();
+			if (paramView.getId() == R.id.desk_content) {
+				Constant.table_id = locald_keycode.getDesk_name().toString();
+
 				if (locald_keycode.getMessage() > 0) {
 					updateDone();
+					
 				} else {
 					Intent intent = new Intent(context, OrdersAcitvity.class);
 					Bundle bundle = new Bundle();
 					bundle.putString("Md5", md5);
+					intent.putExtra("currentPage", 1);
+					intent.putExtra("type", "3");
 					intent.putExtras(bundle);
 					context.startActivity(intent);
+					
 				}
+			
 			}
 		}
 	}
@@ -290,19 +307,6 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 		new RefreshAsyncTask().execute();
 	}
 
-	public void open() {
-		try {
-			m_CallCursor.close();
-		} catch (Exception e) {
-		}
-		m_CallCursor = new sql_desk().recordlist(this.m_sql);
-		notifyDataSetChanged();
-	}
-
-	// 构造函数AsyncTask<Params, Progress, Result>参数说明:
-	// Params 启动任务执行的输入参数
-	// Progress 后台任务执行的进度
-	// Result 后台计算结果的类型
 	private class RefreshAsyncTask extends AsyncTask<String, Integer, String> {
 		// onPreExecute()方法用于在执行异步任务前,主线程做一些准备工作
 		@Override
@@ -349,5 +353,7 @@ public class DeskAdapter extends BaseAdapter implements View.OnClickListener {
 		TextView desk_money;
 		TextView desk_state;
 		TextView desk_time;
+		TextView desk_name;
+		ImageView clock;
 	}
 }

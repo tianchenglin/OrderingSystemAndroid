@@ -1,108 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="980dp"
-    android:layout_height="40dp"
-    android:background="#e6dada"
-    android:orientation="horizontal" >
+    android:layout_width="600dp"
+    android:layout_height="85dp"
+    android:orientation="vertical" >
 
-    <RelativeLayout
-        android:id="@id/layout1"
-        android:layout_width="220dp"
-        android:layout_height="fill_parent" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#4e4e4e"
+        android:orientation="horizontal"
+        android:padding="8dip" >
 
-        <TextView
-            android:id="@id/foodBigCategoryname"
-            style="@style/contentTextTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="NAME / DESCRIPTION"
-            android:textColor="#750000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@id/layout1"
-        android:layout_width="120dp"
-        android:layout_height="fill_parent" >
+        <ImageView
+            android:id="@+id/setContact"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/xiaoren" />
 
         <TextView
-            android:id="@id/foodBigCategoryname"
-            style="@style/contentTextTitle"
+            android:id="@+id/customer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:text="New Customer"
+            android:layout_weight="1"
+            android:textColor="#83B324"
+            
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/main_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="QTY"
-            android:textColor="#750000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+            android:background="@drawable/menu_delete_hl"
+            android:gravity="center|right"
+            android:layout_marginRight="10dip"
+            android:textColor="#DEE2D5"
+            android:textSize="16sp" />
+    </LinearLayout>
 
-    <RelativeLayout
-        android:id="@id/layout1"
-        android:layout_width="147dp"
-        android:layout_height="fill_parent" >
+    <LinearLayout
+        android:layout_width="600dp"
+        android:layout_height="40dp"
+        android:background="#899077"
+        android:orientation="horizontal" >
 
-        <TextView
-            android:id="@id/foodBigCategoryname"
-            style="@style/contentTextTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="STATUS"
-            android:textColor="#750000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="160dp"
+            android:layout_height="fill_parent" >
 
-    <RelativeLayout
-        android:id="@id/layout1"
-        android:layout_width="171dp"
-        android:layout_height="fill_parent"  >
+            <TextView
+                style="@style/contentTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dip"
+                android:text="Name"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@id/foodBigCategoryname"
-            style="@style/contentTextTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="UNIT PRICE"
-            android:textColor="#750000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="fill_parent" >
 
-    <RelativeLayout
-        android:id="@id/layout3"
-        android:layout_width="92dp"
-        android:layout_height="fill_parent" >
+            <TextView
+                style="@style/contentTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Each"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-        <TextView
-            style="@style/contentTextTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="DISCOUNT"
-            android:textColor="#750000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="147dp"
+            android:layout_height="fill_parent" >
 
-    <RelativeLayout
-        android:id="@id/layout4"
-        android:layout_width="231dp"
-        android:layout_height="fill_parent"  >
+            <TextView
+                style="@style/contentTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Qty"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-        <TextView
-            style="@style/contentTextTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="SUBTOTAL"
-            android:textColor="#750000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                style="@style/contentTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Total"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout3"
+            android:layout_width="80dp"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                style="@style/contentTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Status"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

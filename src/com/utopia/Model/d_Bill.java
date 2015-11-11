@@ -1,6 +1,5 @@
 package com.utopia.Model;
 
-import com.utopia.utils.DateUtils;
 
 public class d_Bill {
 	private String BillId ; 
@@ -17,13 +16,13 @@ public class d_Bill {
 	public d_Bill(String billId, String waiter, float subtotal, float tax,
 			float total, String createTime, float distant, float tip) {
 		super();
-		BillId = billId;
-		Waiter = waiter;
-		Subtotal = subtotal;
-		Tax = tax;
-		Total = total;
-		CreateTime = createTime;
-		Distant = distant;
+		this.BillId = billId;
+		this.Waiter = waiter;
+		this.Subtotal = subtotal;
+		this.Tax = tax;
+		this.Total = total;
+		this.CreateTime = createTime;
+		this.Distant = distant;
 		this.tip = tip;
 	}
 

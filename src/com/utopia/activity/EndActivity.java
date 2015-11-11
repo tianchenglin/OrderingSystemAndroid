@@ -31,35 +31,25 @@ public class EndActivity extends BaseActivity implements OnClickListener {
 	private TextView tv_dro1;
 	private TextView tv_pay1;
 	private TextView tv_pur1;
-	private TextView tv_sho1;
-	private HomeKeyLocker mHomeKeyLocker;
-	private List<d_Cashier> cashiers;
+	private TextView tv_sho1;  
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.close_shift_2);
-		ExitApplication.getInstance().addActivity(this);// 加入退出栈
-		mHomeKeyLocker = new HomeKeyLocker();
-		mHomeKeyLocker.lock(EndActivity.this);
+		ExitApplication.getInstance().addActivity(this);// 加入退出栈 
 		
 		Bundle bundle = this.getIntent().getExtras();
 		money = bundle.getString("currentMoney");
 
 		initViews();
 		initEvents();
-	}
-	protected void onDestroy() {
-		mHomeKeyLocker.unlock();
-		mHomeKeyLocker = null;
-		super.onDestroy();
-	}
+	} 
 	@Override
 	protected void initViews() {
-
-		new RefreshAsyncTask().execute();
+ 
 		tv_time = (TextView) findViewById(R.id.tv_time);
-		tv_time.setText(Constant.clockInTime);
+		tv_time.setText("From:"+Constant.clockInTime);
 
 		tv_name = (TextView) findViewById(R.id.tv_name);
 		tv_name.setText(Constant.currentStaff.getS_account());
@@ -106,17 +96,12 @@ public class EndActivity extends BaseActivity implements OnClickListener {
 	}
 
 	@Override
-	protected void initEvents() {
-		findViewById(R.id.goback).setOnClickListener(this);
+	protected void initEvents() { 
 		findViewById(R.id.endBtn).setOnClickListener(this);
 	}
 
 	@Override
-	public void onClick(View view) {
-		if (view.getId() == R.id.goback) {
-			startActivity(new Intent(this, MainActivity.class));
-		}
-
+	public void onClick(View view) { 
 		if (view.getId() == R.id.endBtn) {
 			//System.exit(0);
 			ExitApplication.getInstance().exit();
@@ -124,42 +109,5 @@ public class EndActivity extends BaseActivity implements OnClickListener {
 
 	}
 	
-	private class RefreshAsyncTask extends AsyncTask<String, Integer, String> {
-		// onPreExecute()方法用于在执行异步任务前,主线程做一些准备工作
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-		}
-
-		// doInBackground()方法用于在执行异步任务,不可以更改主线程中UI
-		@Override
-		protected String doInBackground(String... params) {
-			System.out.println("调用doInBackground()方法--->开始执行异步任务");
-			
-			cashiers = new JsonResolveUtils(EndActivity.this).getCashiers();
-			new sql_Cashier().delete();
-			if(cashiers.size()>0){
-				for(int i = 0 ; i < cashiers.size();i++){
-					new sql_Cashier().saveOnline(cashiers.get(i));
-				}
-				
-				new sql_Cashier().select();
-			}
-			return null;
-		}
-
-		// onPostExecute()方法用于异步任务执行完成后,在主线程中执行的操作
-		@Override
-		protected void onPostExecute(String result) {
-			super.onPostExecute(result);
-			System.out.println("调用onPostExecute()方法--->异步任务执行完毕");
-		}
-
-		// onCancelled()方法用于异步任务被取消时,在主线程中执行相关的操作
-		@Override
-		protected void onCancelled() {
-			super.onCancelled();
-			System.out.println("调用onCancelled()方法--->异步任务被取消");
-		}
-	}
+ 
 }

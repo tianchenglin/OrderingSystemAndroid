@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="#ebebeb"
+    android:clickable="true"
+    android:keepScreenOn="true"
+    android:orientation="vertical"
+    android:padding="5.0dip" >
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/ll_main"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/ll_main_1"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#bbbbbb"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="10dp" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:id="@+id/title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Name                         Price      Shared"
+                                android:textColor="@android:color/black"
+                                android:textSize="25sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <ListView
+                    android:id="@id/menu_list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="350dip"
+                    android:layout_weight="1.0"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@drawable/menu_split"
+                    android:footerDividersEnabled="false"
+                    android:headerDividersEnabled="false" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dip"
+                    android:layout_gravity="bottom"
+                    android:background="#ebebeb"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="#bbbbbb"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40.0dip"
+                        android:paddingTop="10dip" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="40dp"
+                            android:text="Total:"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/sum_total"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="40dp"
+                            android:text="$120.00"
+                            android:textColor="@color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40.0dip"
+                        android:paddingTop="10dip" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="40dp"
+                            android:text="Tips:"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/pay_bill_tips"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="40dp"
+                            android:text="$0.00"
+                            android:textColor="@color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40.0dip"
+                        android:paddingTop="10dip" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="40dp"
+                            android:text="Total+Tip:"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/totalAndTips"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="40dp"
+                            android:text="$130.00"
+                            android:textColor="@color/black" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40.0dip"
+                        android:background="#ebebeb"
+                        android:paddingTop="10dip" >
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dip"
+                android:scrollbars="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="50dp"
+                        android:layout_marginLeft="170dp"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="180dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/pay_bill_clearn"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="5dp"
+            android:background="@color/red"
+            android:text="Clear Table"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/pay_bill_cencal"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="5dp"
+            android:background="#29b6f6"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+</FrameLayout>

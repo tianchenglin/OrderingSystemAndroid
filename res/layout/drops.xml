@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/login_background"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:keepScreenOn="true" >
+    android:keepScreenOn="true"
+    android:orientation="vertical" >
 
-    <include layout="@layout/ok_top" />
+    <include layout="@layout/cashier_top" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,11 +15,28 @@
         android:gravity="center"
         android:orientation="vertical" >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Drops"
+                android:textColor="@android:color/black"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/drop_Money"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="238dp"
+            android:layout_height="57dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/white_bg"
             android:focusable="false"
             android:gravity="center"
@@ -38,8 +55,8 @@
 
             <Button
                 android:id="@+id/btn_one"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/yuanjiao"
@@ -49,8 +66,8 @@
 
             <Button
                 android:id="@+id/btn_two"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/yuanjiao"
@@ -60,8 +77,8 @@
 
             <Button
                 android:id="@+id/btn_three"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@color/white"
@@ -79,8 +96,8 @@
 
             <Button
                 android:id="@+id/btn_four"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/yuanjiao"
@@ -90,8 +107,8 @@
 
             <Button
                 android:id="@+id/btn_five"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@color/white"
@@ -101,8 +118,8 @@
 
             <Button
                 android:id="@+id/btn_six"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/yuanjiao"
@@ -120,8 +137,8 @@
 
             <Button
                 android:id="@+id/btn_seven"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/yuanjiao"
@@ -131,8 +148,8 @@
 
             <Button
                 android:id="@+id/btn_eight"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@color/white"
@@ -142,8 +159,8 @@
 
             <Button
                 android:id="@+id/btn_nine"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/yuanjiao"
@@ -161,8 +178,8 @@
 
             <Button
                 android:id="@+id/btn_dot"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/yuanjiao"
@@ -172,8 +189,8 @@
 
             <Button
                 android:id="@+id/btn_zero"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/yuanjiao"
@@ -183,8 +200,8 @@
 
             <Button
                 android:id="@+id/btn_clear"
-                android:layout_width="65dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/yuanjiao"
@@ -195,8 +212,8 @@
 
         <Button
             android:id="@+id/et_OK"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_width="193dp"
+            android:layout_height="51dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/yuanjiao"
             android:gravity="center"

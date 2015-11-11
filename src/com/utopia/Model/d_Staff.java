@@ -6,39 +6,19 @@ public class d_Staff {
 	private String s_name;
 	private String type_name;
 	private int priority;
-	private int color1 ;  // 存放桌面背景
-	private int color2 ; 
 
 	public d_Staff() {
 
 	}
 
 	public d_Staff(String s_account, String s_pwd, String s_name,
-			String type_name, int priority,int color1,int color2) {
+			String type_name, int priority) {
 		super();
 		this.s_account = s_account;
 		this.s_pwd = s_pwd;
 		this.s_name = s_name;
 		this.type_name = type_name;
 		this.priority = priority;
-		this.color1 = color1;
-		this.color2 =color2;
-	}
-
-	public int getColor() {
-		return color1;
-	}
-
-	public void setColor(int color) {
-		this.color1 = color;
-	}
-
-	public int getColor2() {
-		return color2;
-	}
-
-	public void setColor2(int color2) {
-		this.color2 = color2;
 	}
 
 	public String getS_account() {

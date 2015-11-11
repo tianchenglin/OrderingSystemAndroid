@@ -49,7 +49,7 @@ public class pop_open implements View.OnClickListener {
 				.findViewById(R.id.mtableCustomerTv));
 		this.localnum.setText(String.valueOf(this.i_num));
 		this.pdaId = ((TextView) localView.findViewById(R.id.pdaId));
-		this.pdaId.setText(Constant.currentStaff.getS_account());
+		this.pdaId.setText(Constant.currentStaff.getS_name());
 		((ImageButton) localView.findViewById(R.id.table_person_cut))
 				.setOnClickListener(this);
 		((ImageButton) localView.findViewById(R.id.table_person_add))

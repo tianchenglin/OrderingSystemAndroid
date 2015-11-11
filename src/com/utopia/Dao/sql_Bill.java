@@ -1,8 +1,12 @@
 package com.utopia.Dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase; 
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.utopia.Model.d_Bill;
 import com.utopia.utils.Constant;
@@ -32,11 +36,12 @@ public class sql_Bill {
 		Object[] arrayOfObject = new Object[8];
 		arrayOfObject[0] = localBill.getBillId();
 		arrayOfObject[1] = localBill.getWaiter();
-		arrayOfObject[2] = localBill.getSubtotal();
-		arrayOfObject[3] = localBill.getTotal();
-		arrayOfObject[4] = localBill.getTax();
-		arrayOfObject[5] = localBill.getDistant();
-		arrayOfObject[6] = DateUtils.getDateEN();
+		arrayOfObject[2] = localBill.getSubtotal();  
+		arrayOfObject[4] = localBill.getTax();  
+		arrayOfObject[3] = localBill.getTotal(); 
+		
+		arrayOfObject[5] = localBill.getDistant(); 
+		arrayOfObject[6] = DateUtils.getDateEN(); 
 		arrayOfObject[7] = localBill.getTip();
 		Cursor localCursor = this.db.rawQuery(
 				"select * from Bill where BillId='" + localBill.getBillId()
@@ -54,14 +59,15 @@ public class sql_Bill {
 					arrayOfObject);
 		}
 
+
 		// select();
 	}
 	
-	public void delete(){
+	public void clear_all(){
 		db.execSQL("delete from Bill");
 	}
 
-	public void saveOnline(d_Bill localBill) {
+	public void saveInit(d_Bill localBill) {
 		//db.rawQuery("delete from Bill", null);
 		Object[] arrayOfObject = new Object[8];
 		arrayOfObject[0] = localBill.getBillId();
@@ -90,7 +96,7 @@ public class sql_Bill {
 		String sum = "";
 		float s = (float) 0.00;
 		Cursor c = this.db.rawQuery(
-				"select sum(Total) from Bill where CreateTime>='"
+				"select sum(Total) from Bill where CreateTime >='"
 						+ Constant.clockInTime + "'", null);
 		if (c.moveToFirst()) {
 			s = c.getFloat(0);
@@ -137,10 +143,33 @@ public class sql_Bill {
 		Cursor c = db.rawQuery(
 				"select count(Tip) from Bill where CreateTime>='"
 						+ Constant.clockInTime + "'", null);
+
 		if (c.moveToFirst()) {
 			sum = c.getFloat(0);
 		}
-
+		c.close();
+		detail();
 		return Constant.decimalFormat.format(sum);
+	}
+	
+	public List<d_Bill> getTodayDetail() {
+		detail();
+		List<d_Bill> d_bill = new ArrayList<d_Bill>();
+		d_Bill d1;
+		Cursor c = db.rawQuery(
+				"select * from Bill WHERE strftime('%Y',CreateTime)== strftime('%Y','now') AND strftime('%m',CreateTime)== strftime('%m','now') AND strftime('%d',CreateTime)== strftime('%d','now') and Waiter=?",new String[]{ Constant.currentStaff.getS_name()});
+		while(c.moveToNext()){
+			d1 = new d_Bill("", "",c.getFloat(c.getColumnIndex("Subtotal")), c.getInt(c.getColumnIndex("Tax")),  c.getFloat(c.getColumnIndex("Total")), c.getString(c.getColumnIndex("CreateTime")),  c.getInt(c.getColumnIndex("Distant")),  c.getFloat(c.getColumnIndex("Tip")));
+			d_bill.add(d1);
+		}
+		c.close();
+		return d_bill;
+	}
+	
+	public void detail(){
+		Cursor c = db.rawQuery("select *from Bill ", null);
+		while(c.moveToNext()){
+			Log.e("tips", c.getString(c.getColumnIndex("CreateTime")));
+		}
 	}
 }

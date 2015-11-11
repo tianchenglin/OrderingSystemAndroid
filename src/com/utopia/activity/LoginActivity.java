@@ -6,30 +6,45 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message; 
+import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.utopia.Base.BaseActivity;
-import com.utopia.Dialog.pop_setpwd;
+import com.utopia.Dao.sql_Test;
 import com.utopia.Model.d_Area;
+import com.utopia.Model.d_Bill;
+import com.utopia.Model.d_Cashier;
+import com.utopia.Model.d_Contact;
 import com.utopia.Model.d_Desk;
 import com.utopia.Model.d_MenuType;
 import com.utopia.Model.d_Product;
+import com.utopia.Model.d_Sale;
 import com.utopia.Model.d_SaleRecord;
+import com.utopia.Model.d_Saleandpdt;
 import com.utopia.Model.d_Staff;
 import com.utopia.Model.d_Tax;
 import com.utopia.Service.UpdateManager;
+import com.utopia.activity.InternetBroadcastReceiver.NetworkChangeReceiver;
 import com.utopia.utils.Constant;
 import com.utopia.utils.DateUtils;
+import com.utopia.utils.ExitApplication;
 import com.utopia.utils.InitSql;
 import com.utopia.utils.JsonResolveUtils;
 import com.utopia.widget.MyDialog;
@@ -37,6 +52,9 @@ import com.utopia.widget.MyProgressView;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
+	private IntentFilter intentFilter;
+	private NetworkChangeReceiver networkChangeReceiver;
+	//private boolean connection_tag;
 	private int time = 0;
 	private InitSql initsql;
 
@@ -55,13 +73,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 	private TextView tv_title;
 	private TextView tv_content;
 	private MyDialog mBackDialog;
-
+   
 	private BluetoothAdapter mBtAdapter;
 	private StringBuilder pwd = new StringBuilder("");
 
 	public void onCreate(Bundle paramBundle) {
 		super.onCreate(paramBundle);
 		setContentView(R.layout.main);
+		ExitApplication.getInstance().addActivity(this);// 加入退出栈
 		mBtAdapter = BluetoothAdapter.getDefaultAdapter();
 		// If the adapter is null, then Bluetooth is not supported
 		if (!mBtAdapter.isEnabled()) {
@@ -69,24 +88,84 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 			Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivity(intent);
 		}
-
+		
+		//Log.i("tag",DateUtils.getDateEN().substring(11, 13)+"小时");
 		initEvents();
+		intentFilter=new IntentFilter();
+		intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+		networkChangeReceiver=new NetworkChangeReceiver();
+		registerReceiver(networkChangeReceiver,intentFilter);
 		// 后台读入
-		Constant.DATABASE_PATH = getApplicationContext().getFilesDir()
-				.getAbsolutePath();
-		new Constant().copy(this);
-		try {
-			Thread.sleep(500L);
-		} catch (InterruptedException localInterruptedException) {
-			localInterruptedException.printStackTrace();
+	//	Constant.DATABASE_PATH = getApplicationContext().getFilesDir()
+//				.getAbsolutePath();
+//		new Constant().copy(this);
+//		try {
+//			Thread.sleep(500L);
+//		} catch (InterruptedException localInterruptedException) {
+//			localInterruptedException.printStackTrace();
+//		}
+//
+	//	versionUpdate();
+//
+//		initsql = new InitSql();
+	//	update_All();
+		
+		
+	}
+public class NetworkChangeReceiver extends BroadcastReceiver{
+
+		
+		//public static boolean connection_tag=false;//网络连接的标志，连接为真
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			ConnectivityManager connectionManager= (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);  
+			NetworkInfo networkInfo=connectionManager.getActiveNetworkInfo();
+			if(networkInfo!=null && networkInfo.isConnectedOrConnecting()){
+				Constant.DATABASE_PATH = getApplicationContext().getFilesDir()
+						.getAbsolutePath();
+				new Constant().copy(LoginActivity.this);
+				try {
+					Thread.sleep(500L);
+				} catch (InterruptedException localInterruptedException) {
+					localInterruptedException.printStackTrace();
+				}
+
+				versionUpdate();
+
+				initsql = new InitSql();
+				update_All();
+				
+				Log.i("tag","有网络。。。。。");
+			}else{
+				AlertDialog.Builder dialogBuilder=new AlertDialog.Builder(context);
+				dialogBuilder.setTitle("Warning");
+				dialogBuilder.setMessage("network is unavailable");
+				dialogBuilder.setCancelable(false);
+				dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					
+						//ExitApplication.getInstance().exit();
+						LoginActivity.this.startActivity(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS)); 
+						
+					}
+				});
+				AlertDialog alertDialog=dialogBuilder.create();
+				alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+				alertDialog.show();
+				//connection_tag=false;
+			}
 		}
 
-		versionUpdate();
-
-		// initsql = new InitSql();
-		// update_All();
 	}
 
+@Override
+protected void onDestroy() {
+	// TODO Auto-generated method stub
+	super.onDestroy();
+	unregisterReceiver(networkChangeReceiver);
+}
 	private void versionUpdate() {
 		putAsyncTask(new AsyncTask<Void, Void, Boolean>() {
 			@Override
@@ -125,23 +204,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 			return;
 		}
 		if (paramView.getId() == R.id.loginBtn) {
-			login(); // 登陆 从后台得到数据
-			// update_All();
+			login(); // 登陆 从后台得到数
 			return;
 		}
 		if (paramView.getId() == R.id.but_set) {
-			new pop_setpwd(LoginActivity.this, paramView); // 改成英文
+			//new pop_setpwd(LoginActivity.this, paramView); // 改成英文
 			return;
 		}
-		if (paramView.getId() == R.id.but_test) {
+		/*if (paramView.getId() == R.id.but_test) {
 			mCurrentProgress = 0;
 			initToast();
 			return;
-		}
+		}*/
 
-		if (paramView.getId() == R.id.loginTrans) {
-			Intent i = new Intent(this, MainSpellActivity.class);
-			startActivity(i);
+		if (paramView.getId() == R.id.loginTrans) {/*
+													 * Intent i = new
+													 * Intent(this,
+													 * MainSpellActivity.class);
+													 * startActivity(i);
+													 */
 			return;
 		}
 
@@ -150,6 +231,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 					R.drawable.login_num2);
 			switch (paramView.getId()) {
 			case R.id.loginnum0:
+				//在pwd字符串后面加上后面括号里的字符串
 				pwd.append("0");
 				break;
 			case R.id.loginnum1:
@@ -183,20 +265,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 			time++;
 		}
 	}
-
+    // staffs进入的员工（包括经理）的信息
 	private List<d_Staff> staffs = new ArrayList<d_Staff>();
-	private int color1[] = new int[] {
-			R.drawable.desk_bg6, 
-			R.drawable.desk_bg7,
-			R.drawable.desk_bg8, 
-			R.drawable.desk_bg3, 
-			R.drawable.desk_bg4,
-			R.drawable.desk_bg5 };
 	
-	private int color2[] = new int[] {
-			R.drawable.badge_ifaux6, 
-			R.drawable.badge_ifaux7,
-			R.drawable.badge_ifaux8 };
 
 	private void login() {
 		if (pwd.toString().length() != 4) {
@@ -257,14 +328,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 					showCustomToast("Login password authentication failed !");
 				} else {
 					for (int i = 0; i < staffs.size(); i++) {
-						staffs.get(i).setColor(color1[i%6]);
-						staffs.get(i).setColor2(color2[i%3]);
 						if (Constant.currentStaff.getS_account().equals(
 								staffs.get(i).getS_account())) {
 							Constant.currentStaff = staffs.get(i);
 						}
 					}
-
 					if (Constant.currentStaff.getPriority() == 3) {// 厨师登录
 						LoginActivity.this.startActivity(new Intent(
 								LoginActivity.this, CookActivity.class));
@@ -294,44 +362,69 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
 			@Override
 			protected Boolean doInBackground(Void... params) {
-				try {
-					new InitSql().clearnAllData();
+			
+				String numbers1[] = new JsonResolveUtils(LoginActivity.this)
+						.getTest().split(",");
+				String numbers2[] = new sql_Test().getNumber().split(",");		
+				Log.i("tag","hhhhhhhhhhhhhhhhhh "+numbers1.length+" HHHHHHHHHHHHHHH");
+				for(int i=0;i<numbers1.length;i++){
+					Log.i("tag","numbers1 "+numbers1[i]);
+					Log.i("tag","numbers2 "+numbers2[i]);
+					
+				}
+				
+				try {//判断后台数据有没有更改
+					if (!numbers1[0].equals(numbers2[0])) {
+						new InitSql().clearnAllMenu();
+						// ////////////////////////////////////////
+						List<d_Product> menus = new JsonResolveUtils(
+								LoginActivity.this).getMenus();
+						for (int i = 0; i < menus.size(); i++) {
+							initsql.saveMenu(menus.get(i));
+							Thread.sleep(50);
+						}
+						Log.e("Menu", menus.size() + "");
+						//Log.i("tag")
+					}
 					// ////////////////////////////////////////
-					List<d_Product> menus = new JsonResolveUtils(
-							LoginActivity.this).getMenus();
-					// Log.e("Setting", menus.toString());
-
-					for (int i = 0; i < menus.size(); i++) {
-						initsql.saveMenu(menus.get(i));
-						Thread.sleep(50);
-					}
-
-					// ////////////////////////////////////////
-
-					List<d_Desk> desks = new JsonResolveUtils(
-							LoginActivity.this).getDesks("");
-					for (int i = 0; i < desks.size(); i++) {
-						initsql.saveDesk(desks.get(i));
-						Thread.sleep(50);
-					}
-
-					// /////////////////////////////////////////
-
-					List<d_Area> areas = new JsonResolveUtils(
-							LoginActivity.this).getAreas();
-					for (int i = 0; i < areas.size(); i++) {
-						initsql.saveArea(areas.get(i));
-						Thread.sleep(50);
+					if (!numbers1[1].equals(numbers2[1])) {
+						// 餐桌 。
+						new InitSql().clearnAllDesk();
+						List<d_Desk> desks = new JsonResolveUtils(
+								LoginActivity.this).getDesks("");
+						for (int i = 0; i < desks.size(); i++) {
+							initsql.saveDesk(desks.get(i));
+							Thread.sleep(50);
+						}
+						Log.e("desks", desks.size() + "");
 					}
 					// /////////////////////////////////////////
-
-					List<d_MenuType> menuTypes = new JsonResolveUtils(
-							LoginActivity.this).getMenuTypes();
-					for (int i = 0; i < menuTypes.size(); i++) {
-						initsql.saveMenuType(menuTypes.get(i));
-						Thread.sleep(50);
+					//后台数据到本地数据库Area表中
+					if (!numbers1[2].equals(numbers2[2])) {
+						new InitSql().clearnAllArea();
+						List<d_Area> areas = new JsonResolveUtils(
+								LoginActivity.this).getAreas();
+						for (int i = 0; i < areas.size(); i++) {
+							initsql.saveArea(areas.get(i));
+							Thread.sleep(50);
+							// Log.e("areas", areas.get(i).getAreaName()+"");
+						}
+						Log.e("areas", areas.size() + "");
 					}
-
+					// /////////////////////////////////////////
+					if (!numbers1[3].equals(numbers2[3])) {
+						new InitSql().clearnAllMenutype();
+						List<d_MenuType> menuTypes = new JsonResolveUtils(
+								LoginActivity.this).getMenuTypes();
+						for (int i = 0; i < menuTypes.size(); i++) {
+							// Log.e("menuTypes",
+							// menuTypes.get(i).getTypeId()+"");
+							initsql.saveMenuType(menuTypes.get(i));
+							Thread.sleep(50);
+						}
+						Log.e("menuTypes", menuTypes.size() + "");
+					}
+					
 					// 添加用户
 					/*
 					 * Thread.sleep(1000); List<d_Staff> staff = new
@@ -339,23 +432,78 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 					 * for(int i = 0; i < staff.size(); i++){
 					 * initsql.saveStaff(staff.get(i)); }
 					 */
-
-					List<d_Tax> taxs = new JsonResolveUtils(LoginActivity.this)
-							.getTax();
-					for (int i = 0; i < taxs.size(); i++) {
-						initsql.saveTax(taxs.get(i));
+					if (!numbers1[4].equals(numbers2[4])) {
+						new InitSql().clearnAllTax();
+						List<d_Tax> taxs = new JsonResolveUtils(
+								LoginActivity.this).getTax();
+						for (int i = 0; i < taxs.size(); i++) {
+							initsql.saveTax(taxs.get(i));
+							Thread.sleep(50);
+						}
+						Log.e("taxs", taxs.size() + "");
 					}
-
-					List<d_SaleRecord> saleRecords = new JsonResolveUtils(
-							LoginActivity.this).getSaleRecords();
-					for (int i = 0; i < saleRecords.size(); i++) {
-						initsql.saveSaleRecords(saleRecords.get(i));
+					////////更新销售记录SaleRecord////////////////////////
+					if (!numbers1[5].equals(numbers2[5])) {
+						new InitSql().clearnAllSaleRecord();
+						List<d_Sale> sales = new JsonResolveUtils(
+								LoginActivity.this).getSaleRecords();
+						for (int i = 0; i < sales.size(); i++) {
+							initsql.saveSaleRecords(sales.get(i));
+							Thread.sleep(50);
+						}
+						Log.e("saleRecords", sales.size() + "");
 					}
-					return true;
+					///////更新销售记录明细saleandpdt//////////////////
+					if(!numbers1[9].equals(numbers2[9])){
+						new InitSql().clearnAllSaleanddpt();
+						List<d_Saleandpdt> saleandpdt = new JsonResolveUtils(
+								LoginActivity.this).getSaleandpdt();
+						for (int i = 0; i < saleandpdt.size(); i++) {
+							initsql.saveSaleandpdt(saleandpdt.get(i));
+							Thread.sleep(50);
+						}
+						Log.e("saleandpdt", saleandpdt.size() + "");
+					}
+					// //////////////更新账单/////////////////
+					if (!numbers1[6].equals(numbers2[6])) {
+						new InitSql().clearnAllBill();
+						List<d_Bill> bills = new JsonResolveUtils(
+								LoginActivity.this).getBills();
+						for (int i = 0; i < bills.size(); i++) {
+							initsql.saveBill(bills.get(i));
+							// Log.e("Bill","Subtotal" +
+							// bills.get(i).getSubtotal()
+							// + "Tips" +bills.get(i).getTip() + "Trans" +
+							// bills.size());
+							Thread.sleep(50);
+						}
+						Log.e("bills", bills.size() + "");
+					}
+					// ////////////////////////////////////////
+					if (!numbers1[7].equals(numbers2[7])) {
+						new InitSql().clearnAllCashier();
+						List<d_Cashier> cashiers = new JsonResolveUtils(
+								LoginActivity.this).getCashiers();
+						for (int i = 0; i < cashiers.size(); i++) {
+							initsql.saveCashier(cashiers.get(i));
+						}
+						Log.e("cashiers", cashiers.size() + "");
+					}
+					// ////////////////////////////////////////
+					if (!numbers1[8].equals(numbers2[8])) {
+						new InitSql().clearnAllContact();
+						List<d_Contact> contacts = new JsonResolveUtils(
+								LoginActivity.this).getContacts();
+						for (int i = 0; i < contacts.size(); i++) {
+							initsql.saveContact(contacts.get(i));
+						}
+						Log.e("contacts", contacts.size() + "");
+					}
+		
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				return false;
+				return true;
 			}
 
 			@Override
@@ -363,7 +511,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 				super.onPostExecute(result);
 				dismissLoadingDialog();
 				if (!result) {
-					showCustomToast("update failed !");
+					showCustomToast("update failed ! Please Check the network connection!");
 				}
 			}
 		});

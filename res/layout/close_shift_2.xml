@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/login_background"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:keepScreenOn="true" >
 
-    <include layout="@layout/end_top" />
+    <include layout="@layout/cashier_top" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:gravity="right|center_vertical"
-                android:text="1223.34"
+                android:text="0.00"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
         </LinearLayout>
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:gravity="right|center_vertical"
-                android:text="1223.34"
+                android:text="0.00"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
         </LinearLayout>
@@ -169,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:gravity="right|center_vertical"
-                android:text="500.00"
+                android:text="0.00"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
         </LinearLayout>
@@ -253,7 +253,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:gravity="right|center_vertical"
-                android:text="30.66"
+                android:text="0.00"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
         </LinearLayout>
@@ -281,9 +281,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:gravity="right|center_vertical"
-                android:text="100.00"
+                android:text="0.00"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/endBtn"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" 
+                android:gravity="center"
+                android:text="END"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            
         </LinearLayout>
     </LinearLayout>
 

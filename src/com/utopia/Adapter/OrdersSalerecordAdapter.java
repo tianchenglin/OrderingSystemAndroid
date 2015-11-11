@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,15 +15,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.utopia.Dao.sql_SaleRecord;
 import com.utopia.Dialog.pop_discount;
-import com.utopia.Dialog.pop_order;
 import com.utopia.Model.d_SaleRecord;
 import com.utopia.activity.OrdersAcitvity;
 import com.utopia.activity.R;
@@ -38,9 +36,9 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 	public boolean mBusy = false;
 	public Cursor m_CallCursor;
 	private MyDialog mBackDialog;
-	DecimalFormat decimalFormat = new DecimalFormat("0.00");// 构造方法的字符格式这里如果小数不足2位,会以0补足.
-	d_SaleRecord locald_SaleRecord;
-
+	private DecimalFormat decimalFormat = new DecimalFormat("0.00");// 构造方法的字符格式这里如果小数不足2位,会以0补足.
+	private d_SaleRecord locald_SaleRecord;
+   // public float mDiscount=(float) 1.00;
 	// private LoadingDialog mLd ;
 	public OrdersSalerecordAdapter(Context paramContext, String desk_name) {
 		this.context = paramContext;
@@ -57,10 +55,11 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 
 	public void open() {
 		m_CallCursor = new sql_SaleRecord()
-				.recordlist3("select BILLID,ItemNo,PdtCODE,PdtName,number,Price,OtherSpecNo1,OtherSpecNo2,status,OtherSpec,tax , Discount from "
-						+ "SaleRecord  where desk_name='"
-						+ Constant.table_id
-						+ "'and status!='Finish'");
+				.recordlist3("select b.BillId,s1.itemNo,s2.pdtCode,s2.pdtName,s2.number,s2.price,s2.otherspec1,s2.otherspec2,s2.status1,s2.otherspec0,s1.tax , s1.rebate,s2.createTime1 from "
+						+ "SaleRecord as s1 join saleandpdt as s2 on s1.itemNo=s2.salerecordId" +
+						"  saleandpdt as s2 join Bill as b on s2.salerecordId=b.salerecordId" +
+						"  where deskName='"+ Constant.table_id
+						+ "'and s2.status1!='Finish'");
 	}
 
 	public void closedb() {
@@ -79,12 +78,28 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 
 	public Object getItem(int paramInt) {
 		return Integer.valueOf(paramInt);
+		
 	}
 
 	public long getItemId(int paramInt) {
 		return paramInt;
 	}
-
+    public float getDiscount(){
+    	float mdiscount=1;
+    	if(this.m_CallCursor.moveToPosition(0)){   
+    	     mdiscount=Float.valueOf(this.m_CallCursor.getString(this.m_CallCursor
+				.getColumnIndex("rebate"))).floatValue();
+    	}
+    	return mdiscount;
+    }
+    public String getCreateTime(){
+    	String mCreateTime="";
+    	if(this.m_CallCursor.moveToPosition(0)){
+    		mCreateTime=this.m_CallCursor.getString(m_CallCursor
+    				.getColumnIndex("createTime1"));
+    	}
+    	return mCreateTime;
+    }
 	public View getView(int paramInt, View paramView, ViewGroup paramViewGroup) {
 		locald_SaleRecord = new d_SaleRecord();
 		if (paramView == null) {
@@ -104,68 +119,71 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 					.findViewById(R.id.menu_qty));
 			localAppItem2.menu_status = ((TextView) localView
 					.findViewById(R.id.menu_status));
-			localAppItem2.menu_check = (CheckBox) localView
-					.findViewById(R.id.sendOrnot);
+			localAppItem2.notes = (TextView) localView.findViewById(R.id.order_note);
 			localAppItem2.menu_price = ((TextView) localView
 					.findViewById(R.id.menu_price));
-			localAppItem2.discount_text = (Button) localView
-					.findViewById(R.id.discount_text);
-			localAppItem2.menu_discount = ((Button) localView
-					.findViewById(R.id.menu_discount));
+			//localAppItem2.discount_text = (Button) localView.findViewById(R.id.discount_text);
+			//localAppItem2.menu_discount = ((Button) localView.findViewById(R.id.menu_discount));
 			localAppItem2.subtotal = ((TextView) localView
 					.findViewById(R.id.subtotal));
-
+             
 			localView.setTag(localAppItem2);
 			paramView = localView;
 		}
 		m_CallCursor.moveToPosition(paramInt);
-
-		locald_SaleRecord.setItemNo(m_CallCursor.getColumnIndex("ItemNo"));
+        
+		locald_SaleRecord.setItemNo(m_CallCursor.getColumnIndex("itemNo"));
 		locald_SaleRecord.setBILLID(this.m_CallCursor
-				.getString(this.m_CallCursor.getColumnIndex("BILLID")));
+				.getString(this.m_CallCursor.getColumnIndex("BillId")));
 		locald_SaleRecord.setPdtCODE(this.m_CallCursor
-				.getString(this.m_CallCursor.getColumnIndex("PdtCODE")));
+				.getString(this.m_CallCursor.getColumnIndex("pdtCode")));
 		locald_SaleRecord.setPdtName(this.m_CallCursor
-				.getString(this.m_CallCursor.getColumnIndex("PdtName")));
+				.getString(this.m_CallCursor.getColumnIndex("pdtName")));
 		locald_SaleRecord.setPrice(Float.valueOf(
 				this.m_CallCursor.getString(m_CallCursor
-						.getColumnIndex("Price"))).floatValue());
+						.getColumnIndex("price"))).floatValue());
 		locald_SaleRecord.setNumber((int) Float.valueOf(
 				this.m_CallCursor.getString(m_CallCursor
 						.getColumnIndex("number"))).floatValue());
 		locald_SaleRecord.setStatus(this.m_CallCursor
-				.getString(this.m_CallCursor.getColumnIndex("status")));
-
+				.getString(this.m_CallCursor.getColumnIndex("status1")));
+    
 		locald_SaleRecord.setDiscount(Float.valueOf(
 				this.m_CallCursor.getString(this.m_CallCursor
-						.getColumnIndex("Discount"))).floatValue());
+						.getColumnIndex("rebate"))).floatValue());
+		
 		locald_SaleRecord.setOtherSpec(this.m_CallCursor
-				.getString(this.m_CallCursor.getColumnIndex("OtherSpec")));
+				.getString(this.m_CallCursor.getColumnIndex("otherspec0")));
+		locald_SaleRecord.setOtherSpecNo1(this.m_CallCursor
+				.getString(this.m_CallCursor.getColumnIndex("otherspec1")));
+		locald_SaleRecord.setOtherSpecNo2(this.m_CallCursor
+				.getString(this.m_CallCursor.getColumnIndex("otherspec2")));
+		
+		locald_SaleRecord.setCreateTime(m_CallCursor.getString(m_CallCursor
+				.getColumnIndex("createTime1")));
 		locald_SaleRecord.setDesk_name(Constant.table_id);
 		final AppItem localAppItem1 = (AppItem) paramView.getTag();
 		localAppItem1.menu_name.setText(locald_SaleRecord.getPdtName());
 		BigDecimal bg = new BigDecimal(locald_SaleRecord.getPrice());
-
+	
 		localAppItem1.menu_price.setText(bg.setScale(2,
 				BigDecimal.ROUND_HALF_UP).toString());
 		localAppItem1.menu_qty.setText(String.valueOf(locald_SaleRecord
 				.getNumber()));
-		localAppItem1.menu_status.setText(locald_SaleRecord.getStatus());
-		localAppItem1.discount_text.setText(locald_SaleRecord.getDiscount()
-				+ "");
 
-		if (locald_SaleRecord.getStatus().equals("Done")) {
-			localAppItem1.menu_check.setEnabled(true);
-		}
-		if (locald_SaleRecord.getStatus().equals("Doned")) {
-			localAppItem1.menu_check.setChecked(true);
-		}
+		localAppItem1.menu_status.setText(locald_SaleRecord.getStatus());
+		//localAppItem1.discount_text.setText(locald_SaleRecord.getDiscount()
+			//	+ "");
+		// 如果状态是 Done ， check能点击
+		
 
 		// 更新总价
+//		localAppItem1.subtotal.setText(decimalFormat.format((locald_SaleRecord
+//				.getNumber() * locald_SaleRecord.getPrice() * locald_SaleRecord
+//				.getDiscount())));
 		localAppItem1.subtotal.setText(decimalFormat.format((locald_SaleRecord
-				.getNumber() * locald_SaleRecord.getPrice() * locald_SaleRecord
-				.getDiscount())));
-
+				.getNumber() * locald_SaleRecord.getPrice())));
+		localAppItem1.notes.setText("Size:"+locald_SaleRecord.getOtherSpecNo1()+" , Hotness:"+locald_SaleRecord.getOtherSpecNo2()+" ,Notes:"+locald_SaleRecord.getOtherSpec());
 		// 获得总价
 
 		Constant.sumTotal += locald_SaleRecord.getNumber()
@@ -175,30 +193,34 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 		Constant.sumTotal = bg.setScale(2, BigDecimal.ROUND_HALF_UP)
 				.floatValue();
 
-		localAppItem1.menu_discount.setTag(locald_SaleRecord);
-		localAppItem1.menu_discount.setOnClickListener(this);
-		;
-		localAppItem1.discount_text.setTag(locald_SaleRecord);
-		localAppItem1.discount_text.setOnClickListener(this);
-		localAppItem1.menu_delete.setTag(locald_SaleRecord);
-		localAppItem1.menu_delete.setOnClickListener(this);
+	//	localAppItem1.menu_discount.setTag(locald_SaleRecord);
+	//	localAppItem1.menu_discount.setOnClickListener(this);
+		
+	//	localAppItem1.discount_text.setTag(locald_SaleRecord);
+	//	localAppItem1.discount_text.setOnClickListener(this);
+	//	localAppItem1.menu_delete.setTag(locald_SaleRecord);
+	//	localAppItem1.menu_delete.setOnClickListener(this);
 		localAppItem1.menu_qty_add.setTag(locald_SaleRecord);
 		localAppItem1.menu_qty_sub.setTag(locald_SaleRecord);
 		localAppItem1.menu_qty_add.setOnClickListener(this);
 		localAppItem1.menu_qty_sub.setOnClickListener(this);
+       
+	//	localAppItem1.menu_check.setTag(locald_SaleRecord);
+		// check点击时 ，
+	/*	localAppItem1.menu_check.setOnClickListener(new OnClickListener() {
 
-		localAppItem1.menu_check.setTag(locald_SaleRecord);
-		localAppItem1.menu_check
-				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if (((CheckBox) arg0).isChecked()) {
+					d_SaleRecord sr = (d_SaleRecord) arg0.getTag();
+					localAppItem1.menu_check.setEnabled(false);
+					new RefreshAsyncTask().execute(sr);
+				}
 
-					@Override
-					public void onCheckedChanged(CompoundButton arg0,
-							boolean arg1) {
-						d_SaleRecord sr = (d_SaleRecord) arg0.getTag();
-						localAppItem1.menu_check.setEnabled(false);
-						new RefreshAsyncTask().execute(sr);
-					}
-				});
+			}
+		});*/
+	
 		return paramView;
 	}
 
@@ -222,12 +244,13 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 		protected Boolean doInBackground(d_SaleRecord... sr) {
 			boolean flag = false;
 			try {
-				new sql_SaleRecord().update("Doned", DateUtils.getDateEN(),
-						sr[0].getPdtName(), Constant.table_id);
+				new sql_SaleRecord().update1("Doned", DateUtils.getDateEN(),
+						sr[0].getPdtName(), Constant.table_id,
+						sr[0].getBILLID() + "", sr[0].getPdtCODE(),
+						sr[0].getCreateTime());
 				sr[0].setStatus("Doned");
-				flag = new JsonResolveUtils(context).setSaleRecordFinish(sr);
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
+				flag = new JsonResolveUtils(context).setSaleRecordFinish(sr[0]);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			return flag;
@@ -246,7 +269,7 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 				// mLd.dismiss();
 				// }
 
-				showCustomToast("send status successed !");
+				showCustomToast("send status successed test!");
 			}
 			// notifyDataSetChanged();
 		}
@@ -257,7 +280,7 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 		switch (paramView.getId()) {
 
 		case R.id.menu_edit:
-			new pop_order(context, paramView, true);
+			//new pop_order(context, paramView, true);
 			break;
 		case R.id.menu_delete:
 			if ((((d_SaleRecord) paramView.getTag()).getStatus()
@@ -274,7 +297,7 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 				new sql_SaleRecord().update_numac(
 						(d_SaleRecord) paramView.getTag(), 1.0F);
 				((OrdersAcitvity) context).Refresh();
-			}else{
+			} else {
 				showCustomToast("Prohibit operating");
 			}
 
@@ -285,17 +308,17 @@ public class OrdersSalerecordAdapter extends BaseAdapter implements
 				new sql_SaleRecord().update_numac(
 						(d_SaleRecord) paramView.getTag(), -1.0F);
 				((OrdersAcitvity) context).Refresh();
-			}else{
+			} else {
 				showCustomToast("Prohibit operating");
 			}
-			
+
 			break;
 
-		case R.id.discount_text:
+		/* case R.id.discount:
 
 			new pop_discount(context, paramView,
 					((d_SaleRecord) paramView.getTag()));
-			break;
+			break;*/
 
 		}
 	}

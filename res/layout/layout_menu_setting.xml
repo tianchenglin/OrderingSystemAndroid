@@ -6,26 +6,26 @@
     android:orientation="vertical" >
 
     <RelativeLayout
+        android:id="@+id/drops"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/drops"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="#780a00"
             android:text="Drops"
+            android:textColor="@color/white"
             android:textSize="17sp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/menu_split_left" />
-
     </RelativeLayout>
 
     <ImageView
@@ -34,6 +34,7 @@
         android:src="@drawable/menu_split" />
 
     <RelativeLayout
+        android:id="@+id/pay_out"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -46,12 +47,12 @@
             android:src="@drawable/menu_split_left" />
 
         <TextView
-            android:id="@+id/pay_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="Pay Out"
+            android:textColor="@color/white"
             android:textSize="17sp" />
     </RelativeLayout>
 
@@ -61,6 +62,7 @@
         android:src="@drawable/menu_split" />
 
     <RelativeLayout
+        android:id="@+id/purchase"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -73,12 +75,12 @@
             android:src="@drawable/menu_split_left" />
 
         <TextView
-            android:id="@+id/personal_report"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Personal Report"
+            android:text="Purchase"
+            android:textColor="@color/white"
             android:textSize="17sp" />
     </RelativeLayout>
 
@@ -88,6 +90,7 @@
         android:src="@drawable/menu_split" />
 
     <RelativeLayout
+        android:id="@+id/personal_report"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -100,12 +103,43 @@
             android:src="@drawable/menu_split_left" />
 
         <TextView
-            android:id="@+id/clock_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Clock Out"
+            android:text="Personal Daily Report"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_split" />
+
+    
+ 
+    <RelativeLayout
+        android:id="@+id/close_shift"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#780a00"
+        android:orientation="horizontal"
+        android:textColor="@color/white" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/menu_split_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Close Shift"
+            android:textColor="@color/white"
             android:textSize="17sp" />
     </RelativeLayout>
 

@@ -95,7 +95,7 @@ public class PayBillAdapter extends BaseAdapter implements
 
 	public void open() {
 		this.m_CallCursor = new sql_SaleRecord()
-				.recordlist3("select * from SaleRecord where desk_name = '"+ desk_name+"' and status='Doned'");
+				.recordlist3("select * from SaleRecord as s1 join saleandpdt as s2 on s1.itemNo=s2.salerecordId where s1.deskName = '"+ desk_name+"' and s2.status1!='Finish'");
 	}
 
 	public void update_foodnum() {

@@ -140,7 +140,10 @@ public class CheckBillAdapter extends BaseAdapter implements
 
 	public void open() {
 		this.m_CallCursor = new sql_SaleRecord()
-				.recordlist3("select a.BILLID,a.ItemNo,a.PdtCODE,a.PdtName,a.Price,a.number,a.status,a.OtherSpec from SaleRecord as a left JOIN Product as b ON a.PdtCode=b.PdtCode order by a.ItemNo");
+				.recordlist3("select c.BillId,s2.salerecordId,s2.pdtCode,s2.pdtName,s2.price,s2.number,s2.status1,s2.otherspec0" +
+						" from saleandpdt as s2 left JOIN Product as b ON s2.pdtCode=b.PdtCode " +
+						" saleandpdt as s2 join Bill as c on s2.salerecordId=c.salerecordId " +
+						" order by s2.salerecordId");
 	}
 
 	public void scroll(AbsListView paramAbsListView, int paramInt) {

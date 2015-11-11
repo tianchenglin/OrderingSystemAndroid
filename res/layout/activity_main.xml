@@ -13,10 +13,9 @@
         android:layout_below="@id/titleBar" >
 
         <include
-            android:layout_width="wrap_content"
             layout="@layout/layout_menu" />
 
-        <RelativeLayout
+        <RelativeLayout 
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@color/bg"
@@ -29,15 +28,15 @@
                 android:numColumns="7" />
         </RelativeLayout>
     </com.utopia.widget.SlideMenu>
-    
+
     <LinearLayout
         android:id="@+id/llayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
+        android:gravity="bottom"
         android:orientation="horizontal" >
 
         <ImageView
@@ -45,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:clickable="true"
-			android:paddingLeft="15dp"
+            android:paddingLeft="15dp"
             android:src="@drawable/current" />
 
         <ImageView
@@ -53,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:clickable="true"
-			android:paddingLeft="15dp"
+            android:paddingLeft="15dp"
             android:src="@drawable/notcurrent" />
 
         <ImageView
@@ -61,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:clickable="true"
-			android:paddingLeft="15dp"
+            android:paddingLeft="15dp"
             android:src="@drawable/notcurrent" />
 
         <ImageView
@@ -69,7 +68,39 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:clickable="true"
-			android:paddingLeft="15dp"
+            android:paddingLeft="15dp"
+            android:src="@drawable/notcurrent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:paddingLeft="15dp"
+            android:src="@drawable/notcurrent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:paddingLeft="15dp"
+            android:src="@drawable/notcurrent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:paddingLeft="15dp"
+            android:src="@drawable/notcurrent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:paddingLeft="15dp"
             android:src="@drawable/notcurrent" />
     </LinearLayout>
 

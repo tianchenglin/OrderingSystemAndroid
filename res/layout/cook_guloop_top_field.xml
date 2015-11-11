@@ -17,7 +17,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="NAME / DESCRIPTION" />
+            android:text="NAME / DESCRIPTION"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -32,7 +35,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="QTY" />
+            android:text="QTY"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -46,7 +52,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="SIZE" />
+            android:text="SIZE"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -59,7 +68,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="HOTNESS" />
+            android:text="HOTNESS"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -73,7 +85,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="NOTE" />
+            android:text="NOTE"
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </RelativeLayout>
     
     <RelativeLayout
@@ -87,7 +102,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="CreateTime" />
+            android:text="CreateTime" 
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
     </RelativeLayout>
     
     <RelativeLayout
@@ -101,6 +119,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Done" />
+            android:text="Done" 
+            android:textColor="#750000"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
     </RelativeLayout>
 </LinearLayout>

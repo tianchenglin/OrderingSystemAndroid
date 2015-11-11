@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="@drawable/choose_drawer_bg"
+    android:padding="20dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please choose your drawer"
+        android:textColor="#97DA00"
+        android:textSize="25sp"/>
+    <ListView
+        android:layout_marginTop="30dp"
+        android:id="@+id/drawer_list"
+        android:layout_width="400dp"
+        android:layout_height="200dp"/>
+    
+
+</LinearLayout>

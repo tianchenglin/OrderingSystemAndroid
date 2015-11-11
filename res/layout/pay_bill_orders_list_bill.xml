@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ff0000"
+    android:clickable="false" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dip" >
+
+        <TextView
+            android:id="@+id/qty_item"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dish_item"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dish_price"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:minLines="1"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/bt_delete_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:background="@drawable/sub_item"  />
+        
+    </LinearLayout>
+
+</RelativeLayout>

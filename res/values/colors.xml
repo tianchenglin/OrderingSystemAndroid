@@ -19,4 +19,6 @@
     <color name="ring_color">#14b9d6</color>
     <color name="text_color">#ff434343</color>
     <color name="bg">#E6EBE2</color>
+    <color name="red">#ff0000</color>
+    <color name="orange">#FFF79E</color>
 </resources>

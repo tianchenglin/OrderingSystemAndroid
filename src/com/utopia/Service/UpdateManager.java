@@ -11,6 +11,7 @@ import java.net.URL;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -280,5 +281,11 @@ public class UpdateManager
 		Intent i = new Intent(Intent.ACTION_VIEW);
 		i.setDataAndType(Uri.parse("file://" + apkfile.toString()), "application/vnd.android.package-archive");
 		mContext.startActivity(i);
+		
+/*		Intent intent = new Intent(Intent.ACTION_MAIN);
+		intent.addCategory(Intent.CATEGORY_LAUNCHER);            
+		ComponentName cn = new ComponentName("com.utopia.activity", "com.utopia.activity.LoginActivity");            
+		intent.setComponent(cn);
+		mContext.startActivity(intent);*/
 	}
 }

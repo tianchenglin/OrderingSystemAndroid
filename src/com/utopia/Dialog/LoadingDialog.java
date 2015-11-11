@@ -22,7 +22,7 @@ public class LoadingDialog extends BaseDialog {
 
 	private void init() {
 		setContentView(R.layout.flipping_loading_diloag);
-		setCanceledOnTouchOutside(false);					//禁用框外点击
+		setCanceledOnTouchOutside(false);	//禁用框外点击
 		mFivIcon = (FlippingImageView) findViewById(R.id.loadingdialog_fiv_icon);
 		mHtvText = (MyTextView) findViewById(R.id.loadingdialog_htv_text);
 		mFivIcon.startAnimation();
