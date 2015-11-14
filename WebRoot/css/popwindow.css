@@ -1,0 +1,68 @@
+html,body{font-size:12px;margin:0px;height:100%;z-index:100;}
+.mesWindow{border:#666 1px solid;background:#fff;border-radius:5px;z-index:100;}
+.mesWindowTop{border-bottom:#eee 1px solid;margin-left:4px;padding:3px; font-weight:bold;text-align:center;font-size:18px; color:#686868;}
+.mesWindowContent{margin:4px;font-size:12px;border-bottom:#eee 1px solid; color:#686868;}
+.mesWindowBottom{ text-align:center; margin:10px auto;}
+.mesWindowBottom a{ margin-right:25px; margin-left:25px;}
+.mesWindow .close{height:15px;width:28px;border:none;cursor:pointer;text-decoration:underline;background:#fff}
+
+ .container{
+   width : 200px;
+   height : 150px;
+}
+.container div{
+   width : 50px;
+   height : 50px;
+   float:left;
+}
+.color1 {
+  background-color : #1faaf1;
+}
+.color2 {
+  background-color : #77ff77;
+}
+.color3 {
+  background-color : #ff0f11;
+}
+.color4 {
+  background-color : #9ffff9;
+}
+.color5 {
+  background-color : #Fe07f9;
+}
+.color6 {
+  background-color : #6eeff0;
+}
+.color7 {
+  background-color : #Fe11aF;
+}
+.color8 {
+  background-color : #FeF100;
+}
+.color9 {
+  background-color : #aaF1af;
+}
+#target{
+  	height: 100px;
+	width: 120px;
+	border: 0px;
+	border-radius: 20px;
+	color: #EEEEEE;
+	text-align: center;
+	font-size: 30px;
+}
+
+#target p {
+	line-height: 100px;
+}
+#target:after {
+	content: "UPLODE";
+	color: #5DACD3;
+	font-size: 15px;
+	font-weight: bold;
+	position: relative;
+	top: 8px;
+}
+#back{
+	z-index:2;
+}

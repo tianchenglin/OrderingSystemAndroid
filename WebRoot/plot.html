@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/mjqplot.js"></script>
+<script type="text/javascript" src="js/jqplot.js"></script>
+
+<script src="js/jqplot.pieRenderer.min.js"></script>
+<script src="js/jqplot.donutRenderer.min.js"></script>
+
+<script type="text/javascript">
+var s1 = [3,6,8,1,10,22,4,20,6];
+var x = [1,2,3,4,5,6,7]; //定义X轴刻度值
+$(document).ready(function() {
+	$.ajax({
+		url : "salerecordAction!GetSevenTransactions",
+		data : {},
+		type : "get",
+		dataType : "jsonp",
+		jsonp : "jsoncallback",
+		jsonpCallback : "success_jsonpCallback",
+		async : false,
+		success : function(data) {
+			for(var i=0;i<7;i++){
+				if(data[i].collected=="undefined"||data[i].collected==""||data[i].collected==null){
+					s1[i]=0.00;
+				}
+				else{
+					s1[i]=(parseFloat(data[i].collected)).toFixed(2);
+				}
+				x[i]=(data[i].date).substr(5,(data[i].date).length);
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("error");
+		}
+	});
+	
+	var bz1 = [3,6,8,1,10,22,4];
+	var bz2 = [3,6,8,1,10,22,4];
+	$.ajax({
+		url : "salerecordAction!GetBZ",
+		data : {},
+		type : "get",
+		dataType : "jsonp",
+		jsonp : "jsoncallback",
+		jsonpCallback : "success_jsonpCallback",
+		async : false,
+		success : function(data) {
+			for(var i=0;i<7;i++){
+				if((data.result)[i].cashTotal=="undefined"||(data.result)[i].cashTotal==""||(data.result)[i].cashTotal==null){
+					bz1[i]=0.00;
+				}
+				else{
+					bz1[i]=(parseFloat((data.result)[i].cashTotal)).toFixed(2);
+				}
+				
+				if((data.result)[i].cardTotal=="undefined"||(data.result)[i].cardTotal==""||(data.result)[i].cardTotal==null){
+					bz2[i]=0.00;
+				}
+				else{
+					bz2[i]=(parseFloat((data.result)[i].cardTotal)).toFixed(2);
+				}
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("error");
+		}
+	});
+	var summary = eval(s1.join('+'));
+	var max=s1[1];
+	for(var i=0;i<s1.length;i++){
+		if(s1[i]>max)
+			max=s1[i];
+	} 
+	var data_max = (parseFloat(max)+parseFloat(100)).toFixed(2); //Y轴最大刻度
+	var line_title = ['销售量']; //曲线名称
+	var y_label = ""; //Y轴标题
+	var x_label = ""; //X轴标题
+	
+	var title = summary+" Transactions total"; //统计图标标题
+	j.jqplot.diagram.base("chart1", [s1], line_title, title, x, x_label, y_label, data_max);
+	
+	var s2 = [[['Today', parseFloat(bz1[0])], ['Total-Today', parseFloat(bz2[0])]]];
+	j.jqplot.diagram.bing("chart2",s1[0]+' Today',s2);
+	$('#chart1').bind('jqplotDataClick', function (ev, seriesIndex, pointIndex, data) { 
+		document.getElementById('chart2').innerHTML='';
+        s2 = [[['Today', parseFloat(bz1[pointIndex])], ['Total-Today', parseFloat(bz2[pointIndex])]]];
+		j.jqplot.diagram.bing("chart2",data[1]+' Today',s2);
+    }); 
+});
+</script>
+
+</head>
+<body style="width:900px">
+    <center>
+            <div id="chart1" style="width:500px;height:300px;float:left;"></div>
+            <div id="chart2" style="width:300px; height:300px; float:left"></div>
+    </center>
+</body>
+</html>
+

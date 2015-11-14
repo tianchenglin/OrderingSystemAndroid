@@ -1,0 +1,15 @@
+﻿@charset "utf-8";/* CSS Document */
+body,div,address,blockquote,iframe,ul,ol,dl,dt,dd,li,h1,h2,h3,h4,h5,h6,p,pre,table,caption,th,td,form,legend,fieldset,input,button,select,textarea{margin:0;padding:0;font-weight:normal;font-family:inherit}
+ol,ul,li{list-style:none;}
+img{margin:0;padding:0;border:none}
+table{border-collapse:collapse;}
+.cls{clear:both;}
+.notxt{text-indent:-9999px;}
+body{font-size:14px;font-family:Tahoma;font-family:Arial, Hel,Microsoft YaHei;text-align:center;}
+a{color:#8f8f8f;text-decoration:none;outline:none;blr:expression(this.onFocus=this.blur());}
+a:hover{color:#000000;}
+i { font-style:normal;}
+.nav {width:450px;margin:0 auto; position:relative; }
+.nav  ul li {float:left;padding:0 20px;text-align:center;height:40px;line-height:40px;}
+.curBg { background:#757575;height:3px;position:absolute;bottom:0;width:68px;left:0px;}
+.navBg { background:#eaeaea;height:3px;position:absolute;bottom:0;width:94%;left:0px;}

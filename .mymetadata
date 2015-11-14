@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Backoffice"
+  id="myeclipse.1343891106767"
+  context-root="/Backoffice"
+  j2ee-spec="5.0"
+  archive="Backoffice.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

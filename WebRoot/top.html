@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+
+<title>Backoffice GUI</title>
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<link href="css/buttonstyle.css" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function qiehuan(num){
+		for(var id = 2;id<=7;id++)
+		{
+			if(id==num)
+			{
+				document.getElementById("qh_con"+id).style.display="block";
+				document.getElementById("mynav"+id).className="nav_on";
+			}
+			else
+			{
+				document.getElementById("qh_con"+id).style.display="none";
+				document.getElementById("mynav"+id).className="";
+			}
+		}
+	}
+	function jump(targeFrame){
+		window.parent.jumpTop(targeFrame);
+		if(targeFrame=="Staff.html"){
+			qiehuan(5);
+		}
+		if(targeFrame=="Customers.html"){
+			qiehuan(6);
+		}
+	}
+
+	function create(){
+		window.parent.create(getCookie("currentFrame").split('.')[0]);
+	}
+	
+	function getCookie(name){ 
+		var strCookie=document.cookie; 
+		var arrCookie=strCookie.split("; "); 
+		for(var i=0;i<arrCookie.length;i++){ 
+			var arr=arrCookie[i].split("="); 
+			if(arr[0]==name)return arr[1]; 
+		} 
+		return ""; 
+	} 
+</script>
+</head>
+<body>
+
+	<div id="menu_out">
+		<div id="menu_in">
+			<div id="menu">
+				<UL id="nav">
+					<li><a href="#" id="mynav1" class="nav_off"><span>&nbsp;&nbsp;&nbsp;</span>
+					</a>
+					</li>
+
+					<li><a href="#" class="nav_off"><span>myGuloop</span>
+					</a>
+					</li>
+
+					<li><a href="#" id="mynav1" class="nav_off"><span></span>
+					</a>
+					</li>
+
+					<li><a href="#" onclick="javascript:qiehuan(2)" id="mynav2"
+						class="nav_off"><span>SALES</span>
+					</a>
+					</li>
+
+					<li><a href="#" onclick="javascript:qiehuan(3)" id="mynav3"
+						class="nav_off"><span>COURSES</span>
+					</a>
+					</li>
+
+					<li><a href="#" onclick="javascript:qiehuan(4)" id="mynav4"
+						class="nav_off"><span>INVENTORY</span>
+					</a>
+					</li>
+
+					<li><a href="#" onClick="jump('Staff.html')" id="mynav5"
+						class="nav_off"><span>STAFF</span>
+					</a>
+					</li>
+
+					<li><a href="#" onclick="jump('Customers.html')" id="mynav6"
+						class="nav_off"><span> CUSTOMERS</span>
+					</a>
+					</li>
+
+					<li><a href="#" onclick="javascript:qiehuan(7)" id="mynav7"
+						class="nav_off"><span>LAYOUT</span>
+					</a>
+					</li>
+
+					<li><a href="#" id="mynav8" class="nav_off"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					</a>
+					</li>
+
+				</UL>
+
+				<img id="face" src="images/face.JPG" />
+
+				<div style="height: 45px;"></div>
+				<div id="menu_con">
+					<div id="qh_con0" style="DISPLAY: none"></div>
+					<div id="qh_con1" style="DISPLAY: none"></div>
+					<div id="qh_con2" style="DISPLAY: none">
+						<UL>
+							<LI><a href="#" onClick="jump('reports.html')"><span>Reports</span>
+							</A>
+							</LI>
+							<LI class="menu_line2"></LI>
+							<LI><A href="#" onClick="jump('Transactions.html')"><SPAN>Transactions</SPAN>
+							</A>
+							</LI>
+							<LI class="menu_line2"></LI>
+						</UL>
+					</div>
+
+					<div id="qh_con3" style="DISPLAY: none">
+						<UL>
+							<LI><a href="#" onClick="jump('Library.jsp')"><span>Library</span>
+							</A>
+							</LI>
+							<LI class="menu_line2"></LI>
+							<LI><A href="#" onClick="jump('Categories.jsp')"><SPAN>Categories</SPAN>
+							</A>
+							</LI>
+							<LI class="menu_line2"></LI>
+							<LI><A href="#" onClick="jump('modifiers.jsp')"><SPAN>Modifiers</SPAN>
+							</A>
+							</LI>
+							<LI class="menu_line2"></LI>
+							<LI><A href="#" onClick="jump('Tags.jsp')"><SPAN>Tags</SPAN>
+							</A>
+							</LI>
+							<LI class="menu_line2"></LI>
+							<LI><A href="#" onClick="jump('Taxes.jsp')"><SPAN>Taxes</SPAN>
+							</A>
+							</LI>
+							<LI class="menu_line2"></LI>
+							<LI><A href="#" onClick="jump('Discounts.jsp')"><SPAN>Discounts</SPAN>
+							</A>
+							</LI>
+						</UL>
+						<!-- <div id="face" style="margin-right:200px;">
+							<a href="#" class="button blue medium" onClick="create();">Create</a>
+						</div> -->
+					</div>
+					<div id="qh_con4" style="DISPLAY: none"></div>
+					<div id="qh_con5" style="DISPLAY: none">
+					</div>
+					<div id="qh_con6" style="DISPLAY: none"></div>
+					<div id="qh_con7" style="DISPLAY: none"></div>
+					<div id="qh_con8" style="DISPLAY: none"></div>
+					<div id="qh_con9" style="DISPLAY: none"></div>
+				</div>
+			</div>
+		</div>
+		<div></div>
+		<script type="text/javascript" src="js/myjs.js"></script>
+</body>
+</html>

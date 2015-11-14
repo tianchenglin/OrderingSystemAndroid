@@ -1,0 +1,10 @@
+*{ margin:0; padding:0; }
+html{ height:100%; width:100%; overflow:hidden;}
+/*p{ padding:10px 0; }*/
+body{ min-height:100%; font-family:arial; position:relative; }
+body.sideMenu{ margin:0; -webkit-transform:none; transform:none; }
+#sideToggle{ display:none; }
+#sideToggle:checked + aside{ right:0;}
+#sideToggle:checked ~ #wrap{ padding-right:720px;}
+body > aside{ position:absolute; top:0; bottom:0; right:-700px; width:700px; background-color: #F8F8F8;/*background:#f1103a;*/ transition:0.2s ease-out; -webkit-transition:0.2s ease-out; }
+#wrap{ margin-left:20px; padding:10px; transition:0.25s ease-out; -webkit-transition:0.25s ease-out; }

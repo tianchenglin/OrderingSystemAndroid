@@ -1,0 +1,102 @@
+body, ul, li, h1, h2, h3, h4, h5, h6, p {
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul { 
+	list-style: none; 
+}
+
+img { 
+	border-style: none; 
+}
+
+.box_father {
+	width: 960px;
+	margin: 30px auto;
+}
+
+.box {
+	width:960px; 
+	margin:0 auto; 
+	background:#F1F1F1; 
+	border-top: 2px solid #C4C4C4;
+	clear: both;
+}
+
+.box h2 {
+	font-size: 16px;
+	font-weight: bold;	
+}
+
+.box .box_img {
+	height: 35px;
+	float: left;
+}
+
+.box .box_time {
+	width: 802px;
+	float: left;
+	height: 35px; 
+	line-height: 35px;
+}
+
+.box .box_price {
+	height: 35px; 
+	line-height: 35px;
+}
+
+.text {
+	font-size: 16px;
+	clear: both;
+	width: 960px;
+	background-color: white;
+	display:none;
+	
+}
+
+.text_img {
+	height: 35px;
+	width: 92px;
+	float: left;
+	margin-top: 2px;
+}
+
+.text_time {
+	width: 100px;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	margin-top: 2px;
+	background-color: white;
+}
+
+.text_staff {
+	width: 130px;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	margin-top: 2px;
+	background-color: white;
+}
+
+.text_kind {
+	width: 555px;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	margin-top: 2px;
+	background-color: white;
+}
+
+.text_price {
+	width: 83px;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	margin-top: 2px;
+	background-color: white;
+	text-align: center;
+}

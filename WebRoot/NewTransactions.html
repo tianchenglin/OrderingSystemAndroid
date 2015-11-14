@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" href="css/test.css" type="text/css"/>
+		<link rel="stylesheet" href="css/mystyle.css" type="text/css" />
+		<link href="css/xxd2.css" rel="stylesheet" type="text/css" />
+		<link href="css/cebianlan.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="css/popwindow.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+		<style type="text/css">
+			.list_box {
+				width: 100%;
+			}
+			.list_box_item .name {
+				width: 500px;
+				text-align: left;
+				font-weight: normal;
+			}
+			.list_box_item .category {
+				width: 12%;
+				text-align: left;
+				font-weight: normal;
+			}
+			.list_box_item .modifier {
+				width: 12%;
+				text-align: left;
+				font-weight: normal;
+			}
+			.list_box_item .price {
+				width: 10%;
+				text-align: left;
+				font-weight: normal;
+			}
+			#popbox {
+				position: absolute;
+				width: 400px;
+				right: 5%;
+				top: 30%;
+				margin: 0 auto;
+				margin: -50px 0 0 -50px;
+				display: none;
+				background: #666666;
+				border: 1px solid #898989;
+				z-index: 9999;
+			}
+			#popbox1 {
+				position: absolute;
+				width: 400px;
+				right: 5%;
+				top: 30%;
+				margin: 0 auto;
+				margin: -50px 0 0 -50px;
+				display: none;
+				background: #666666;
+				border: 1px solid #898989;
+				z-index: 9999;
+			}
+			.menu_body {
+				width: 400px;
+			}
+			.menu_list {
+				top: 25px;
+			}
+			.select select {
+				height: 35px;
+				line-height: 35px;
+				font-size: 17px;
+				font-weight: normal;
+				border-radius: 5px;
+				width: 215px;
+			}
+			.drp-popup{
+				margin-left: 0px;
+			}
+			.jiantou{
+				width:20px;
+				cursor:pointer;
+			}
+			.selectStyle{
+				width:70px;
+				boeder:0px;
+			}
+			.detail tr{
+				text-align:left;
+				font-size:15px
+			}
+			.detail tr td{
+				padding-left:20px;
+			}
+		</style>
+		<link rel="stylesheet" href="css/tipso.min.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script src="js/tipso.min.js"></script>
+		<script type="text/javascript">
+		    var sum=0;
+			$(function() {
+	           $("#checkAll").click(function() {
+	           		if($(this).attr("checked")=="checked"){
+	           			sum=localStorage.checkboxLength;
+	           			$('input[name="checkbox"]').attr("checked",this.checked);
+	           			$('input[name="checkbox"]').parent().parent('.list_box_item').css("background","#E8F7FF");
+	           		}
+	                else{
+	                	sum=0;
+	                	$('input[name="checkbox"]').attr("checked",this.checked);
+	           			$('input[name="checkbox"]').parent().parent('.list_box_item').css("background","#fff");
+	                }
+	                
+	            });   
+	        });
+	        
+	        function CheckedBox(t){
+	           	if(t.checked==true){
+	           		t.parentNode.parentNode.style.background="#E8F7FF";
+	           		sum++;
+	           		if(sum==localStorage.checkboxLength){
+	           			document.getElementById("checkAll").checked=true;
+	           		}
+	           	}
+	           	else{
+	           		t.parentNode.parentNode.style.background="#fff";
+	           		sum--;
+	           		if(sum<=localStorage.checkboxLength){
+	           			document.getElementById("checkAll").checked=false;
+	           		}
+	           	}
+	        }
+		</script>
+	</head>
+
+	<body onload="OnloadTransaction()">
+		<!-- <input type='checkbox' id='sideToggle' /> -->
+		<div id='wrap' style="width:1350px; z-index:2;">
+			<div class="content">
+				<div class="con_top">
+					<!--选框-->
+					<div style="float:left">
+						<select id="selectdays" class='custom-date' name='select'>
+				            <option selected='selected' value='1'>Today</option>
+				            <option value='0'>Yesterday</option>
+				            <option value='-1'>This Week</option>
+				            <option value='-2'>Last Week</option>
+				            <option value='-3'>This Month</option>
+				            <option value="-4">Last Month</option>
+				            <option value='custom'>Custom</option>
+				        </select>
+				        <button class="exportbtn" onclick="ExportExcel() ">EXPORT</button>
+				    </div>
+				    <div class="total">
+						<label>TOTAL:
+							<div id="tipTotal">1,971.22</div>
+							<div id="collectedTotal">2,283.22</div>
+							<div id="dueTotal">322.0</div>
+						</label>
+					</div>
+				</div>
+				<div class="con_middle">
+					<div id="excel" class="list" style="position: relative;top: 20px;">
+						<div class="list_box" id="style-default" style="overflow:hidden; height:40px;">
+							<!--里面的标题-->
+							<div class="list_box_item" style="background:#f1f1f1;">
+								<div class="checkbox"><!-- onclick="ChangeCheckAll(this)" -->
+									<input id="checkAll" type="checkbox" />
+								</div>
+								<div class="checkbox"></div>
+								<div class="date" style="font-weight: bold;color: #088BCD;">Date and Time
+									<img onclick="ChangeDateSort(this)" class="jiantou" src="images/jiantou_bottom_blue.png" >
+								</div>
+								<div class="staff" style="font-weight: bold;">
+									<select id="staffList" onchange="GetTransactionByStaff()" class="selectStyle">
+										<option selected="selected">Staff</option>
+									</select>
+									<img onclick="ChangeStaffSort(this)" class="jiantou" src="images/jiantou_bottom_blue.png" >
+								</div>
+								<div class="payment" style="font-weight: bold;">
+									<select id="paymentList" onchange="GetTransactionByPayment()" class="selectStyle">
+										<option>Payment</option>
+									</select>
+									<img onclick="ChangePaymentSort(this)" class="jiantou" src="images/jiantou_bottom_blue.png" >
+								</div>
+								<div class="dept" style="font-weight: bold;">
+									<select id="deptList"  onchange="GetTransactionByDept()" class="selectStyle">
+										<option>Dept</option>
+									</select>
+									<img onclick="ChangeDeptSort(this)" class="jiantou" src="images/jiantou_bottom_blue.png" >
+								</div>
+								<div class="tip" style="font-weight: bold;padding-right: 25px;">Tip</div>
+								<div class="collected" style="font-weight: bold;">Collected</div>
+								<div class="due" style="font-weight: bold;">Due</div>
+							</div>
+						</div>
+						<div id="test" class="list_box" >
+							<div id="transactionsList">
+								
+							</div>
+							<!--里面的列表1-->
+							<!-- <label for='sideToggle'>
+								<div class="list_box_item">
+									<div class="checkbox">
+										<input name="checkbox" type="checkbox" />
+									</div>
+									<div class="checkbox">
+										<img src="images/infor.png" />
+									</div>
+									<div class="date">03/25/15 14:34</div>
+									<div class="staff" style="padding-left: 15px;">001</div>
+									<div class="payment" style="padding-left: 10px;">Visa</div>
+									<div class="dept" style="padding-left: 15px;">Dine-In</div>
+									<div class="tip">14.50</div>
+									<div class="collected" style="">50.00</div>
+									<div class="due" style="">35.50</div>
+								</div>
+							</label>
+							<label for='sideToggle'>
+								<div class="list_box_item">
+									<div class="checkbox">
+										<input name="checkbox" type="checkbox" />
+									</div>
+									<div class="checkbox">
+										<img src="images/infor.png" />
+									</div>
+									<div class="date">03/25/15 14:34</div>
+									<div class="staff" style="padding-left: 15px;">001</div>
+									<div class="payment" style="padding-left: 10px;">Visa</div>
+									<div class="dept" style="padding-left: 15px;">Dine-In</div>
+									<div class="tip">14.50</div>
+									<div class="collected" style="">50.00</div>
+									<div class="due" style="">35.50</div>
+								</div>
+							</label>
+							<label for='sideToggle'>
+								<div class="list_box_item">
+									<div class="checkbox">
+										<input name="checkbox" type="checkbox" />
+									</div>
+									<div class="checkbox">
+										<img src="images/infor.png" />
+									</div>
+									<div class="date">03/25/15 14:34</div>
+									<div class="staff" style="padding-left: 15px;">001</div>
+									<div class="payment" style="padding-left: 10px;">Visa</div>
+									<div class="dept" style="padding-left: 15px;">Dine-In</div>
+									<div class="tip">14.50</div>
+									<div class="collected" style="">50.00</div>
+									<div class="due" style="">35.50</div>
+								</div>
+							</label>
+							<label for='sideToggle'>
+								<div class="list_box_item">
+									<div class="checkbox">
+										<input name="checkbox" type="checkbox" />
+									</div>
+									<div class="checkbox">
+										<img src="images/infor.png" />
+									</div>
+									<div class="date">03/25/15 14:34</div>
+									<div class="staff" style="padding-left: 15px;">001</div>
+									<div class="payment" style="padding-left: 10px;">Visa</div>
+									<div class="dept" style="padding-left: 15px;">Dine-In</div>
+									<div class="tip">14.50</div>
+									<div class="collected" style="">50.00</div>
+									<div class="due" style="">35.50</div>
+								</div>
+							</label> -->
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+	<script src="js/myjs.js"></script>
+    <script src="js/index.js"></script>
+   <!--  <script type="text/javascript" src="js/JQ.js"></script>
+	<script type="text/javascript" src="js/zzsc.js"></script> -->
+	</body>
+
+</html>

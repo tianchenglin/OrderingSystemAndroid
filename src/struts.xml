@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="Error"></constant>
+	<package name="utopia" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor-stack name="imageValidate">
+				<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">
+						image/jpg,image/pjpeg,image/gif
+					</param>
+					<param name="maximumSize">100000</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 登录验证模块 -->
+		<action name="loginAction" class="com.utopia84.actioin.LoginAction">
+			<result name="loginSuccess">index.jsp</result>
+			<result name="loginFailed">loginFailed.jsp</result>
+		</action>
+		<!-- 折扣管理模块 -->
+		<action name="discountAction" class="com.utopia84.actioin.DiscountAction">
+			<result name="AddSuccess" type="redirectAction">
+				<param name="actionName">discountAction</param>
+			</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">discountAction</param>
+			</result>
+			<result name="InitPage">Discounts.jsp</result>
+		</action>
+		<!-- 菜谱管理模块 -->
+		<action name="libraryAction" class="com.utopia84.actioin.LibraryAction">
+			<result name="InitPage">Library.jsp</result>
+			<result name="CrateSuccess" type="redirectAction">
+				<param name="actionName">libraryAction</param>
+			</result>
+		</action>
+		<!-- 价格管理模块 -->
+		<action name="sizeandpriceAction" class="com.utopia84.actioin.SizeandpriceAction"></action>
+		<!-- modifi管理模块 -->
+		<action name="itemAndModiAction" class="com.utopia84.actioin.ItemAndModiAction">
+			<result name="Success" type="redirectAction">
+				<param name="actionName">modifierAction</param>
+			</result>
+		</action>
+		<!-- tax管理模块 -->
+		<action name="ItemAndTaxAction" class="com.utopia84.actioin.ItemAndTaxAction">
+			<result name="Success" type="redirectAction">
+				<param name="actionName">taxesAction</param>
+			</result>
+		</action>
+		<action name="ItemAndTagAction" class="com.utopia84.actioin.ItemAndTagAction">
+			<result name="Success" type="redirectAction">
+				<param name="actionName">tagsAction</param>
+			</result>
+		</action>
+		<action name="ItemAndMenutypeAction" class="com.utopia84.actioin.ItemAndMenutypeAction">
+			<result name="Success" type="redirectAction">
+				<param name="actionName">menutypeAction</param>
+			</result>
+		</action>
+		<!-- 标签管理模块 -->
+		<action name="tagsAction" class="com.utopia84.actioin.TagsAction">
+			<result name="InitPage">Tags.jsp</result>
+			<result name="AddSuccess" type="redirectAction">
+				<param name="actionName">tagsAction</param>
+			</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">tagsAction</param>
+			</result>
+		</action>
+		<!--税收模块 -->
+		<action name="taxesAction" class="com.utopia84.actioin.TaxesAction">
+			<result name="AddSuccess" type="redirectAction">
+				<param name="actionName">taxesAction</param>
+			</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">taxesAction</param>
+			</result>
+			<result name="InitPage">Taxes.jsp</result>
+		</action>
+
+		<!-- 类别管理模块 -->
+		<action name="menutypeAction" class="com.utopia84.actioin.MenutypeAction">
+			<result name="InitPage">Categories.jsp</result>
+			<result name="AddSuccess" type="redirectAction">
+				<param name="actionName">menutypeAction</param>
+			</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">menutypeAction</param>
+			</result>
+		</action>
+
+		<!--修饰模块 -->
+		<action name="modifierAction" class="com.utopia84.actioin.ModifierAction">
+			<result name="AddSuccess" type="redirectAction">
+				<param name="actionName">modifierAction</param>
+			</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">modifierAction</param>
+			</result>
+			<result name="InitPage">modifiers.jsp</result>
+		</action>
+		<action name="ModiAndOptionsAction" class="com.utopia84.actioin.ModiAndOptionsAction"></action>
+
+		<!--交易记录模块-->
+		<action name="salerecordAction" class="com.utopia84.actioin.SalerecordAction">
+			<result name="AddSuccess" type="redirectAction">
+				<param name="actionName">salerecordAction</param>
+			</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">salerecordAction</param>
+			</result>
+		</action>
+		
+		<!--员工模块-->
+		<action name="staffAction" class="com.utopia84.actioin.StaffAction">
+			<result name="AddSuccess" type="redirectAction">
+				<param name="actionName">staffAction</param>
+			</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">staffAction</param>
+			</result>
+		</action>
+		
+		<!--顾客模块-->
+		<action name="contactAction" class="com.utopia84.actioin.ContactAction">
+			<result name="AddSuccess" type="redirectAction">
+				<param name="actionName">contactAction</param>
+			</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">contactAction</param>
+			</result>
+		</action>
+
+		<!-- PAD端接口 -->
+		<action name="SetSaleRecordFinish" class="server.phone.servlet.SetSaleRecordFinishServlet"
+			method="doPost"></action>
+		<action name="VersionUpdateServlet" class="server.phone.servlet.VersionUpdateServlet"
+			method="doGet"></action>
+		<action name="GetCashiers" class="server.phone.servlet.GetCashiersServlet"
+			method="doGet"></action>
+		<action name="SetChangeMoney" class="server.phone.servlet.SetChangeMoneyServlet"
+			method="doPost"></action>
+		<action name="SetInitMoney" class="server.phone.servlet.SetInitMoneyServlet"
+			method="doPost"></action>
+		<action name="GetBill" class="server.phone.servlet.GetBillServlet"
+			method="doGet"></action>
+		<action name="SetBill" class="server.phone.servlet.SetBillServlet"
+			method="doPost"></action>
+		<action name="GetSaleRecordDone" class="server.phone.servlet.GetSaleRecordDoneServlet"
+			method="doGet"></action>
+		<action name="SetSaleRecordDone" class="server.phone.servlet.SetSaleRecordDoneServlet"
+			method="doPost"></action>
+		<action name="GetTax" class="server.phone.servlet.GetTaxServlet"
+			method="doGet"></action>
+		<action name="SetSaleRecord" class="server.phone.servlet.SetSaleRecordServlet"
+			method="doPost"></action>
+		<action name="GetSaleRecord" class="server.phone.servlet.GetSaleRecordServlet"
+			method="doPost"></action>
+		<action name="Test" class="server.phone.servlet.TestServlet"
+			method="doGet"></action>
+		<action name="GetAreas" class="server.phone.servlet.GetAreaServlet"
+			method="doGet"></action>
+		<action name="GetDesks" class="server.phone.servlet.GetDeskServlet"
+			method="doPost"></action>
+		<action name="SetDesk" class="server.phone.servlet.SetDeskServlet"
+			method="doGet"></action>
+		<action name="GetMenuTypes" class="server.phone.servlet.GetMenuTypeServlet"
+			method="doGet"></action>
+		<action name="GetStaff" class="server.phone.servlet.GetStaffServlet"
+			method="doGet"></action>
+		<action name="GetMenus" class="server.phone.servlet.GetMenusServlet"
+			method="doGet"></action>
+		<action name="UserLogin" class="server.phone.servlet.LoginServlet"
+			method="doGet"></action>
+		<action name="AddUser" class="server.phone.servlet.AddUserServlet"
+			method="doPost"></action>
+		<action name="Logout" class="server.phone.servlet.LogoutServlet"
+			method="doGet"></action>
+	</package>
+</struts>
+	

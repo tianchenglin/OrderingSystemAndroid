@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file-systems VERSION="2.0.0" application-name="MultimediaServer"
+ model-entity="FileSystems" workspace-home="./WebRoot/WEB-INF">
+ <file-system NAME="WEB-INF" location="%workspace.home%" model-entity="FileSystemFolder"/>
+ <file-system NAME="WEB-ROOT" info="Content-Type=Web"
+  location="%workspace.home%/.." model-entity="FileSystemFolder"/>
+ <file-system NAME="src" location="%workspace.home%/../../src" model-entity="FileSystemFolder"/>
+ <file-system NAME="lib" location="%workspace.home%/lib" model-entity="FileSystemFolder"/>
+ <file-system NAME="classes" location="%workspace.home%/classes" model-entity="FileSystemFolder"/>
+ <file-system NAME="MultimediaServer" location="%eclipse.project%" model-entity="FileSystemFolder"/>
+ <file-system NAME="lib-javaee.jar"
+  location="D:\Myeclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_5\javaee.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jsf-impl.jar"
+  location="D:\Myeclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_5\jsf-impl.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jsf-api.jar"
+  location="D:\Myeclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_5\jsf-api.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jstl-1.2.jar"
+  location="D:\Myeclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_5\jstl-1.2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-AXMLPrinter.jar"
+  location="E:\Backoffice\WebRoot\WEB-INF\lib\AXMLPrinter.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-beanutils-1.7.0.jar"
+  location="E:\Backoffice\WebRoot\WEB-INF\lib\commons-beanutils-1.7.0.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-collections-3.1.jar"
+  location="E:\Backoffice\WebRoot\WEB-INF\lib\commons-collections-3.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-lang-2.3.jar"
+  location="E:\Backoffice\WebRoot\WEB-INF\lib\commons-lang-2.3.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-logging.jar"
+  location="E:\Backoffice\WebRoot\WEB-INF\lib\commons-logging.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-ezmorph-1.0.6.jar"
+  location="E:\Backoffice\WebRoot\WEB-INF\lib\ezmorph-1.0.6.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-json-lib-2.1.jar"
+  location="E:\Backoffice\WebRoot\WEB-INF\lib\json-lib-2.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-junit.jar"
+  location="E:\Backoffice\WebRoot\WEB-INF\lib\junit.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-mysql-connector-java-5.1.6-bin.jar"
+  location="E:\Backoffice\WebRoot\WEB-INF\lib\mysql-connector-java-5.1.6-bin.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-cglib-2.2.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\bytecode\cglib\cglib-2.2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javassist-3.9.0.GA.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\bytecode\javassist\javassist-3.9.0.GA.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-antlr-2.7.6.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.2\lib\antlr-2.7.6.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-hibernate3.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\hibernate3.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jta-1.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\required\jta-1.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-ehcache-1.2.3.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.2\lib\ehcache-1.2.3.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-slf4j-api-1.5.8.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\required\slf4j-api-1.5.8.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-slf4j-log4j12-1.5.8.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\required\slf4j-log4j12-1.5.8.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-log4j-1.2.14.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\required\log4j-1.2.14.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-dom4j-1.6.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.1\lib\dom4j-1.6.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-c3p0-0.9.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\c3p0\c3p0-0.9.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jboss-cache-1.4.1.GA.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\jbosscache\jboss-cache-1.4.1.GA.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jbosscache-core-3.1.0.GA.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\jbosscache2\jbosscache-core-3.1.0.GA.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-oscache-2.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\oscache\oscache-2.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-proxool-0.8.3.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\proxool\proxool-0.8.3.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-swarmcache-1.0RC2.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\swarmcache\swarmcache-1.0RC2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-hibernate-annotations.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\entitymanager\hibernate-annotations.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-hibernate-commons-annotations.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\entitymanager\hibernate-commons-annotations.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-hibernate-entitymanager.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\entitymanager\hibernate-entitymanager.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-hibernate-validator.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\hibernate-validator.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-ejb3-persistence.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\entitymanager\ejb3-persistence.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-antlr-2.7.2.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\antlr-2.7.2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-aopalliance-1.0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\aopalliance-1.0.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-classworlds-1.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\classworlds-1.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-chain-1.2.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\commons-chain-1.2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-collections-3.2.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\commons-collections-3.2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-digester-2.0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\commons-digester-2.0.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-fileupload-1.2.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\commons-fileupload-1.2.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-io-1.3.2.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\commons-io-1.3.2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-logging-1.0.4.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\commons-logging-1.0.4.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-logging-api-1.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\commons-logging-api-1.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-validator-1.3.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\commons-validator-1.3.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-freemarker-2.3.16.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\freemarker-2.3.16.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-json-lib-2.1-jdk15.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\json-lib-2.1-jdk15.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-ognl-3.0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\ognl-3.0.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-oro-2.0.8.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\oro-2.0.8.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-sslext-1.2-0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\sslext-1.2-0.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-struts2-embeddedjsp-plugin-2.2.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\struts2-embeddedjsp-plugin-2.2.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-struts2-convention-plugin-2.2.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\struts2-convention-plugin-2.2.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-struts2-json-plugin-2.2.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\struts2-json-plugin-2.2.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-struts2-core-2.2.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\struts2-core-2.2.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-xwork-core-2.2.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\xwork-core-2.2.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javassist-3.7.ga.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\core\javassist-3.7.ga.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-spring-beans-2.5.6.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\spring\spring-beans-2.5.6.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-spring-context-2.5.6.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\spring\spring-context-2.5.6.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-spring-core-2.5.6.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\spring\spring-core-2.5.6.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-spring-web-2.5.6.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\spring\spring-web-2.5.6.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-struts2-spring-plugin-2.2.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\99\1\.cp\data\2.1\spring\struts2-spring-plugin-2.2.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jersey-json-1.0.3.1.jar"
+  location="D:\Myeclipse\Common\plugins\com.genuitec.eclipse.ws_9.0.0.me201108091322\lib\jersey\1.0\jersey-json-1.0.3.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jettison-1.0.1.jar"
+  location="D:\Myeclipse\Common\plugins\com.genuitec.eclipse.ws_9.0.0.me201108091322\lib\jersey\1.0\jettison-1.0.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.core-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\core\org.springframework.core-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.context-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\core\org.springframework.context-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.beans-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\core\org.springframework.beans-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.asm-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\core\org.springframework.asm-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-com.springsource.org.apache.log4j-1.2.15.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\core\com.springsource.org.apache.log4j-1.2.15.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-com.springsource.org.apache.commons.logging-1.1.1.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\core\com.springsource.org.apache.commons.logging-1.1.1.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-org.springframework.expression-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\core\org.springframework.expression-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.aop-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\aop\org.springframework.aop-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-com.springsource.org.aopalliance-1.0.0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\aop\com.springsource.org.aopalliance-1.0.0.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-com.springsource.org.aspectj.weaver-1.6.8.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\aop\com.springsource.org.aspectj.weaver-1.6.8.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-com.springsource.net.sf.cglib-2.2.0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\aop\com.springsource.net.sf.cglib-2.2.0.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.aspects-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\aop\org.springframework.aspects-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-org.springframework.instrument-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\aop\org.springframework.instrument-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-org.springframework.instrument.tomcat-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\aop\org.springframework.instrument.tomcat-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-persistence.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistCore\persistence.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.jdbc-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistCore\org.springframework.jdbc-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.orm-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistCore\org.springframework.orm-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-org.springframework.transaction-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistCore\org.springframework.transaction-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-com.springsource.com.mchange.v2.c3p0-0.9.1.2.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistJdbc\com.springsource.com.mchange.v2.c3p0-0.9.1.2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-dbcp.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistJdbc\commons-dbcp.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-com.springsource.org.apache.commons.pool-1.5.3.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistJdbc\com.springsource.org.apache.commons.pool-1.5.3.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jotm.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistJdbc\jotm.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-xapool.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistJdbc\xapool.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-com.springsource.org.apache.commons.lang-2.4.0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\persistJdbc\com.springsource.org.apache.commons.lang-2.4.0.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.web-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\web\org.springframework.web-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-com.springsource.org.apache.commons.fileupload-1.2.0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\web\com.springsource.org.apache.commons.fileupload-1.2.0.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-com.springsource.org.apache.commons.httpclient-3.1.0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\web\com.springsource.org.apache.commons.httpclient-3.1.0.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-com.springsource.org.codehaus.jackson.mapper-1.0.0.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\web\com.springsource.org.codehaus.jackson.mapper-1.0.0.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-org.springframework.oxm-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\web\org.springframework.oxm-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-org.springframework.web.servlet-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\web\org.springframework.web.servlet-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-org.springframework.web.portlet-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\web\org.springframework.web.portlet-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system
+  NAME="lib-org.springframework.web.struts-3.0.5.RELEASE.jar"
+  location="D:\Myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\98\1\.cp\data\3.0\lib\web\org.springframework.web.struts-3.0.5.RELEASE.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jxl.jar" location="E:\Backoffice\lib\jxl.jar" model-entity="FileSystemJar"/>
+ <web SERVLET_VERSION="2.4" model-entity="JstWeb" model-path="/web.xml">
+  <module URI="/WEB-INF/faces-config.xml" model-entity="WebJSFModule"
+   model-path="/faces-config.xml" src="src" web-root="WEB-ROOT"/>
+ </web>
+</file-systems>

@@ -1,0 +1,194 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+#wraps {
+	background: #F8F8F8;
+	margin: 0 auto;
+	width: 960px;
+}
+#head {
+	width: 100%;
+	height: 10px;
+}
+#mainbody {
+	width: 100%;
+	overflow: hidden;
+}
+#footer {
+	background: #EAEAEA;
+	height: 60px;
+	margin-top: 60px ;
+}
+.body_1 {
+	height: 50px;
+	margin-left: 40px;
+}
+.left {
+	width: 20%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #6A687C;
+	float: left;
+	
+}
+.right {
+	width: 30%;
+	height: 50px;
+	float: left;
+}
+.input {
+	width: 100%;
+	height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #6A687C;
+}
+.body_2 {
+	height: 50px;
+	margin: 10px 0 0 40px;
+}
+.body_3 {
+	height: 200px;
+	margin: 0 0 0 40px;
+}
+.body_4 {
+	height: 20px;
+	margin: 10px 0 0 40px;
+}
+.opt_name {
+	height: 50px;
+	line-height: 50px;
+	width: 20%;
+	font-size: 20px;
+	font-weight: bold;
+	color: #6A687C;
+	float: left;
+	
+}
+.select {
+	width: 30%;
+	height: 50px;
+	line-height: 50px;
+	float: left;
+}
+.select_font {
+	font-size: 20px;
+	font-weight: bold;
+	color: #6A687C;
+	margin-right: 20px;
+}
+.delete {
+	margin-right: 150px
+}
+.footer_1 {
+	width: 20%;
+	height: 50px;
+	line-height: 50px;
+	float: left;
+	margin: 20px;
+}
+.footer_2 {
+	width: 50%;
+	height: 50px;
+	line-height: 50px;
+	float: left;
+}
+.pad {
+	width: 20%;
+	height: 45px;
+	float: left;
+}
+.delimage {
+	margin: 10px 0;
+}
+.option {
+	width: 64%;
+	font-size: 20px;
+	font-weight: bold;
+	color: #6A687C;
+	float: left;
+	
+}
+.subimage {
+	float: left;
+	height: 45px;
+	width: 20%;
+}
+.subtract {
+	margin-top: 10px;
+}
+.button {
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+*display: inline;
+	padding: .5em 2em .55em;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: 0.5em;
+	background: #088ACD;
+	font: bold;
+	font-size: 15px;
+	color: #FFF;
+	margin: 5px 0;
+}
+.button_1 {
+	width: 40px;
+}
+
+.list_boxs{
+	width:80%;
+	}
+.list_box_items{
+	width:80%;
+	height:45px;
+	background:#fff;
+	border-bottom: 2px solid #CECECE;
+	float:left;
+	}
+.list_box_items .names{
+	width:20%;
+	height: 45px;
+	line-height: 45px;
+	float: left;
+	margin-left:33px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #6A687C;
+	}
+
+.list_box_items .discountes {
+	width: 20%;
+	height: 45px;
+	line-height: 45px;
+	float:right;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #6A687C;	
+}
+
+.list_box_items .newoption{
+	width:20%;
+	height: 45px;
+	line-height: 45px;
+	float: left;
+	margin-left:33px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #E3E3E3;
+	}
+.list_box_items .newmoney {
+	width: 20%;
+	height: 45px;
+	line-height: 45px;
+	float:right;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #E3E3E3;	
+}
+
+
+

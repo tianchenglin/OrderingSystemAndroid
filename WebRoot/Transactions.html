@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/test.css" type="text/css"/>
+
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+<script type="text/javascript" src="js/JQ.js"></script>
+<script type="text/javascript" src="js/zzsc.js"></script>
+
+<script type="text/javascript">
+	function setcur(){
+		document.getElementById("title1").className="";
+		document.getElementById("title3").className="";
+		document.getElementById("title4").className="";
+		document.getElementById("title5").className="";
+		document.getElementById("title2").className="";
+	}
+function setIframe(tarmain)
+{
+	setcur();
+	switch(tarmain){
+		case 1: 
+			document.getElementById("title1").className="cur";
+			var f=document.getElementById("newframe");
+		    f.src="plot.html";
+			break;
+		case 2: 
+			document.getElementById("title2").className="cur";
+			break;
+		case 3: 
+			document.getElementById("title3").className="cur";
+			break;
+		case 4: 
+			document.getElementById("title4").className="cur";
+			break;
+		case 5: 
+			document.getElementById("title5").className="cur";
+			break;	
+	}
+}
+</script>
+</head>
+<body>
+<!-- <div id='wrapper'>
+	<div style="text-align:center;">
+        <img src="images/left.png" style="width:20px; height:20px; margin-bottom:-5px;"/>
+        <select class='custom-date' name='select'>
+            <option selected='selected' value='1'>Today</option>
+            <option value='0'>Yesterday</option>
+            <option value='-1'>This Week</option>
+            <option value='-2'>Last Week</option>
+            <option value='-3'>This Month</option>
+            <option value="-4">Last Month</option>
+            <option value='custom'>Custom</option>
+        </select>
+        <img src="images/right.png" style="width:20px; height:20px; margin-bottom:-5px;"/>
+    </div>
+</div> -->
+	<iframe src="NewTransactions.html" frameborder="0"  name="relnews" id="newframe" scrolling="no" style="width:100%; height:80%; "></iframe>
+	<script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

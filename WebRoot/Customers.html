@@ -1,0 +1,208 @@
+﻿<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/mystyle.css" type="text/css" />
+<link href="css/xxd2.css" rel="stylesheet" type="text/css" />
+<link href="css/cebianlan.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/popwindow.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="css/buttonstyle.css" media="screen" type="text/css" />
+<script type="text/javascript" src="js/popwindow.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<style type="text/css">
+.list_box {
+	width: 100%;
+}
+
+.list_box_item .name {
+	width: 250px;
+	text-align: left;
+	font-weight: normal;
+}
+
+.list_box_item .category {
+	width: 12%;
+	text-align: left;
+	font-weight: normal;
+}
+
+.list_box_item .modifier {
+	width: 12%;
+	text-align: left;
+	font-weight: normal;
+}
+
+.list_box_item .price {
+	width: 10%;
+	text-align: left;
+	font-weight: normal;
+}
+
+#popbox {
+	position: absolute;
+	width: 400px;
+	right: 5%;
+	top: 30%;
+	margin: 0 auto;
+	margin: -50px 0 0 -50px;
+	display: none;
+	background: #666666;
+	border: 1px solid #898989;
+	z-index: 9999;
+}
+
+#popbox1 {
+	position: absolute;
+	width: 400px;
+	right: 5%;
+	top: 30%;
+	margin: 0 auto;
+	margin: -50px 0 0 -50px;
+	display: none;
+	background: #666666;
+	border: 1px solid #898989;
+	z-index: 9999;
+}
+
+.menu_body {
+	width: 400px;
+}
+
+.menu_list {
+	top: 25px;
+}
+.r_box{
+	margin: 30px 20px;
+}
+.r_box p{
+    font-size: 20px;
+    font-weight: bold;
+}
+.r_box p span {
+	width: 120px;
+    display: block;
+    float: left;
+}
+.r_box input,.r_box select{
+	width: 350px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 17px;
+    font-weight: bold;
+    border: 2px solid #CECECE;
+    border-radius: 5px;
+    color: #606060;
+    background-color: white;
+    padding-left:15px
+}
+.button{
+	width: 50px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 13px;
+}
+.r_box p .important {
+    float: right;
+    line-height: 40px;
+    position: relative;
+    left: 20px;
+}
+</style>
+</head>
+
+<body onload="LoadPage()">
+	<input type='checkbox' id='sideToggle'>
+	
+	<!--右边侧滑栏开始-->
+	<aside id="aside" class="aside" style=" z-index:1;">
+		<input type='hidden' value='0' id='customersId' /><!-- hidden为了保存属性值 -->
+		<div class="content">
+			<div class="r_content">
+				<div class="r_box">
+					<p><span>Name</span><input id="customersName" type="text" value="" /><span class="important" id="importName">*</span>
+					</p>
+				</div>
+				<div class="r_box">
+					<p><span>Phone</span><input id="customersPhone" type="text" value="" /><span class="important" id="importPhone">*</span>
+					</p>
+				</div>
+				<div class="r_box">
+					<p><span>City</span><input id="customersCity" type="text" value="" />
+					</p>
+				</div>
+				<div class="r_box">
+					<p><span>Street</span><input id="customersStreet" type="text" value="" />
+					</p>
+				</div>
+				<div class="r_box">
+					<p><span>Apartment</span><input id="customersApt" value=""></p>
+				</div>
+			</div>
+		</div>
+		<div class="r_footer">
+			<div class="r_footer_content">
+				<table>
+					<tr>
+						<td class="r_footer_img"><img id="deleteImg" src="images/delete.png" onclick="DeleteCustomersMessageBox(event)" /></td>
+						<td class="r_footer_btn">
+							<button class="cancel" onclick="CancelRightAside()">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button class="save" onclick="SaveCustomersMessage();">Save</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</aside>
+	<!--右边侧滑栏结束-->
+	<div style="margin-right:100px;float: right;margin-top: 20px;width: 10%;">
+		<a href="#" class="button blue medium" onclick="AddCustomers()">Add</a>
+	</div>
+	<div id='wrap' style="width:1350px; z-index:2;">
+		<div class="content">
+			<!-- 中部开始 -->
+			<div class="con_middle">
+			
+				<!-- 列表开始 -->
+				<div class="list" style="position: relative;top: 20px;">
+					
+					<!-- 列表头部开始 -->
+					<div class="list_box" id="style-default" style="overflow:hidden; height:40px;">
+					
+						<!--标题内容开始-->
+						<div class="list_box_item" style="background:#f1f1f1;">
+							<div class="name" style="font-weight: bold;">Name</div>
+							<div class="name" style="font-weight: bold;">Phone</div>
+							<div class="category" style="font-weight: bold;">City</div>
+							<div class="modifier" style="font-weight: bold;">Street</div>
+							<div class="price" style="font-weight: bold;">Apartment</div>
+						</div>
+						<!-- 标题内容结束 -->
+						
+					</div>
+					<!-- 列表头部结束 -->
+					
+					<!-- 列表内容开始 -->
+					<div class="list_box" id="customersList">
+					</div>
+					<!-- 列表内容结束 -->
+
+				</div>
+				<!-- 列表结束 -->
+				
+			</div>
+			<!-- 中部结束 -->
+			
+		</div>
+
+	</div>
+	<script src="js/myjs.js"></script>
+	<script type="text/javascript" src="js/popwindow.js"></script>
+	<script type="text/javascript">
+		//加载页面
+		function LoadPage(){
+			GetCustomersList();
+		}
+	</script>
+</body>
+
+</html>
